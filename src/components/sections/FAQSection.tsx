@@ -43,38 +43,30 @@ export const FAQSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-muted">
+    <section className="py-16 md:py-24 bg-card">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary mb-6">
-              <HelpCircle className="h-8 w-8 text-white" />
+          <div className="text-center mb-12 md:mb-16">
+            <div className="flex justify-center mb-6">
+              <div className="p-4 bg-success/10 rounded-full border border-success/20">
+                <HelpCircle className="h-10 w-10 md:h-12 md:w-12 text-success" />
+              </div>
             </div>
-            
-            <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4">
               Perguntas Frequentes
             </h2>
-            <p className="text-xl text-muted-foreground">
-              Tire todas as suas dúvidas antes de começar
+            <p className="text-lg md:text-xl text-muted-foreground">
+              Tire suas últimas dúvidas
             </p>
           </div>
 
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`item-${index}`}
-                className="bg-white border-2 rounded-lg px-6 data-[state=open]:border-success"
-              >
-                <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <div className="flex items-start gap-3">
-                    <HelpCircle className="h-5 w-5 text-success flex-shrink-0 mt-1" />
-                    <span className="font-heading font-semibold text-lg text-foreground pr-4">
-                      {faq.question}
-                    </span>
-                  </div>
+              <AccordionItem key={index} value={`item-${index}`} className="card-premium px-6">
+                <AccordionTrigger className="text-left font-heading font-semibold hover:no-underline text-foreground text-sm md:text-base">
+                  {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-6 pl-8">
+                <AccordionContent className="text-muted-foreground text-sm md:text-base">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

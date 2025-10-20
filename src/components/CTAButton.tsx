@@ -26,10 +26,12 @@ export const CTAButton = ({ children, onClick, className = "", size = "lg" }: CT
   return (
     <Button
       onClick={handleClick}
-      className={`bg-success hover:bg-success/90 text-success-foreground font-heading font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 ${sizeClasses[size]} ${className}`}
+      className={`bg-success hover:bg-success/90 text-success-foreground font-heading font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.03] glow-border ${sizeClasses[size]} ${className}`}
     >
-      {children}
-      <ArrowRight className="ml-2 h-5 w-5" />
+      <span className="flex items-center justify-center gap-2">
+        {children}
+        <ArrowRight className="h-4 w-4 md:h-5 md:w-5 flex-shrink-0" />
+      </span>
     </Button>
   );
 };

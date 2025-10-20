@@ -37,19 +37,19 @@ export const OfferSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-success/5">
+    <section id="oferta" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-urgent text-urgent-foreground rounded-full mb-6 animate-pulse-border">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-urgent/20 text-urgent rounded-full mb-6 animate-pulse-border border border-urgent/30">
               <Gift className="h-5 w-5" />
-              <span className="font-heading font-semibold">OFERTA EXCLUSIVA</span>
+              <span className="font-heading font-semibold text-sm md:text-base">OFERTA EXCLUSIVA</span>
             </div>
             
-            <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4 glow-green">
               Tudo isso por apenas R$250
             </h2>
-            <p className="text-2xl text-urgent font-heading font-semibold mb-6">
+            <p className="text-xl md:text-2xl text-urgent font-heading font-semibold mb-6">
               Mas só até hoje às 23:59
             </p>
             
@@ -58,40 +58,40 @@ export const OfferSection = () => {
             </div>
           </div>
 
-          <Card className="p-8 md:p-12 bg-white border-2 border-success mb-8">
+          <Card className="p-6 md:p-8 lg:p-12 card-premium border-success/20 mb-8">
             <div className="mb-8">
-              <h3 className="text-2xl font-heading font-bold text-center mb-6">
+              <h3 className="text-xl md:text-2xl font-heading font-bold text-center mb-6 text-foreground">
                 O que está incluso:
               </h3>
               
               <div className="space-y-6">
-                <div className="flex items-start gap-4 p-4 bg-success/5 rounded-lg">
+                <div className="flex items-start gap-4 p-4 bg-success/5 rounded-lg border border-success/10">
                   <CheckCircle className="h-6 w-6 text-success flex-shrink-0 mt-1" />
                   <div>
-                    <p className="font-heading font-semibold text-lg mb-1">
+                    <p className="font-heading font-semibold text-base md:text-lg mb-1 text-foreground">
                       Protocolo Completo de Multiplicação Antiperda
                     </p>
-                    <p className="text-muted-foreground">
+                    <p className="text-muted-foreground text-sm md:text-base">
                       Acesso vitalício ao método completo, com atualizações gratuitas
                     </p>
                   </div>
                 </div>
 
                 {bonuses.map((bonus, index) => (
-                  <div key={index} className="flex items-start gap-4 p-4 bg-success/5 rounded-lg">
-                    <div className="w-12 h-12 rounded-full bg-success flex items-center justify-center flex-shrink-0">
-                      <bonus.icon className="h-6 w-6 text-white" />
+                  <div key={index} className="flex items-start gap-4 p-4 bg-success/5 rounded-lg border border-success/10">
+                    <div className="w-12 h-12 rounded-full bg-success/10 border border-success/20 flex items-center justify-center flex-shrink-0">
+                      <bonus.icon className="h-6 w-6 text-success" />
                     </div>
                     <div className="flex-1">
-                      <div className="flex items-center justify-between mb-1">
-                        <p className="font-heading font-semibold text-lg">
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-1 gap-2">
+                        <p className="font-heading font-semibold text-base md:text-lg text-foreground">
                           {bonus.title}
                         </p>
-                        <span className="text-success font-heading font-bold">
+                        <span className="text-success font-heading font-bold text-sm md:text-base">
                           {bonus.value}
                         </span>
                       </div>
-                      <p className="text-muted-foreground">
+                      <p className="text-muted-foreground text-sm md:text-base">
                         {bonus.description}
                       </p>
                     </div>
@@ -100,12 +100,12 @@ export const OfferSection = () => {
               </div>
             </div>
 
-            <div className="border-t-2 border-success/20 pt-6 mb-8">
-              <div className="flex items-center justify-between text-2xl font-heading font-bold">
-                <span>Valor total:</span>
+            <div className="border-t border-border pt-6 mb-8">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between text-xl md:text-2xl font-heading font-bold gap-2">
+                <span className="text-foreground">Valor total:</span>
                 <div className="text-right">
-                  <div className="text-muted-foreground line-through text-xl">R$ 1.441</div>
-                  <div className="text-success text-3xl">R$ 250</div>
+                  <div className="text-muted-foreground line-through text-lg md:text-xl">R$ 1.441</div>
+                  <div className="text-success text-2xl md:text-3xl glow-green">R$ 250</div>
                 </div>
               </div>
             </div>
@@ -115,9 +115,9 @@ export const OfferSection = () => {
                 Quero Acesso AGORA ao Protocolo Validado
               </CTAButton>
               
-              <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-urgent/10 border border-urgent rounded-lg animate-pulse-border">
+              <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-urgent/10 border border-urgent/30 rounded-lg animate-pulse-border">
                 <Users className="h-5 w-5 text-urgent" />
-                <p className="text-urgent font-heading font-semibold">
+                <p className="text-urgent font-heading font-semibold text-sm md:text-base">
                   Apenas {spotsLeft} vagas restantes
                 </p>
               </div>
@@ -125,10 +125,10 @@ export const OfferSection = () => {
           </Card>
 
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-primary/5 border border-primary/20 rounded-lg">
-              <CheckCircle className="h-5 w-5 text-primary" />
-              <p className="text-muted-foreground">
-                <span className="font-semibold text-primary">Garantia de 7 dias</span> - Se não gostar, devolvemos 100% do seu dinheiro
+            <div className="inline-flex items-center gap-2 px-4 md:px-6 py-3 card-premium border-success/20">
+              <CheckCircle className="h-5 w-5 text-success flex-shrink-0" />
+              <p className="text-muted-foreground text-sm md:text-base">
+                <span className="font-semibold text-success">Garantia de 7 dias</span> - Se não gostar, devolvemos 100% do seu dinheiro
               </p>
             </div>
           </div>

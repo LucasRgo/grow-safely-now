@@ -26,9 +26,9 @@ export const CountdownTimer = () => {
   }, []);
 
   return (
-    <div className="inline-flex items-center gap-3 bg-urgent text-urgent-foreground px-6 py-3 rounded-lg font-heading font-semibold animate-pulse-border">
-      <Clock className="h-5 w-5" />
-      <span className="text-lg">
+    <div className="inline-flex items-center gap-2 md:gap-3 bg-urgent/20 text-urgent px-4 md:px-6 py-2 md:py-3 rounded-lg font-heading font-semibold animate-pulse-border border border-urgent/30">
+      <Clock className="h-4 w-4 md:h-5 md:w-5 flex-shrink-0" />
+      <span className="text-sm md:text-base lg:text-lg whitespace-nowrap">
         Oferta expira em: {String(timeLeft.hours).padStart(2, '0')}:
         {String(timeLeft.minutes).padStart(2, '0')}:
         {String(timeLeft.seconds).padStart(2, '0')}
