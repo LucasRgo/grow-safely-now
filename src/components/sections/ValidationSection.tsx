@@ -38,33 +38,6 @@ export const ValidationSection = () => {
                             </Card>
                         ))}
                     </div>
-
-                    <div className="max-w-3xl mx-auto">
-                        <Card className="p-6 md:p-8 card-premium">
-                            <div className="flex items-center gap-4 mb-6">
-                                <div className="p-3 bg-success/10 rounded-full border border-success/20">
-                                    <User className="h-6 w-6 md:h-8 md:w-8 text-success" />
-                                </div>
-                                <div>
-                                    <p className="font-heading font-bold text-foreground text-base md:text-lg">
-                                        Criador do Protocolo
-                                    </p>
-                                    <p className="text-muted-foreground text-sm md:text-base">
-                                        Especialista em multiplicação segura
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className="aspect-video bg-background rounded-lg flex items-center justify-center mb-4 border border-border">
-                                <User className="h-12 w-12 md:h-16 md:w-16 text-success" />
-                            </div>
-
-                            <p className="text-muted-foreground italic text-sm md:text-base">
-                                "Desenvolvi este protocolo após anos de estudo e validação com alunos reais. Cada
-                                passo foi testado centenas de vezes para garantir resultados consistentes."
-                            </p>
-                        </Card>
-                    </div>
                 </div>
             </div>
         </section>

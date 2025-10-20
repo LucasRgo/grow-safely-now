@@ -24,12 +24,11 @@ export const HeroSection = () => {
                 />
             </div>
 
-            <div className="container mx-auto px-4 sm:px-6 py-12 md:py-16 relative z-10">
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid lg:grid-cols-[1.4fr_1fr] gap-8 lg:gap-12 items-start lg:items-center">
+            <div className="w-full px-4 sm:px-6 lg:px-12 xl:px-16 py-12 md:py-16 relative z-10">
+                <div className="w-full">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
                         {/* Coluna da esquerda - Texto */}
-                        <div className="text-center lg:text-end flex flex-col justify-end items-center lg:items-end w-full">
-
+                        <div className="text-center lg:text-end flex flex-col justify-center items-center lg:items-end w-full">
                             {/* Headline */}
                             <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground uppercase mb-4 md:mb-6 leading-tight glow-green text-center lg:text-end w-full break-words">
                                 PROTEJA E MULTIPLIQUE SEU PATRIMÔNIO
@@ -51,14 +50,14 @@ export const HeroSection = () => {
                             </div>
 
                             {/* Timer */}
-                            <div className="flex justify-center lg:justify-end mb-8 md:mb-12 w-full">
+                            <div className="flex justify-center lg:justify-end mb-8 md:mb-12 lg:mb-0 w-full">
                                 <CountdownTimer />
                             </div>
                         </div>
 
                         {/* Coluna da direita - Vídeo */}
-                        <div className="flex justify-center lg:justify-end w-full">
-                            <div className="w-full max-w-xl lg:max-w-2xl">
+                        <div className="flex justify-center lg:justify-start w-full">
+                            <div className="w-full">
                                 <div className="relative rounded-lg md:rounded-xl overflow-hidden card-premium glow-border">
                                     <div className="aspect-video flex items-center justify-center bg-gradient-to-br from-card to-background">
                                         <div className="text-center p-4 sm:p-6 md:p-8">
