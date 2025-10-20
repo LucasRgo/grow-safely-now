@@ -1,6 +1,6 @@
 import { CTAButton } from "@/components/CTAButton";
 import { CountdownTimer } from "@/components/CountdownTimer";
-import { Shield, TrendingUp } from "lucide-react";
+import { Play } from "lucide-react";
 
 export const HeroSection = () => {
     return (
@@ -24,50 +24,53 @@ export const HeroSection = () => {
                 />
             </div>
 
-            <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
-                <div className="max-w-5xl mx-auto text-center">
-                    {/* Icon */}
-                    <div className="flex justify-center mb-6 md:mb-8">
-                        <div className="p-3 md:p-4 bg-success/10 rounded-full backdrop-blur-sm border border-success/20">
-                            <Shield className="h-12 w-12 md:h-16 md:w-16 text-success" />
+            <div className="container mx-auto px-4 sm:px-6 py-12 md:py-16 relative z-10">
+                <div className="max-w-7xl mx-auto">
+                    <div className="grid lg:grid-cols-[1.4fr_1fr] gap-8 lg:gap-12 items-start lg:items-center">
+                        {/* Coluna da esquerda - Texto */}
+                        <div className="text-center lg:text-end flex flex-col justify-end items-center lg:items-end w-full">
+
+                            {/* Headline */}
+                            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground uppercase mb-4 md:mb-6 leading-tight glow-green text-center lg:text-end w-full break-words">
+                                PROTEJA E MULTIPLIQUE SEU PATRIMÔNIO
+                            </h1>
+
+                            {/* Subheadline */}
+                            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-6 md:mb-8 leading-relaxed text-center lg:text-end w-full">
+                                O protocolo <span className="font-semibold text-success">VALIDADO</span> que já ajudou
+                                iniciantes a conquistar até{" "}
+                                <span className="font-semibold text-success">1500% por operação</span> – sem risco e sem
+                                enrolação
+                            </p>
+
+                            {/* CTA Button */}
+                            <div className="mb-6 md:mb-8 w-full flex justify-center lg:justify-end">
+                                <CTAButton size="xl" className="w-full sm:w-auto text-sm sm:text-base">
+                                    Quero Acessar o Protocolo Validado
+                                </CTAButton>
+                            </div>
+
+                            {/* Timer */}
+                            <div className="flex justify-center lg:justify-end mb-8 md:mb-12 w-full">
+                                <CountdownTimer />
+                            </div>
                         </div>
-                    </div>
 
-                    {/* Headline */}
-                    <h1 className="text-3xl md:text-5xl lg:text-7xl font-heading font-bold text-foreground uppercase mb-4 md:mb-6 leading-tight glow-green px-4">
-                        PROTEJA E MULTIPLIQUE SEU PATRIMÔNIO
-                    </h1>
-
-                    {/* Subheadline */}
-                    <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed px-4">
-                        O protocolo <span className="font-semibold text-success">VALIDADO</span> que já ajudou
-                        iniciantes a conquistar até{" "}
-                        <span className="font-semibold text-success">1500% por operação</span> – sem risco e sem
-                        enrolação
-                    </p>
-
-                    {/* CTA Button */}
-                    <div className="mb-6 md:mb-8 px-4">
-                        <CTAButton size="xl">Quero Acessar o Protocolo Validado</CTAButton>
-                    </div>
-
-                    {/* Timer */}
-                    <div className="flex justify-center mb-8 md:mb-12 px-4">
-                        <CountdownTimer />
-                    </div>
-
-                    {/* Video testimonial placeholder */}
-                    <div className="max-w-2xl mx-auto px-4">
-                        <div className="relative rounded-xl overflow-hidden card-premium glow-border">
-                            <div className="aspect-video flex items-center justify-center bg-gradient-to-br from-card to-background">
-                                <div className="text-center p-6 md:p-8">
-                                    <TrendingUp className="h-12 w-12 md:h-16 md:w-16 text-success mx-auto mb-4" />
-                                    <p className="text-foreground text-base md:text-lg font-heading italic">
-                                        "Tive medo, mas confiei e hoje tripliquei meu capital"
-                                    </p>
-                                    <p className="text-muted-foreground mt-2 text-sm md:text-base">
-                                        - Aluno do Protocolo
-                                    </p>
+                        {/* Coluna da direita - Vídeo */}
+                        <div className="flex justify-center lg:justify-end w-full">
+                            <div className="w-full max-w-xl lg:max-w-2xl">
+                                <div className="relative rounded-lg md:rounded-xl overflow-hidden card-premium glow-border">
+                                    <div className="aspect-video flex items-center justify-center bg-gradient-to-br from-card to-background">
+                                        <div className="text-center p-4 sm:p-6 md:p-8">
+                                            <Play className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 text-success mx-auto mb-3 md:mb-4" />
+                                            <p className="text-foreground text-sm sm:text-base md:text-lg font-heading italic px-2">
+                                                "Tive medo, mas confiei e hoje tripliquei meu capital"
+                                            </p>
+                                            <p className="text-muted-foreground mt-2 text-xs sm:text-sm md:text-base">
+                                                - Aluno do Protocolo
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
