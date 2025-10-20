@@ -1,0 +1,78 @@
+import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
+
+export function About() {
+    return (
+        <section className="pt-16 md:pt-24 pb-0 bg-background relative overflow-hidden">
+            <div className="container mx-auto px-4">
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-7xl mx-auto">
+                    {/* Left side - Content */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="space-y-6">
+                        <div>
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-4 leading-tight text-foreground">
+                                Quem está por trás do{" "}
+                                <span className="text-primary">PROTOCOLO MULTIPLICAÇÃO ANTIPERDA?</span>
+                            </h2>
+                            <div className="w-20 h-1 bg-primary/50 mb-6"></div>
+                        </div>
+
+                        <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground leading-snug">
+                            Renan Freitas, fundador da R7 Investimentos.
+                        </h3>
+
+                        <div className="space-y-4">
+                            <p className="text-base md:text-lg font-medium text-foreground leading-relaxed">
+                                Perdi dinheiro por anos cometendo os mesmos erros que você: sem método, no impulso, com medo constante de perder mais.
+                            </p>
+
+                            <p className="text-base md:text-lg font-semibold text-foreground leading-relaxed">
+                                Até entender o óbvio:{" "}
+                                <span className="text-primary">
+                                    quem não tem protocolo, está condenado a perder.
+                                </span>
+                            </p>
+
+                            <p className="text-base md:text-lg text-foreground leading-relaxed">
+                                Criei o Protocolo Antiperda depois de validar uma estratégia que protege o capital e multiplica em até <span className="font-bold text-primary">1500%</span> por operação.
+                            </p>
+
+                            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                                Cansei de ver pessoas queimando dinheiro por falta de método claro.
+                            </p>
+                            <div className="bg-gradient-to-r from-success/10 via-success/15 to-success/20 border-l-4 border-success p-4 rounded-lg">
+                                <p className="text-lg md:text-xl font-bold text-foreground leading-relaxed">
+                                    Este protocolo faz por você o que fez por mim:{" "}
+                                    <span className="text-blue-400">
+                                        multiplica com segurança, sem perder o capital.
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    {/* Right side - Image without card */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="relative flex items-end justify-center">
+                        <img
+                            src="/5.webp"
+                            alt="Renan Freitas - Fundador R7 Investimentos"
+                            className="w-full h-auto object-contain max-w-lg"
+                        />
+                        <Badge className="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-2 gradient-blue text-white font-bold text-sm shadow-lg whitespace-nowrap border-0">
+                            Fundador R7 Investimentos
+                        </Badge>
+                    </motion.div>
+                </div>
+            </div>
+        </section>
+    );
+}

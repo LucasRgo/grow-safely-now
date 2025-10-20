@@ -92,6 +92,7 @@ All colors MUST be HSL.
 
     .glow-border {
         box-shadow: 0 0 1rem rgba(0, 200, 83, 0.2);
+        color: white;
     }
 
     .glow-blue {

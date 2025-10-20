@@ -9,6 +9,7 @@ import { QuestionsSection } from "@/components/sections/QuestionsSection";
 import { LastChanceSection } from "@/components/sections/LastChanceSection";
 import { FooterSection } from "@/components/sections/FooterSection";
 import { InvestmentCalculator } from "@/components/sections/InvestmentCalculator";
+import { About } from "@/components/sections/About";
 
 const Index = () => {
   return (
@@ -22,6 +23,7 @@ const Index = () => {
       <HowItWorksSection />
       <PricingSection />
       <LastChanceSection />
+      <About />
       <QuestionsSection />
       <FooterSection />
     </div>
