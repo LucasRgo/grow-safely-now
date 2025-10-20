@@ -4,7 +4,7 @@ import { CountdownTimer } from "@/components/CountdownTimer";
 import { CheckCircle, Users, FileSpreadsheet, MessageSquare, Gift } from "lucide-react";
 import { useState, useEffect } from "react";
 
-export const OfferSection = () => {
+export const PricingSection = () => {
     const [spotsLeft, setSpotsLeft] = useState(23);
 
     useEffect(() => {

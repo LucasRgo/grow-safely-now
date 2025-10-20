@@ -1,7 +1,7 @@
 import { CTAButton } from "@/components/CTAButton";
 import { Shield, CheckCircle, Award } from "lucide-react";
 
-export const FinalCTASection = () => {
+export const LastChanceSection = () => {
     return (
         <section className="py-16 md:py-24 gradient-primary relative overflow-hidden">
             {/* Background decoration */}

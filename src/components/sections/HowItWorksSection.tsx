@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Shield, TrendingUp, BookOpen, Zap, CheckCircle } from "lucide-react";
 
-export const ProtocolSection = () => {
+export const HowItWorksSection = () => {
     const features = [
         {
             icon: BookOpen,
@@ -27,18 +27,6 @@ export const ProtocolSection = () => {
 
     return (
         <section id="protocolo" className="py-16 md:py-24 bg-background relative overflow-hidden">
-            {/* Subtle geometric pattern */}
-            <div className="absolute inset-0 opacity-5">
-                <div
-                    className="absolute top-0 left-0 w-full h-full"
-                    style={{
-                        backgroundImage:
-                            "linear-gradient(0deg, transparent 24%, rgba(0, 200, 83, .05) 25%, rgba(0, 200, 83, .05) 26%, transparent 27%, transparent 74%, rgba(0, 200, 83, .05) 75%, rgba(0, 200, 83, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(0, 200, 83, .05) 25%, rgba(0, 200, 83, .05) 26%, transparent 27%, transparent 74%, rgba(0, 200, 83, .05) 75%, rgba(0, 200, 83, .05) 76%, transparent 77%, transparent)",
-                        backgroundSize: "50px 50px",
-                    }}
-                />
-            </div>
-
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-12 md:mb-16">
                     <div className="flex justify-center mb-6">
@@ -50,7 +38,7 @@ export const ProtocolSection = () => {
                         </div>
                     </div>
 
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4 glow-green">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4 glow-blue">
                         O que é o Protocolo de Multiplicação Antiperda?
                     </h2>
                     <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">

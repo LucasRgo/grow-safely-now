@@ -95,7 +95,7 @@ All colors MUST be HSL.
     }
 
     .glow-blue {
-        text-shadow: 0 0 0.5rem rgba(23, 122, 255, 0.4);
+        text-shadow: 0 0 0.5rem rgb(0, 100, 182);
     }
 
     .glow-border-blue {

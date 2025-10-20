@@ -2,7 +2,7 @@ import { CTAButton } from "@/components/CTAButton";
 import { CountdownTimer } from "@/components/CountdownTimer";
 import { Play, CheckCircle2 } from "lucide-react";
 
-export const HeroSection = () => {
+export const HeaderSection = () => {
     return (
         <section
             id="hero"
