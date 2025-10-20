@@ -43,11 +43,11 @@ export const FAQSection = () => {
                 <div className="max-w-3xl mx-auto">
                     <div className="text-center mb-12 md:mb-16">
                         <div className="flex justify-center mb-6">
-                            <div className="p-4 bg-success/10 rounded-full border border-success/20">
-                                <HelpCircle className="h-10 w-10 md:h-12 md:w-12 text-success" />
+                            <div className="p-4 bg-[hsl(var(--blue-dark))]/20 rounded-full border border-[hsl(var(--blue-accent))]/30">
+                                <HelpCircle className="h-10 w-10 md:h-12 md:w-12 text-[hsl(var(--blue-accent))]" />
                             </div>
                         </div>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-[hsl(var(--blue-accent))] mb-4">
                             Perguntas Frequentes
                         </h2>
                         <p className="text-lg md:text-xl text-muted-foreground">Tire suas últimas dúvidas</p>

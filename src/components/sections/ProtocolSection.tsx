@@ -42,9 +42,9 @@ export const ProtocolSection = () => {
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-12 md:mb-16">
                     <div className="flex justify-center mb-6">
-                        <div className="p-4 bg-success/10 rounded-full border border-success/20">
+                        <div className="p-4 bg-[hsl(var(--blue-dark))]/20 rounded-full border border-[hsl(var(--blue-accent))]/30">
                             <div className="relative">
-                                <Shield className="h-10 w-10 md:h-12 md:w-12 text-success" />
+                                <Shield className="h-10 w-10 md:h-12 md:w-12 text-[hsl(var(--blue-accent))]" />
                                 <TrendingUp className="h-5 w-5 md:h-6 md:w-6 text-success absolute -bottom-1 -right-1" />
                             </div>
                         </div>

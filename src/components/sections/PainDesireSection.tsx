@@ -20,7 +20,7 @@ export const PainDesireSection = () => {
         <section className="py-16 md:py-24 bg-card">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12 md:mb-16">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-[hsl(var(--blue-accent))] mb-4">
                         Você também sente isso?
                     </h2>
                     <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">

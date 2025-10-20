@@ -6,10 +6,10 @@ export const HeroSection = () => {
     return (
         <section
             id="hero"
-            className="min-h-screen flex items-center justify-center relative overflow-hidden gradient-primary pt-20 md:pt-0">
+            className="min-h-screen flex items-center justify-center relative overflow-hidden gradient-primary-blue pt-20 md:pt-0">
             {/* Particles background effect */}
             <div className="absolute inset-0 opacity-20">
-                <div className="absolute top-20 left-10 w-32 h-32 bg-success rounded-full animate-float blur-3xl" />
+                <div className="absolute top-20 left-10 w-32 h-32 bg-[hsl(var(--blue-dark))] rounded-full animate-float blur-3xl" />
                 <div
                     className="absolute top-40 right-20 w-40 h-40 bg-success rounded-full animate-float blur-3xl"
                     style={{ animationDelay: "1s" }}
@@ -19,8 +19,12 @@ export const HeroSection = () => {
                     style={{ animationDelay: "2s" }}
                 />
                 <div
-                    className="absolute bottom-20 right-40 w-40 h-40 bg-success rounded-full animate-float blur-3xl"
+                    className="absolute bottom-20 right-40 w-40 h-40 bg-[hsl(var(--blue-dark))] rounded-full animate-float blur-3xl"
                     style={{ animationDelay: "1.5s" }}
+                />
+                <div
+                    className="absolute top-1/2 left-1/4 w-36 h-36 gradient-success rounded-full animate-float blur-3xl"
+                    style={{ animationDelay: "0.5s" }}
                 />
             </div>
 
@@ -91,10 +95,12 @@ export const HeroSection = () => {
                         {/* Coluna da direita - Vídeo */}
                         <div className="flex justify-center lg:justify-start w-full">
                             <div className="w-full">
-                                <div className="relative rounded-lg md:rounded-xl overflow-hidden card-premium glow-border">
-                                    <div className="aspect-video flex items-center justify-center bg-gradient-to-br from-card to-background">
+                                <div className="relative rounded-lg md:rounded-xl overflow-hidden card-premium">
+                                    <div className="aspect-video flex items-center justify-center bg-gradient-to-br from-[hsl(var(--blue-darker))]/30 via-card to-background">
                                         <div className="text-center p-4 sm:p-6 md:p-8">
-                                            <Play className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 text-success mx-auto mb-3 md:mb-4" />
+                                            <div className="p-3 bg-[hsl(var(--blue-dark))]/40 rounded-full inline-block mb-3 md:mb-4 border border-[hsl(var(--blue-accent))]/40">
+                                                <Play className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 text-[hsl(var(--blue-accent))] mx-auto" />
+                                            </div>
                                             <p className="text-foreground text-sm sm:text-base md:text-lg font-heading italic px-2">
                                                 "Tive medo, mas confiei e hoje tripliquei meu capital"
                                             </p>

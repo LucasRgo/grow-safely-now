@@ -15,27 +15,6 @@ export const OfferSection = () => {
         return () => clearInterval(interval);
     }, []);
 
-    const bonuses = [
-        {
-            icon: MessageSquare,
-            title: "Grupo Fechado VIP",
-            description: "Acesso exclusivo à comunidade de alunos. Tire dúvidas e compartilhe resultados.",
-            value: "R$ 497",
-        },
-        {
-            icon: CheckCircle,
-            title: "Checklist da Execução",
-            description: "Passo a passo detalhado para não errar em nenhuma etapa do protocolo.",
-            value: "R$ 297",
-        },
-        {
-            icon: FileSpreadsheet,
-            title: "Planilha de Controle",
-            description: "Ferramenta completa para acompanhar suas operações e resultados em tempo real.",
-            value: "R$ 397",
-        },
-    ];
-
     return (
         <section id="oferta" className="py-16 md:py-24 bg-background">
             <div className="container mx-auto px-4">
@@ -78,29 +57,17 @@ export const OfferSection = () => {
                                         </p>
                                     </div>
                                 </div>
-
-                                {bonuses.map((bonus, index) => (
-                                    <div
-                                        key={index}
-                                        className="flex items-start gap-4 p-4 bg-success/5 rounded-lg border border-success/10">
-                                        <div className="w-12 h-12 rounded-full bg-success/10 border border-success/20 flex items-center justify-center flex-shrink-0">
-                                            <bonus.icon className="h-6 w-6 text-success" />
-                                        </div>
-                                        <div className="flex-1">
-                                            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-1 gap-2">
-                                                <p className="font-heading font-semibold text-base md:text-lg text-foreground">
-                                                    {bonus.title}
-                                                </p>
-                                                <span className="text-success font-heading font-bold text-sm md:text-base">
-                                                    {bonus.value}
-                                                </span>
-                                            </div>
-                                            <p className="text-muted-foreground text-sm md:text-base">
-                                                {bonus.description}
-                                            </p>
-                                        </div>
+                                <div className="flex items-start gap-4 p-4 bg-success/5 rounded-lg border border-success/10">
+                                    <CheckCircle className="h-6 w-6 text-success flex-shrink-0 mt-1" />
+                                    <div>
+                                        <p className="font-heading font-semibold text-base md:text-lg mb-1 text-foreground">
+                                            Retorno Imediato
+                                        </p>
+                                        <p className="text-muted-foreground text-sm md:text-base">
+                                            Uma única operação já paga o investimento
+                                        </p>
                                     </div>
-                                ))}
+                                </div>
                             </div>
                         </div>
 
@@ -109,9 +76,12 @@ export const OfferSection = () => {
                                 <span className="text-foreground">Valor total:</span>
                                 <div className="text-right">
                                     <div className="text-muted-foreground line-through text-lg md:text-xl">
-                                        R$ 1.441
+                                        R$ 500
                                     </div>
-                                    <div className="text-success text-2xl md:text-3xl glow-green">R$ 250</div>
+                                    <div className="text-urgent text-sm md:text-base font-semibold mt-1">
+                                        Desconto de 80.6%
+                                    </div>
+                                    <div className="text-success text-2xl md:text-3xl glow-green">R$ 97</div>
                                 </div>
                             </div>
                         </div>
