@@ -1,37 +1,37 @@
-import { useEffect, useState } from "react";
+import { CountdownStatus } from "@/hooks/UseCountdown";
+import { useCountdownContext } from "@/components/context/CountdownContext";
+import { cn } from "@/lib/utils";
 import { Clock } from "lucide-react";
 
-export const CountdownTimer = () => {
-    const [timeLeft, setTimeLeft] = useState({
-        hours: 23,
-        minutes: 59,
-        seconds: 59,
-    });
+const statusStyles: Record<CountdownStatus, string> = {
+    safe: "text-emerald-400 border-emerald-500/40",
+    warm: "text-amber-400 border-amber-500/40",
+    hot: "text-orange-400 border-orange-500/50",
+    critical: "text-red-400 border-red-500/60 animate-pulse",
+    expired: "text-muted-foreground border-muted/40",
+};
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setTimeLeft((prev) => {
-                if (prev.seconds > 0) {
-                    return { ...prev, seconds: prev.seconds - 1 };
-                } else if (prev.minutes > 0) {
-                    return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-                } else if (prev.hours > 0) {
-                    return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
-                }
-                return prev;
-            });
-        }, 1000);
+export function CountdownTimer() {
+    const { minutes, seconds, status, isExpired } = useCountdownContext();
 
-        return () => clearInterval(timer);
-    }, []);
+    const palette = statusStyles[status];
 
     return (
-        <div className="inline-flex items-center gap-2 md:gap-3 bg-urgent/20 text-urgent px-4 md:px-6 py-2 md:py-3 rounded-lg font-heading font-semibold animate-pulse-border border border-urgent/30 text-center">
-            <Clock className="h-4 w-4 md:h-5 md:w-5 flex-shrink-0" />
-            <span className="text-sm md:text-base lg:text-lg whitespace-normal sm:whitespace-nowrap break-words">
-                Oferta expira em: {String(timeLeft.hours).padStart(2, "0")}:
-                {String(timeLeft.minutes).padStart(2, "0")}:{String(timeLeft.seconds).padStart(2, "0")}
-            </span>
+        <div
+            className={cn(
+                "inline-flex items-center gap-3 px-6 py-3 rounded-xl glass border-2 transition-colors duration-300",
+                palette
+            )}>
+            <Clock className={cn("w-5 h-5", isExpired ? "text-muted-foreground" : undefined)} />
+            <div className="flex items-center gap-2">
+                <div className="flex flex-col items-center">
+                    <span className="text-2xl font-bold">{minutes}</span>
+                </div>
+                <span className="text-2xl font-bold">:</span>
+                <div className="flex flex-col items-center">
+                    <span className="text-2xl font-bold">{seconds}</span>
+                </div>
+            </div>
         </div>
     );
-};
+}

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Shield } from "lucide-react";
+import { CountdownTimer } from "@/components/CountdownTimer";
 
 export const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -39,6 +40,7 @@ export const Navbar = () => {
                             Protocolo Antiperda
                         </span>
                     </div>
+                    <CountdownTimer />
                 </div>
             </div>
         </nav>

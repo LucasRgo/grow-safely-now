@@ -10,6 +10,7 @@ import { LastChanceSection } from "@/components/sections/LastChanceSection";
 import { FooterSection } from "@/components/sections/FooterSection";
 import { InvestmentCalculator } from "@/components/sections/InvestmentCalculator";
 import { About } from "@/components/sections/About";
+import { UrgencyManager } from "@/components/UrgencyManager";
 
 const Index = () => {
   return (
@@ -26,6 +27,7 @@ const Index = () => {
       <About />
       <QuestionsSection />
       <FooterSection />
+      <UrgencyManager />
     </div>
   );
 };
