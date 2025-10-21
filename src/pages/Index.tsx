@@ -3,9 +3,8 @@ import { HeaderSection } from "@/components/sections/HeaderSection";
 import { Testimonials } from "@/components/sections/ResultsSection";
 import { BeforeAfterSection } from "@/components/sections/BeforeAfterSection";
 import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
-import { PricingSection } from "@/components/sections/PricingSection";
+import { CTA } from "@/components/sections/CTA";
 import { QuestionsSection } from "@/components/sections/QuestionsSection";
-import { LastChanceSection } from "@/components/sections/LastChanceSection";
 import { FooterSection } from "@/components/sections/FooterSection";
 import { InvestmentCalculator } from "@/components/sections/InvestmentCalculator";
 import { About } from "@/components/sections/About";
@@ -29,12 +28,9 @@ const Index = () => {
             <SectionTransition text="Agora que você viu a validação, entenda como o protocolo funciona:" />
 
             <HowItWorksSection />
-            <SectionTransition text="Você pode ter tudo isso começando hoje mesmo:" />
+            <SectionTransition text="Esta é a sua última chance de garantir sua vaga com o preço promocional:" />
 
-            <PricingSection />
-            <SectionTransition text="Esta é a última chamada para garantir sua vaga com o preço promocional:" />
-
-            <LastChanceSection />
+            <CTA />
             <SectionTransition text="Conheça quem criou este protocolo de multiplicação segura:" />
 
             <About />

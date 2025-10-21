@@ -27,16 +27,16 @@ export const Navbar = () => {
                     ? "bg-background/95 backdrop-blur-lg border-b border-border shadow-lg"
                     : "bg-transparent"
             }`}>
-            <div className="container mx-auto px-4">
-                <div className="flex items-center justify-between h-16 md:h-20">
+            <div className="container mx-auto px-3 md:px-4">
+                <div className="flex items-center justify-between h-14 md:h-16 lg:h-20">
                     {/* Logo */}
                     <div
-                        className="flex items-center gap-2 cursor-pointer"
+                        className="flex items-center gap-1.5 md:gap-2 cursor-pointer"
                         onClick={() => scrollToSection("hero")}>
-                        <div className="p-2 bg-success/10 rounded-lg">
-                            <Shield className="h-6 w-6 md:h-7 md:w-7 text-success" />
+                        <div className="p-1.5 md:p-2 bg-success/10 rounded-lg">
+                            <Shield className="h-5 w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-success" />
                         </div>
-                        <span className="font-heading font-bold text-base md:text-lg text-foreground">
+                        <span className="font-heading font-bold text-sm md:text-base lg:text-lg text-foreground whitespace-nowrap">
                             Protocolo Antiperda
                         </span>
                     </div>
