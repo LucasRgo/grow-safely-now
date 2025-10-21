@@ -35,22 +35,23 @@ export const HeaderSection = () => {
                         <div className="text-center lg:text-end flex flex-col justify-center items-center lg:items-end w-full">
                             {/* Headline */}
                             <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground uppercase mb-4 md:mb-6 leading-tight glow-green text-center lg:text-end w-full break-words">
-                                Multiplique Seu Dinheiro <span className="text-success">COM SEGURANÇA</span>
+                                O Método Validado Que Protege Seu Capital E{" "}
+                                <span className="text-success">Multiplica Com Segurança</span>
                             </h1>
 
                             {/* Subheadline */}
                             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-6 md:mb-8 leading-relaxed text-center lg:text-end max-w-2xl lg:ml-auto">
-                                Protocolo <span className="font-semibold text-success">VALIDADO</span> que já gera
-                                mais de <span className="font-semibold text-success">1500%</span> por operação.
-                                Resultado comprovado por quem parou de perder e começou a multiplicar.
+                                Lucro de mais de <span className="font-semibold text-success">1500%</span> por
+                                operação. Mas o mais importante: você{" "}
+                                <span className="font-semibold text-success">não perde dinheiro</span>.
                             </p>
                             {/* CTA Button */}
                             <div className="mb-6 md:mb-8 w-full flex justify-center lg:justify-end">
                                 <CTAButton size="xl" className="w-full sm:w-auto text-sm sm:text-base">
-                                    Quero Acessar o Protocolo Validado
+                                    Multiplicar Com Segurança Agora
                                 </CTAButton>
                             </div>
-                            
+
                             {/* Features List */}
                             <div className="mb-6 md:mb-8 w-full flex justify-center lg:justify-end">
                                 <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center lg:justify-end max-w-2xl">

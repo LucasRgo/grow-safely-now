@@ -1,19 +1,21 @@
 import { Card } from "@/components/ui/card";
 import { CTAButton } from "@/components/CTAButton";
 import { CountdownTimer } from "@/components/CountdownTimer";
+import { useCountdownContext } from "@/components/context/CountdownContext";
+import { COUNTDOWN_DURATION } from "@/hooks/UseCountdown";
 import { CheckCircle, Users, FileSpreadsheet, MessageSquare, Gift } from "lucide-react";
-import { useState, useEffect } from "react";
 
 export const PricingSection = () => {
-    const [spotsLeft, setSpotsLeft] = useState(23);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setSpotsLeft((prev) => (prev > 5 ? prev - 1 : prev));
-        }, 30000); // Decrease every 30 seconds
-
-        return () => clearInterval(interval);
-    }, []);
+    const { totalSeconds, isExpired } = useCountdownContext();
+    const MIN_SPOTS = 2;
+    const MAX_SPOTS = 16;
+    const totalDurationSeconds = Math.floor(COUNTDOWN_DURATION / 1000);
+    const normalizedSeconds = Math.max(0, Math.min(totalSeconds, totalDurationSeconds));
+    const ratio = totalDurationSeconds > 0 ? normalizedSeconds / totalDurationSeconds : 0;
+    const spotsRange = MAX_SPOTS - MIN_SPOTS;
+    const spotsLeft = isExpired
+        ? MIN_SPOTS
+        : Math.max(MIN_SPOTS, Math.round(MIN_SPOTS + ratio * spotsRange));
 
     return (
         <section id="oferta" className="py-16 md:py-24 bg-background">
@@ -28,15 +30,11 @@ export const PricingSection = () => {
                         </div>
 
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4 glow-green">
-                            Tudo isso por apenas R$250
+                            Tudo isso por apenas R$97
                         </h2>
                         <p className="text-xl md:text-2xl text-urgent font-heading font-semibold mb-6">
-                            Mas só até hoje às 23:59
+                            Após o tempo acabar, o preço volta para R$500
                         </p>
-
-                        <div className="flex justify-center mb-8">
-                            <CountdownTimer />
-                        </div>
                     </div>
 
                     <Card className="p-6 md:p-8 lg:p-12 card-premium border-success/20 mb-8">
@@ -86,12 +84,17 @@ export const PricingSection = () => {
                             </div>
                         </div>
 
+                        <div className="flex justify-center mb-8">
+                            <CountdownTimer />
+                        </div>
+
                         <div className="text-center">
                             <CTAButton size="xl" className="w-full md:w-auto">
                                 Quero Acesso AGORA ao Protocolo Validado
                             </CTAButton>
-
-                            <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-urgent/10 border border-urgent/30 rounded-lg animate-pulse-border">
+                        </div>
+                        <div className="mt-6 flex justify-center">
+                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-urgent/10 border border-urgent/30 rounded-lg animate-pulse-border">
                                 <Users className="h-5 w-5 text-urgent" />
                                 <p className="text-urgent font-heading font-semibold text-sm md:text-base">
                                     Apenas {spotsLeft} vagas restantes
