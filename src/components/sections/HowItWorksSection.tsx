@@ -63,7 +63,7 @@ export const HowItWorksSection = () => {
                             transition={{ delay: index * 0.1, duration: 0.5 }}>
                             <Card className="p-4 sm:p-8 card-premium hover:border-success/20 transition-all duration-300 hover:-translate-y-1 h-full">
                                 <div className="flex gap-3 sm:gap-6 items-start">
-                                    <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-40 lg:h-40 rounded-2xl bg-[hsl(var(--blue-accent))] flex items-center justify-center shadow-lg flex-shrink-0">
+                                    <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-40 lg:h-40 rounded-2xl bg-gradient-to-br from-[#020817] via-[#1e3a8a] to-[#60a5fa] flex items-center justify-center shadow-lg flex-shrink-0">
                                         <feature.icon className="w-6 h-6 sm:w-8 sm:h-8 lg:w-20 lg:h-20 text-foreground" />
                                     </div>
                                     <div className="flex-1">

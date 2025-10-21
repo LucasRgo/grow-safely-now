@@ -290,8 +290,8 @@ export function UrgencyManager() {
                         </Button>
                     </div>
                     <DialogFooter>
-                        <p className="text-xs text-center text-muted-foreground w-full">
-                            ⚠️ Esta é sua última oportunidade de garantir o desconto. Não deixe passar!
+                    <p className="text-sm sm:text-base text-center text-muted-foreground w-full">
+                            ⚠️ Esta é sua última oportunidade de garantir o desconto. Não deixe passar! ⚠️
                         </p>
                     </DialogFooter>
                 </DialogContent>

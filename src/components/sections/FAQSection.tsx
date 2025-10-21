@@ -28,10 +28,6 @@ export const QuestionsSection = () => {
             answer: "O Protocolo Antiperda foi criado justamente para minimizar riscos. Ensinamos técnicas de proteção e gestão que reduzem drasticamente as chances de perda.",
         },
         {
-            question: "Posso tirar dúvidas durante o processo?",
-            answer: "Sim! Você terá acesso ao grupo fechado VIP onde pode tirar dúvidas diretamente com outros alunos e receber suporte contínuo.",
-        },
-        {
             question: "Há alguma garantia?",
             answer: "Sim! Oferecemos garantia incondicional de 7 dias. Se você não gostar do conteúdo por qualquer motivo, devolvemos 100% do seu investimento.",
         },
