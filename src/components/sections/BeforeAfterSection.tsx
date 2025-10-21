@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { TrendingDown, RotateCcw, Users, Brain, Shield, TrendingUp, Heart, Lock } from "lucide-react";
+import { SectionTransition } from "@/components/sections/SectionTransition";
 
 export const BeforeAfterSection = () => {
     const pains = [
@@ -144,6 +145,7 @@ export const BeforeAfterSection = () => {
                     </div>
                 </div>
             </div>
+            <SectionTransition text="Agora que você viu a validação, entenda como o protocolo funciona:" />
         </section>
     );
 };

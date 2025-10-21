@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
+import { SectionTransition } from "@/components/sections/SectionTransition";
 
 export function About() {
     return (
@@ -73,6 +74,7 @@ export function About() {
                     </motion.div>
                 </div>
             </div>
+            <SectionTransition text="Tire suas últimas dúvidas antes de começar sua jornada:" />
         </section>
     );
 }

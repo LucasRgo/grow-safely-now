@@ -1,6 +1,7 @@
 import { CTAButton } from "@/components/CTAButton";
 import { CountdownTimer } from "@/components/CountdownTimer";
 import { Play, CheckCircle2 } from "lucide-react";
+import { SectionTransition } from "@/components/sections/SectionTransition";
 
 export const HeaderSection = () => {
     return (

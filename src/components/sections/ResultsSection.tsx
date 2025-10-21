@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { TrendingUp, CheckCircle, DollarSign, Play, User } from "lucide-react";
+import { SectionTransition } from "@/components/sections/SectionTransition";
 
 export const Testimonials = () => {
     const testimonials = [
@@ -128,6 +129,7 @@ export const Testimonials = () => {
                     </div>
                 </div>
             </div>
+            <SectionTransition text="Se você se identificou com esses resultados, provavelmente também se identifica com isso:" />
         </section>
     );
 };

@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Shield, TrendingUp, BookOpen, Zap, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import { SectionTransition } from "@/components/sections/SectionTransition";
 
 export const HowItWorksSection = () => {
     const features = [
@@ -80,6 +81,7 @@ export const HowItWorksSection = () => {
                     ))}
                 </div>
             </div>
+            <SectionTransition text="Esta é a sua última chance de garantir sua vaga com o preço promocional:" />
         </section>
     );
 };

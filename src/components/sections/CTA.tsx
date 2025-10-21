@@ -4,6 +4,7 @@ import { CountdownTimer } from "@/components/CountdownTimer";
 import { useCountdownContext } from "@/components/context/CountdownContext";
 import { COUNTDOWN_DURATION } from "@/hooks/UseCountdown";
 import { Shield, CheckCircle, Award, Users, Gift, Clock } from "lucide-react";
+import { SectionTransition } from "@/components/sections/SectionTransition";
 
 export const CTA = () => {
     const { totalSeconds, isExpired } = useCountdownContext();
@@ -153,6 +154,7 @@ export const CTA = () => {
                     </div>
                 </div>
             </div>
+            <SectionTransition text="Conheça quem criou este protocolo de multiplicação segura:" />
         </section>
     );
 };

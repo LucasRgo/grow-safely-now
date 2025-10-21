@@ -1,6 +1,7 @@
 import { TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { SectionTransition } from "@/components/sections/SectionTransition";
 
 export function InvestmentCalculator() {
     const [investmentValue, setInvestmentValue] = useState<string>("1000");
@@ -92,6 +93,7 @@ export function InvestmentCalculator() {
                     </div>
                 </motion.div>
             </div>
+            <SectionTransition text="Esses números parecem irreais? Veja o que alunos reais estão conquistando:" />
         </section>
     );
 }
