@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Shield, TrendingUp, BookOpen, Zap, CheckCircle } from "lucide-react";
+import { motion } from "framer-motion";
 
 export const HowItWorksSection = () => {
     const features = [
@@ -28,7 +29,12 @@ export const HowItWorksSection = () => {
     return (
         <section id="protocolo" className="py-16 md:py-24 bg-background relative overflow-hidden">
             <div className="container mx-auto px-4 relative z-10">
-                <div className="text-center mb-12 md:mb-16">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="text-center mb-12 md:mb-16">
                     <div className="flex justify-center mb-6">
                         <div className="p-4 bg-[hsl(var(--blue-dark))]/20 rounded-full border border-[hsl(var(--blue-accent))]/30">
                             <div className="relative">
@@ -45,23 +51,32 @@ export const HowItWorksSection = () => {
                         Um sistema completo, passo a passo, para você multiplicar seu patrimônio com segurança e
                         previsibilidade
                     </p>
-                </div>
+                </motion.div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                     {features.map((feature, index) => (
-                        <Card
+                        <motion.div
                             key={index}
-                            className="p-6 card-premium hover:border-success/20 transition-all duration-300 text-center group">
-                            <div className="flex justify-center mb-4">
-                                <div className="p-3 bg-success/10 rounded-full border border-success/20 group-hover:bg-success/20 transition-all">
-                                    <feature.icon className="h-8 w-8 text-success" />
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1, duration: 0.5 }}>
+                            <Card className="p-4 sm:p-8 card-premium hover:border-success/20 transition-all duration-300 hover:-translate-y-1 h-full">
+                                <div className="flex gap-3 sm:gap-6 items-start">
+                                    <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-40 lg:h-40 rounded-2xl bg-[hsl(var(--blue-accent))] flex items-center justify-center shadow-lg flex-shrink-0">
+                                        <feature.icon className="w-6 h-6 sm:w-8 sm:h-8 lg:w-20 lg:h-20 text-foreground" />
+                                    </div>
+                                    <div className="flex-1">
+                                        <h3 className="text-lg sm:text-2xl font-heading font-bold mb-1 sm:mb-2 text-foreground">
+                                            {feature.title}
+                                        </h3>
+                                        <p className="text-muted-foreground leading-relaxed text-base sm:text-xl">
+                                            {feature.description}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                            <h3 className="font-heading font-bold text-lg mb-2 text-foreground">
-                                {feature.title}
-                            </h3>
-                            <p className="text-muted-foreground text-sm">{feature.description}</p>
-                        </Card>
+                            </Card>
+                        </motion.div>
                     ))}
                 </div>
             </div>

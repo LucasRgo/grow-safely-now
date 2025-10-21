@@ -1,77 +1,147 @@
 import { Card } from "@/components/ui/card";
-import { AlertCircle, TrendingDown, Frown, X, Shield, TrendingUp, Smile, CheckCircle } from "lucide-react";
+import { TrendingDown, RotateCcw, Users, Brain, Shield, TrendingUp, Heart, Lock } from "lucide-react";
 
 export const BeforeAfterSection = () => {
     const pains = [
-        { icon: TrendingDown, text: "Perda de dinheiro com investimentos ruins" },
-        { icon: Frown, text: "Frustração por não saber por onde começar" },
-        { icon: AlertCircle, text: "Medo de ser enganado por falsas promessas" },
-        { icon: X, text: "Insegurança sobre cada decisão financeira" },
+        {
+            icon: TrendingDown,
+            title: "Ver o saldo sumir enquanto o medo trava suas decisões",
+            description:
+                "Você entra achando que vai multiplicar. Sai com menos do que entrou. E a pergunta não sai da cabeça: onde eu errei?",
+        },
+        {
+            icon: RotateCcw,
+            title: "Testar estratégias aleatórias e perder de novo",
+            description:
+                "Cada operação nova parece a certa. Até não ser. E o ciclo recomeça: esperança, perda, frustração.",
+        },
+        {
+            icon: Users,
+            title: "Sentir que o jogo é feito contra você",
+            description:
+                "Parece que só você perde. Todo mundo posta ganho, você acumula prejuízo. E começa a acreditar que não é pra você.",
+        },
+        {
+            icon: Brain,
+            title: "Carregar o peso de cada decisão errada",
+            description: "Não é só dinheiro. É a confiança que vai embora junto. E o medo de tentar de novo.",
+        },
     ];
 
     const desires = [
-        { icon: Shield, text: "Protocolo validado e testado por centenas" },
-        { icon: TrendingUp, text: "Crescimento consistente e previsível" },
-        { icon: Smile, text: "Paz de espírito em cada operação" },
-        { icon: CheckCircle, text: "Passo a passo claro, sem complicação" },
+        {
+            icon: Shield,
+            title: "Operar com a tranquilidade de quem tem método",
+            description:
+                "Você não torce. Você aplica. Porque sabe que o protocolo já foi validado centenas de vezes antes de chegar em você.",
+        },
+        {
+            icon: TrendingUp,
+            title: "Crescimento previsível, sem susto",
+            description: "Cada operação segue o mesmo padrão. Você não está apostando. Está replicando.",
+        },
+        {
+            icon: Heart,
+            title: "Paz de espírito em cada movimento",
+            description: "Acabou o medo. Acabou a ansiedade. Você sabe exatamente o que fazer em cada etapa.",
+        },
+        {
+            icon: Lock,
+            title: "Confiança de quem sabe que está protegido",
+            description:
+                "Mesmo que o mercado oscile, seu capital está blindado. Você só entra quando o protocolo autoriza.",
+        },
     ];
 
     return (
-        <section className="py-16 md:py-24 bg-card">
-            <div className="container mx-auto px-4">
+        <section className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-b md:bg-gradient-to-r from-red-950 via-slate-900 to-green-950">
+            {/* Overlay para suavizar o gradient */}
+            <div className="absolute inset-0 bg-black/20"></div>
+
+            <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-12 md:mb-16">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4 glow-blue">
-                        Você também sente isso?
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-4 glow-blue">
+                        Antes e Depois do Protocolo
                     </h2>
-                    <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-                        É hora de transformar sua realidade financeira
+                    <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+                        O que muda quando você opera com um método
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+                <div className="grid md:grid-cols-2 gap-8 md:gap-12">
                     {/* Pain side */}
-                    <Card className="p-6 md:p-8 card-premium border-red-500/20">
-                        <div className="text-center mb-6">
-                            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-500/10 mb-4 border border-red-500/20">
-                                <AlertCircle className="h-8 w-8 text-red-500" />
-                            </div>
-                            <h3 className="text-2xl font-heading font-bold text-red-500 mb-2">ANTES</h3>
-                            <p className="text-muted-foreground">Perda, medo e insegurança</p>
+                    <div className="space-y-6">
+                        <div className="text-center mb-8">
+                            <h3 className="text-3xl md:text-4xl font-heading font-bold text-red-400 mb-2">
+                                Sem Método
+                            </h3>
+                            <p className="text-gray-300 text-lg">Perda, ansiedade e decisões erradas</p>
                         </div>
 
-                        <div className="space-y-4">
+                        <div className="space-y-6">
                             {pains.map((pain, index) => (
-                                <div
+                                <Card
                                     key={index}
-                                    className="flex items-start gap-3 p-4 bg-red-500/5 rounded-lg border border-red-500/10">
-                                    <pain.icon className="h-6 w-6 text-red-500 flex-shrink-0 mt-1" />
-                                    <p className="text-foreground">{pain.text}</p>
-                                </div>
+                                    className="p-6 min-h-[170px] md:min-h-[170px] h-full bg-red-950/40 backdrop-blur-sm border-red-500/30 hover:border-red-500/50 transition-all duration-300 hover:transform hover:scale-[1.02]">
+                                    <div className="flex items-start gap-5">
+                                        <div className="flex-shrink-0">
+                                            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-red-500/20 flex items-center justify-center border-2 border-red-500/40">
+                                                <pain.icon
+                                                    className="h-8 w-8 md:h-10 md:w-10 text-red-400"
+                                                    strokeWidth={2.5}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="flex-1 pt-1">
+                                            <h4 className="text-lg md:text-xl font-semibold text-white mb-2 leading-tight">
+                                                {pain.title}
+                                            </h4>
+                                            <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                                                {pain.description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </Card>
                             ))}
                         </div>
-                    </Card>
+                    </div>
 
                     {/* Desire side */}
-                    <Card className="p-6 md:p-8 card-premium border-success/20">
-                        <div className="text-center mb-6">
-                            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-success/10 mb-4 border border-success/20">
-                                <CheckCircle className="h-8 w-8 text-success" />
-                            </div>
-                            <h3 className="text-2xl font-heading font-bold text-success mb-2">DEPOIS</h3>
-                            <p className="text-muted-foreground">Clareza, método e resultado</p>
+                    <div className="space-y-6">
+                        <div className="text-center mb-8">
+                            <h3 className="text-3xl md:text-4xl font-heading font-bold text-green-400 mb-2">
+                                Com Método
+                            </h3>
+                            <p className="text-gray-300 text-lg">Previsibilidade, paz e proteção do capital</p>
                         </div>
 
-                        <div className="space-y-4">
+                        <div className="space-y-6">
                             {desires.map((desire, index) => (
-                                <div
+                                <Card
                                     key={index}
-                                    className="flex items-start gap-3 p-4 bg-success/5 rounded-lg border border-success/10">
-                                    <desire.icon className="h-6 w-6 text-success flex-shrink-0 mt-1" />
-                                    <p className="text-foreground">{desire.text}</p>
-                                </div>
+                                    className="p-6 min-h-[170px] md:min-h-[170px] h-full bg-green-950/40 backdrop-blur-sm border-green-500/30 hover:border-green-500/50 transition-all duration-300 hover:transform hover:scale-[1.02]">
+                                    <div className="flex items-start gap-5">
+                                        <div className="flex-shrink-0">
+                                            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-green-500/20 flex items-center justify-center border-2 border-green-500/40">
+                                                <desire.icon
+                                                    className="h-8 w-8 md:h-10 md:w-10 text-green-400"
+                                                    strokeWidth={2.5}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="flex-1 pt-1">
+                                            <h4 className="text-lg md:text-xl font-semibold text-white mb-2 leading-tight">
+                                                {desire.title}
+                                            </h4>
+                                            <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                                                {desire.description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </Card>
                             ))}
                         </div>
-                    </Card>
+                    </div>
                 </div>
             </div>
         </section>

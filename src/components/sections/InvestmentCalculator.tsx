@@ -19,7 +19,7 @@ export function InvestmentCalculator() {
         <section className="p-12 px-4 overflow-hidden">
             <div className="w-full max-w-4xl mx-auto">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4 glow-blue text-center">
-                    SIMULADOR DE OPERAÇÃO
+                    Quanto você poderia estar ganhando agora?
                 </h2>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -84,6 +84,9 @@ export function InvestmentCalculator() {
                                     })}
                                 </span>{" "}
                                 (1500%)
+                            </p>
+                            <p className="text-sm sm:text-base text-foreground/80 mt-3 font-medium px-2 italic">
+                                Este é o retorno médio de quem seguiu o protocolo completo a risca.
                             </p>
                         </div>
                     </div>
