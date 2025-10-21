@@ -35,8 +35,8 @@ export const HeaderSection = () => {
                         <div className="text-center lg:text-end flex flex-col justify-center items-center lg:items-end w-full">
                             {/* Headline */}
                             <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground uppercase mb-4 md:mb-6 leading-tight glow-green text-center lg:text-end w-full break-words">
-                                O Método Validado Que Protege Seu Capital E{" "}
-                                <span className="text-success">Multiplica Com Segurança</span>
+                                O Protocolo Validado Que <span className="text-success">Multiplica</span> Seu Capital{" "}
+                                <span className="text-success">Com Segurança</span>
                             </h1>
 
                             {/* Subheadline */}

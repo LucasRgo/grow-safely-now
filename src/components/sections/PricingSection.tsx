@@ -3,7 +3,7 @@ import { CTAButton } from "@/components/CTAButton";
 import { CountdownTimer } from "@/components/CountdownTimer";
 import { useCountdownContext } from "@/components/context/CountdownContext";
 import { COUNTDOWN_DURATION } from "@/hooks/UseCountdown";
-import { CheckCircle, Users, FileSpreadsheet, MessageSquare, Gift } from "lucide-react";
+import { CheckCircle, Users, Gift } from "lucide-react";
 
 export const PricingSection = () => {
     const { totalSeconds, isExpired } = useCountdownContext();
@@ -13,9 +13,7 @@ export const PricingSection = () => {
     const normalizedSeconds = Math.max(0, Math.min(totalSeconds, totalDurationSeconds));
     const ratio = totalDurationSeconds > 0 ? normalizedSeconds / totalDurationSeconds : 0;
     const spotsRange = MAX_SPOTS - MIN_SPOTS;
-    const spotsLeft = isExpired
-        ? MIN_SPOTS
-        : Math.max(MIN_SPOTS, Math.round(MIN_SPOTS + ratio * spotsRange));
+    const spotsLeft = isExpired ? MIN_SPOTS : Math.max(MIN_SPOTS, Math.round(MIN_SPOTS + ratio * spotsRange));
 
     return (
         <section id="oferta" className="py-16 md:py-24 bg-background">
@@ -25,22 +23,22 @@ export const PricingSection = () => {
                         <div className="inline-flex items-center gap-2 px-4 py-2 bg-urgent/20 text-urgent rounded-full mb-6 animate-pulse-border border border-urgent/30">
                             <Gift className="h-5 w-5" />
                             <span className="font-heading font-semibold text-sm md:text-base">
-                                OFERTA EXCLUSIVA
+                                ACESSO EXCLUSIVO
                             </span>
                         </div>
 
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4 glow-green">
-                            Tudo isso por apenas R$97
+                            Você Não Está Comprando Um Curso. Está Adquirindo Um Protocolo.
                         </h2>
                         <p className="text-xl md:text-2xl text-urgent font-heading font-semibold mb-6">
-                            Após o tempo acabar, o preço volta para R$500
+                            Um sistema completo que protege seu capital e multiplica com segurança. Uma única operação certa já paga o investimento.
                         </p>
                     </div>
 
                     <Card className="p-6 md:p-8 lg:p-12 card-premium border-success/20 mb-8">
                         <div className="mb-8">
                             <h3 className="text-xl md:text-2xl font-heading font-bold text-center mb-6 text-foreground">
-                                O que está incluso:
+                                O que você recebe:
                             </h3>
 
                             <div className="space-y-6">
@@ -59,10 +57,10 @@ export const PricingSection = () => {
                                     <CheckCircle className="h-6 w-6 text-success flex-shrink-0 mt-1" />
                                     <div>
                                         <p className="font-heading font-semibold text-base md:text-lg mb-1 text-foreground">
-                                            Retorno Imediato
+                                            Garantia Antiperda de 7 Dias
                                         </p>
                                         <p className="text-muted-foreground text-sm md:text-base">
-                                            Uma única operação já paga o investimento
+                                            Se não ver resultado ou não se sentir seguro, devolvemos 100% do valor
                                         </p>
                                     </div>
                                 </div>
@@ -71,7 +69,7 @@ export const PricingSection = () => {
 
                         <div className="border-t border-border pt-6 mb-8">
                             <div className="flex flex-col md:flex-row md:items-center md:justify-between text-xl md:text-2xl font-heading font-bold gap-2">
-                                <span className="text-foreground">Valor total:</span>
+                                <span className="text-foreground">Valor normal:</span>
                                 <div className="text-right">
                                     <div className="text-muted-foreground line-through text-lg md:text-xl">
                                         R$ 500
