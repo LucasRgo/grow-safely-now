@@ -40,7 +40,7 @@ export const CTA = () => {
                             UMA ÚNICA OPERAÇÃO CERTA JÁ PAGA O INVESTIMENTO.
                         </h2>
                         <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-muted-foreground font-heading font-medium max-w-3xl mx-auto px-3 md:px-4 opacity-90">
-                            Um sistema completo só para você copiar e ganhar.
+                            O método literalmente se paga sozinho.
                         </p>
                     </div>
 
@@ -91,7 +91,9 @@ export const CTA = () => {
                                         <div className="absolute -top-1 -right-1 w-2.5 h-2.5 md:w-3 md:h-3 bg-urgent rounded-full animate-ping" />
                                     </div>
                                     <div className="flex flex-col">
-                                        <span className="text-[10px] md:text-xs text-urgent/80 font-semibold">Atenção:</span>
+                                        <span className="text-[10px] md:text-xs text-urgent/80 font-semibold">
+                                            Atenção:
+                                        </span>
                                         <span className="text-urgent font-bold text-sm md:text-base whitespace-nowrap">
                                             Só restam {spotsLeft} vagas
                                         </span>
@@ -130,7 +132,7 @@ export const CTA = () => {
                                 size="xl"
                                 className="w-full relative bg-gradient-to-br from-success via-success to-emerald-600 hover:from-emerald-600 hover:via-success hover:to-success shadow-[0_8px_30px_rgba(34,197,94,0.4)] hover:shadow-[0_12px_40px_rgba(34,197,94,0.6)] border-2 border-success/50 hover:border-success/80 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] rounded-xl md:rounded-2xl py-4 md:py-6 lg:py-8 text-sm md:text-lg lg:text-xl font-black tracking-wide">
                                 <span className="drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
-                                    💰 QUERO MULTIPLICAR COM SEGURANÇA AGORA
+                                    QUERO MULTIPLICAR COM SEGURANÇA AGORA
                                 </span>
                             </CTAButton>
                         </div>
