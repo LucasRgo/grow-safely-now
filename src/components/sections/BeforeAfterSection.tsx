@@ -1,56 +1,59 @@
 import { Card } from "@/components/ui/card";
-import { TrendingDown, RotateCcw, Users, Brain, Shield, TrendingUp, Heart, Lock } from "lucide-react";
+import { TrendingDown, RotateCcw, Users, Brain, Shield, TrendingUp, Heart, Lock, Building2 } from "lucide-react";
 import { SectionTransition } from "@/components/sections/SectionTransition";
 
 export const BeforeAfterSection = () => {
     const pains = [
         {
-            icon: TrendingDown,
-            title: "Ver o saldo sumir enquanto o medo trava suas decisões",
+            icon: RotateCcw,
+            title: "Viver o ciclo da tentativa e erro",
             description:
-                "Você entra achando que vai multiplicar. Sai com menos do que entrou. E a pergunta não sai da cabeça: onde eu errei?",
+                "Muda a estratégia, muda o vídeo, muda o indicador, mas o resultado é o mesmo: perda atrás de perda e nenhuma constância.",
         },
         {
-            icon: RotateCcw,
-            title: "Testar estratégias aleatórias e perder de novo",
+            icon: TrendingDown,
+            title: "Ver o saldo sumir e não entender o porquê",
             description:
-                "Cada operação nova parece a certa. Até não ser. E o ciclo recomeça: esperança, perda, frustração.",
+                "Você entra com esperança, mas sai com o saldo menor. Cada perda parece um erro pessoal, e o medo começa a dominar.",
         },
         {
             icon: Users,
-            title: "Sentir que o jogo é feito contra você",
+            title: "A sensação de que o mercado é um jogo contra você",
             description:
-                "Parece que só você perde. Todo mundo posta ganho, você acumula prejuízo. E começa a acreditar que não é pra você.",
+                "Enquanto outros mostram lucros, você vê prejuízo. Parece que só quem já é grande ganha, e que o mercado foi feito pra te tirar.",
         },
         {
             icon: Brain,
-            title: "Carregar o peso de cada decisão errada",
-            description: "Não é só dinheiro. É a confiança que vai embora junto. E o medo de tentar de novo.",
+            title: "Decisões emocionais e arrependimento constante",
+            description:
+                "Cada operação vira um peso emocional. O medo de errar trava. E a confiança em você mesmo começa a desaparecer.",
         },
     ];
 
     const desires = [
         {
-            icon: Shield,
-            title: "Operar com a tranquilidade de quem tem método",
+            icon: Building2,
+            title: "Seguir o mesmo modelo dos grandes fundos",
             description:
-                "Você não torce. Você aplica. Porque sabe que o protocolo já foi validado centenas de vezes antes de chegar em você.",
+                "O Protocolo foi inspirado nas estratégias reais usadas por corporações globais e grandes investidores, mas traduzido para linguagem simples que qualquer pessoa aplica.",
+        },
+        {
+            icon: Shield,
+            title: "Operar com blindagem total contra perdas",
+            description:
+                "O Gerenciamento Anti-Perda elimina o medo. Você sabe exatamente o que fazer quando o mercado vira, e nunca sai no prejuízo.",
         },
         {
             icon: TrendingUp,
-            title: "Crescimento previsível, sem susto",
-            description: "Cada operação segue o mesmo padrão. Você não está apostando. Está replicando.",
+            title: "Multiplicar com previsibilidade e segurança",
+            description:
+                "Com o Protocolo, cada operação segue uma estrutura validada. Nada é aleatório, tudo é replicável e mensurável.",
         },
         {
             icon: Heart,
-            title: "Paz de espírito em cada movimento",
-            description: "Acabou o medo. Acabou a ansiedade. Você sabe exatamente o que fazer em cada etapa.",
-        },
-        {
-            icon: Lock,
-            title: "Confiança de quem sabe que está protegido",
+            title: "Tranquilidade para lucrar com controle",
             description:
-                "Mesmo que o mercado oscile, seu capital está blindado. Você só entra quando o protocolo autoriza.",
+                "O medo sai de cena, a clareza entra. Você entende o jogo e opera com calma, sabendo que o risco foi removido do caminho.",
         },
     ];
 

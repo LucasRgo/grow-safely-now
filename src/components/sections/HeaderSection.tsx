@@ -36,8 +36,8 @@ export const HeaderSection = () => {
                         <div className="text-center lg:text-end flex flex-col justify-center items-center lg:items-end w-full">
                             {/* Headline */}
                             <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground uppercase mb-4 md:mb-6 leading-tight glow-green text-center lg:text-end w-full break-words">
-                                O Protocolo Validado Que <span className="text-success">Multiplica</span> Seu Capital{" "}
-                                <span className="text-success">Com Segurança</span>
+                                O Protocolo Validado Que <span className="text-success">Multiplica</span> Seu
+                                Capital <span className="text-success">Com Segurança</span>
                             </h1>
 
                             {/* Subheadline */}
@@ -66,7 +66,7 @@ export const HeaderSection = () => {
                                     <div className="flex items-center gap-2 group">
                                         <CheckCircle2 className="w-4 h-4 text-success drop-shadow-[0_0_6px_rgba(34,197,94,0.5)] group-hover:drop-shadow-[0_0_10px_rgba(34,197,94,0.8)] transition-all flex-shrink-0" />
                                         <span className="text-xs md:text-sm font-medium text-foreground whitespace-nowrap">
-                                            Mais de 1500% por operação
+                                            Usado por grandes fundos, simplificado para você
                                         </span>
                                     </div>
 
@@ -89,6 +89,13 @@ export const HeaderSection = () => {
                                         <span className="text-xs md:text-sm font-medium text-foreground whitespace-nowrap">
                                             Garantia de 7 dias
                                         </span>
+                                    </div>
+                                    <div className="mb-4 flex justify-end lg:justify-end w-full">
+                                        <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-[hsl(var(--blue-dark))]/20 via-[hsl(var(--success))]/15 to-[hsl(var(--blue-dark))]/20 border border-[hsl(var(--success))]/30 text-success text-xs sm:text-sm font-semibold font-heading uppercase tracking-wide glow-border animate-pulse-slow shadow-lg backdrop-blur-sm">
+                                            <span className="drop-shadow-[0_0_6px_rgba(34,197,94,0.4)]">
+                                                UMA ÚNICA OPERAÇÃO PAGA O INVESTIMENTO E AINDA GERA LUCRO
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
