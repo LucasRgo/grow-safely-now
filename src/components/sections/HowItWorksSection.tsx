@@ -253,7 +253,7 @@ export const HowItWorksSection = () => {
                     </motion.div>
                 </motion.div>
             </div>
-            <SectionTransition text="Esta é a sua última chance de garantir sua vaga com o preço promocional:" />
+            <SectionTransition text="Veja a transformação que o protocolo pode fazer na sua vida:" />
         </section>
     );
 };

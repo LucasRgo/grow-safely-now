@@ -93,7 +93,7 @@ export function InvestmentCalculator() {
                     </div>
                 </motion.div>
             </div>
-            <SectionTransition text="Esses números parecem irreais? Veja o que alunos reais estão conquistando:" />
+            <SectionTransition text="Agora que você viu o potencial, entenda a diferença entre quem perde e quem multiplica:" />
         </section>
     );
 }

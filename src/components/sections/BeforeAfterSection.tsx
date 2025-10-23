@@ -148,7 +148,7 @@ export const BeforeAfterSection = () => {
                     </div>
                 </div>
             </div>
-            <SectionTransition text="Agora que você viu a validação, entenda como o protocolo funciona:" />
+            <SectionTransition text="Esta é a sua última chance de garantir sua vaga com o preço promocional:" />
         </section>
     );
 };

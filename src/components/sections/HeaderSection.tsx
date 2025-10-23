@@ -90,7 +90,7 @@ export const HeaderSection = () => {
                                             Garantia de 7 dias
                                         </span>
                                     </div>
-                                    <div className="mb-4 flex justify-end lg:justify-end w-full">
+                                    <div className="mt-4 flex justify-end lg:justify-end w-full">
                                         <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-[hsl(var(--blue-dark))]/20 via-[hsl(var(--success))]/15 to-[hsl(var(--blue-dark))]/20 border border-[hsl(var(--success))]/30 text-success text-xs sm:text-sm font-semibold font-heading uppercase tracking-wide glow-border animate-pulse-slow shadow-lg backdrop-blur-sm">
                                             <span className="drop-shadow-[0_0_6px_rgba(34,197,94,0.4)]">
                                                 UMA ÚNICA OPERAÇÃO PAGA O INVESTIMENTO E AINDA GERA LUCRO

@@ -155,7 +155,7 @@ export function AmateurVsProfessionalSection() {
                 </motion.div>
             </div>
 
-            <SectionTransition text="Descubra o método que está transformando investidores comuns em profissionais de sucesso" />
+            <SectionTransition text="Agora que você entende a diferença, veja como o protocolo funciona na prática:" />
         </section>
     );
 }

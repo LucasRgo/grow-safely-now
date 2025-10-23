@@ -19,8 +19,8 @@ const Index = () => {
             <Testimonials />
             <InvestmentCalculator />
             <AmateurVsProfessionalSection />
-            <BeforeAfterSection />
             <HowItWorksSection />
+            <BeforeAfterSection />
             <CTA />
             <About />
             <QuestionsSection />
