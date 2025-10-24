@@ -73,7 +73,7 @@ export const PotencialRealSection = () => {
     ];
 
     return (
-        <section className="py-8 bg-background relative overflow-hidden">
+        <section className="py-16 md:py-24 bg-gradient-to-br from-slate-950 via-background to-slate-900/50 relative overflow-hidden">
             <div className="container mx-auto px-4 relative z-10">
                 {/* Potencial Real de Multiplicação */}
                 <motion.div

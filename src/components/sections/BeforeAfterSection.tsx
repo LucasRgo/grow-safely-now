@@ -204,7 +204,7 @@ export const BeforeAfterSection = () => {
                     </div>
                 </motion.div>
             </div>
-            <SectionTransition text="Agora que você viu a diferença, é hora de garantir seu acesso ao protocolo:" />
+            <SectionTransition text="Veja como o protocolo funciona na prática:" />
         </section>
     );
 };

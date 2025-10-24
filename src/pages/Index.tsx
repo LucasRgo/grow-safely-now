@@ -21,8 +21,8 @@ const Index = () => {
             <ChallengeBanner />
             <InvestmentCalculator />
             <PotencialRealSection />
-            <HowItWorksSection />
             <BeforeAfterSection />
+            <HowItWorksSection />
             <CTA />
             <About />
             <QuestionsSection />

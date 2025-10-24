@@ -17,7 +17,7 @@ export function InvestmentCalculator() {
     };
 
     return (
-        <section className="p-8 px-4 overflow-hidden">
+        <section className="py-16 md:py-24 px-4 overflow-hidden bg-gradient-to-br from-blue-950/30 via-background to-blue-900/20">
             <div className="w-full max-w-4xl mx-auto">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4 glow-blue text-center">
                     Quanto você poderia estar ganhando agora?
@@ -93,6 +93,7 @@ export function InvestmentCalculator() {
                     </div>
                 </motion.div>
             </div>
+            <SectionTransition text="Agora que você calculou seu potencial, veja como o protocolo funciona na prática:" />
         </section>
     );
 }

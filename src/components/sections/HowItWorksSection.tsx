@@ -32,7 +32,7 @@ export const HowItWorksSection = () => {
     ];
 
     return (
-        <section id="como-funciona" className="py-8 bg-background relative overflow-hidden">
+        <section id="como-funciona" className="py-16 md:py-24 bg-gradient-to-br from-blue-950/20 via-background to-cyan-950/20 relative overflow-hidden">
             <div className="container mx-auto px-4 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -84,7 +84,7 @@ export const HowItWorksSection = () => {
                     ))}
                 </div>
             </div>
-            <SectionTransition text="Agora que você entende como funciona, veja a diferença entre quem perde e quem multiplica:" />
+            <SectionTransition text="Agora que sabe como funciona, não perca tempo e comece a operar como os grandes:" />
         </section>
     );
 };

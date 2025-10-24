@@ -12,7 +12,7 @@ export const SectionTransition = ({ text }: SectionTransitionProps) => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="py-8 md:py-10">
+            className="pt-8">
             <div className="container mx-auto px-4">
                 <div className="max-w-3xl mx-auto text-center space-y-4">
 

@@ -3,8 +3,9 @@ import { SectionTransition } from "@/components/sections/SectionTransition";
 
 export const ChallengeBanner = () => {
     return (
-        <div className="max-w-4xl mx-auto mt-16 md:mt-20">
-            <Card className="p-8 md:p-10 bg-gradient-to-br from-success/10 via-success/5 to-transparent border-2 border-success/30 shadow-2xl shadow-success/20 relative overflow-hidden">
+        <section className="py-16 md:py-24 bg-gradient-to-br from-success/5 via-background to-success/10">
+            <div className="max-w-4xl mx-auto px-4">
+                <Card className="p-8 md:p-10 bg-gradient-to-br from-success/10 via-success/5 to-transparent border-2 border-success/30 shadow-2xl shadow-success/20 relative overflow-hidden">
                 {/* Background decoration */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-success/5 rounded-full blur-3xl -z-0" />
                 <div className="absolute bottom-0 left-0 w-48 h-48 bg-success/5 rounded-full blur-3xl -z-0" />
@@ -42,8 +43,9 @@ export const ChallengeBanner = () => {
                         </p>
                     </div>
                 </div>
-            </Card>
-            <SectionTransition text="Agora que você viu os resultados reais, calcule quanto pode ganhar com seu investimento:" />
-        </div>
+                </Card>
+                <SectionTransition text="Calcule quanto pode ganhar em CADA operação:" />
+            </div>
+        </section>
     );
 };

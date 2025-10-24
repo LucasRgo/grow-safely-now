@@ -8,6 +8,7 @@ import {
     type CarouselApi,
 } from "@/components/ui/carousel";
 import { TrendingUp, CheckCircle, DollarSign, Play, User } from "lucide-react";
+import { SectionTransition } from "@/components/sections/SectionTransition";
 import { useEffect, useState } from "react";
 
 export const Testimonials = () => {
@@ -170,6 +171,7 @@ export const Testimonials = () => {
                     </div>
                 </div>
             </div>
+            <SectionTransition text="Estes resultados são reais. Agora veja o desafio que propomos para você:" />
         </section>
     );
 };
