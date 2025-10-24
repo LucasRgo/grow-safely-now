@@ -73,6 +73,7 @@ export function About() {
                     </motion.div>
                 </div>
             </div>
+            <SectionTransition text="Ainda tem dúvidas? Veja as perguntas mais frequentes:" />
         </section>
     );
 }

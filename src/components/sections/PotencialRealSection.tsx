@@ -73,7 +73,7 @@ export const PotencialRealSection = () => {
     ];
 
     return (
-        <section className="py-16 md:py-24 bg-background relative overflow-hidden">
+        <section className="py-8 bg-background relative overflow-hidden">
             <div className="container mx-auto px-4 relative z-10">
                 {/* Potencial Real de Multiplicação */}
                 <motion.div
@@ -218,7 +218,7 @@ export const PotencialRealSection = () => {
                     </motion.div>
                 </motion.div>
             </div>
-            <SectionTransition text="Veja a transformação que o protocolo pode fazer na sua vida:" />
+            <SectionTransition text="Agora que você viu o poder real, entenda como o protocolo funciona na prática:" />
         </section>
     );
 };

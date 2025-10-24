@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Shield, TrendingUp, BookOpen, Zap, CheckCircle } from "lucide-react";
+import { Shield, TrendingUp, BookOpen, Zap, CheckCircle, Users } from "lucide-react";
 import { motion } from "framer-motion";
 import { SectionTransition } from "@/components/sections/SectionTransition";
 
@@ -7,32 +7,32 @@ export const HowItWorksSection = () => {
     const features = [
         {
             icon: BookOpen,
-            title: "Aprenda o passo a passo",
+            title: "Receba o passo a passo profissional",
             description:
-                "Você entende, de forma simples e direta, como aplicar o método que os grandes investidores utilizam, sem precisar de experiência anterior.",
+                "Aprenda o método exato que investidores experientes usam para lucrar. Domine cada etapa e opere com confiança, mesmo sem conhecimento prévio.",
         },
         {
             icon: Shield,
-            title: "Aplique o Gerenciamento AntiPerda",
+            title: "Proteja cada centavo com o Sistema AntiPerda",
             description:
-                "Descubra o momento certo de entrar e sair de uma operação, protegendo cada centavo investido e eliminando o risco de perda.",
+                "Descubra os pontos exatos de entrada e saída que blindam seu capital. Elimine prejuízos e transforme cada operação em lucro, mesmo com mercado oscilando.",
         },
         {
             icon: Zap,
-            title: "Execute operações com segurança",
+            title: "Execute com exemplos práticos",
             description:
-                "Coloque o Protocolo em prática com exemplos guiados e veja como multiplicar seu capital com total controle e previsibilidade.",
+                "Coloque o Protocolo em ação imediatamente. Multiplique seu capital com total controle e saiba exatamente o que fazer em cada momento.",
         },
         {
-            icon: CheckCircle,
-            title: "Colha os resultados e reinvista",
+            icon: Users,
+            title: "Acesse o Grupo VIP",
             description:
-                "Multiplique seus ganhos e aprenda a reinvestir de forma inteligente para acelerar seus resultados e alcançar grandes metas.",
+                "Receba sinais exclusivos direto no WhatsApp em tempo real. Reinvista seus lucros com estratégia inteligente e acelere rumo a metas maiores.",
         },
     ];
 
     return (
-        <section id="como-funciona" className="py-16 md:py-24 bg-background relative overflow-hidden">
+        <section id="como-funciona" className="py-8 bg-background relative overflow-hidden">
             <div className="container mx-auto px-4 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -84,6 +84,7 @@ export const HowItWorksSection = () => {
                     ))}
                 </div>
             </div>
+            <SectionTransition text="Agora que você entende como funciona, veja a diferença entre quem perde e quem multiplica:" />
         </section>
     );
 };
