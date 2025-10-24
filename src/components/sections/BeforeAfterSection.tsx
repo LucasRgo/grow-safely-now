@@ -1,59 +1,48 @@
 import { Card } from "@/components/ui/card";
-import { TrendingDown, RotateCcw, Users, Brain, Shield, TrendingUp, Heart, Lock, Building2 } from "lucide-react";
+import { TrendingDown, Brain, Users, Building2, Shield, TrendingUp } from "lucide-react";
 import { SectionTransition } from "@/components/sections/SectionTransition";
+import { motion } from "framer-motion";
 
 export const BeforeAfterSection = () => {
-    const pains = [
-        {
-            icon: RotateCcw,
-            title: "Viver o ciclo da tentativa e erro",
-            description:
-                "Muda a estratégia, muda o vídeo, muda o indicador, mas o resultado é o mesmo: perda atrás de perda e nenhuma constância.",
-        },
+    const amateurPoints = [
         {
             icon: TrendingDown,
-            title: "Ver o saldo sumir e não entender o porquê",
+            title: "O ciclo da perda e do arrependimento",
             description:
-                "Você entra com esperança, mas sai com o saldo menor. Cada perda parece um erro pessoal, e o medo começa a dominar.",
-        },
-        {
-            icon: Users,
-            title: "A sensação de que o mercado é um jogo contra você",
-            description:
-                "Enquanto outros mostram lucros, você vê prejuízo. Parece que só quem já é grande ganha, e que o mercado foi feito pra te tirar.",
+                "Opera no impulso, entra sem plano e sai no pânico. Cada prejuízo parece pessoal, e a confiança evapora a cada operação.",
         },
         {
             icon: Brain,
-            title: "Decisões emocionais e arrependimento constante",
+            title: "Decisões movidas por emoção, não por estratégia",
             description:
-                "Cada operação vira um peso emocional. O medo de errar trava. E a confiança em você mesmo começa a desaparecer.",
+                "Compra porque o gráfico 'parece bom', vende porque sentiu medo. Nenhuma métrica, nenhum critério: apenas tentativa e erro.",
+        },
+        {
+            icon: Users,
+            title: "Vê os grandes ganhando e acha que é sorte",
+            description:
+                "Acredita que só quem tem informação privilegiada lucra. Enquanto isso, continua sem método, refém da própria impulsividade.",
         },
     ];
 
-    const desires = [
+    const professionalPoints = [
         {
             icon: Building2,
-            title: "Seguir o mesmo modelo dos grandes fundos",
+            title: "Estratégia baseada em protocolos validados",
             description:
-                "O Protocolo foi inspirado nas estratégias reais usadas por corporações globais e grandes investidores, mas traduzido para linguagem simples que qualquer pessoa aplica.",
+                "Segue o mesmo modelo usado por fundos e corporações globais, adaptado para linguagem simples e execução prática.",
         },
         {
             icon: Shield,
-            title: "Operar com blindagem total contra perdas",
+            title: "Controle emocional e blindagem contra perdas",
             description:
-                "O Gerenciamento Anti-Perda elimina o medo. Você sabe exatamente o que fazer quando o mercado vira, e nunca sai no prejuízo.",
+                "Cada movimento é calculado. O Gerenciamento AntiPerda define o limite e protege o capital. O medo deixa de mandar.",
         },
         {
             icon: TrendingUp,
-            title: "Multiplicar com previsibilidade e segurança",
+            title: "Lucros previsíveis e confiança crescente",
             description:
-                "Com o Protocolo, cada operação segue uma estrutura validada. Nada é aleatório, tudo é replicável e mensurável.",
-        },
-        {
-            icon: Heart,
-            title: "Tranquilidade para lucrar com controle",
-            description:
-                "O medo sai de cena, a clareza entra. Você entende o jogo e opera com calma, sabendo que o risco foi removido do caminho.",
+                "Cada operação fortalece a disciplina. A mente e a carteira crescem juntas: tudo dentro de uma estrutura que funciona.",
         },
     ];
 
@@ -62,93 +51,160 @@ export const BeforeAfterSection = () => {
             {/* Overlay para suavizar o gradient */}
             <div className="absolute inset-0 bg-black/20"></div>
 
+            {/* Glow effects */}
+            <div className="absolute top-1/4 left-0 w-96 h-96 bg-red-500/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-green-500/10 rounded-full blur-3xl"></div>
+
             <div className="container mx-auto px-4 relative z-10">
-                <div className="text-center mb-12 md:mb-16">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="text-center mb-12 md:mb-16">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-4 glow-blue">
-                        Antes e Depois do Protocolo
+                        A Jornada de Quem Para de Apostar e Começa a Operar Como os Grandes
                     </h2>
-                    <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
-                        O que muda quando você opera com um método
+                    <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+                        O que muda quando você deixa o impulso e adota o mesmo método usado por fundos globais
                     </p>
-                </div>
+                </motion.div>
 
                 <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-                    {/* Pain side */}
-                    <div className="space-y-6">
+                    {/* Amateur side */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="space-y-6">
                         <div className="text-center mb-8">
-                            <h3 className="text-3xl md:text-4xl font-heading font-bold text-red-400 mb-2">
-                                Sem Método
-                            </h3>
+                            <div className="inline-flex items-center gap-3 mb-3">
+                                <TrendingDown className="w-10 h-10 text-red-400 animate-pulse" />
+                                <h3 className="text-3xl md:text-4xl font-heading font-bold text-red-400">
+                                    O Amador Inseguro
+                                </h3>
+                            </div>
                             <p className="text-gray-300 text-lg">Perda, ansiedade e decisões erradas</p>
                         </div>
 
                         <div className="space-y-6">
-                            {pains.map((pain, index) => (
-                                <Card
+                            {amateurPoints.map((point, index) => (
+                                <motion.div
                                     key={index}
-                                    className="p-6 min-h-[170px] md:min-h-[170px] h-full bg-red-950/40 backdrop-blur-sm border-red-500/30 hover:border-red-500/50 transition-all duration-300 hover:transform hover:scale-[1.02]">
-                                    <div className="flex items-start gap-5">
-                                        <div className="flex-shrink-0">
-                                            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-red-500/20 flex items-center justify-center border-2 border-red-500/40">
-                                                <pain.icon
-                                                    className="h-8 w-8 md:h-10 md:w-10 text-red-400"
-                                                    strokeWidth={2.5}
-                                                />
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}>
+                                    <Card className="p-6 min-h-[170px] md:min-h-[170px] h-full bg-red-950/40 backdrop-blur-sm border-red-500/30 hover:border-red-500/50 transition-all duration-300 hover:transform hover:scale-[1.02] group">
+                                        <div className="flex items-start gap-5">
+                                            <div className="flex-shrink-0">
+                                                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-red-500/20 flex items-center justify-center border-2 border-red-500/40 group-hover:scale-110 transition-transform">
+                                                    <point.icon
+                                                        className="h-8 w-8 md:h-10 md:w-10 text-red-400"
+                                                        strokeWidth={2.5}
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className="flex-1 pt-1">
+                                                <h4 className="text-lg md:text-xl font-semibold text-white mb-2 leading-tight">
+                                                    {point.title}
+                                                </h4>
+                                                <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                                                    {point.description}
+                                                </p>
                                             </div>
                                         </div>
-                                        <div className="flex-1 pt-1">
-                                            <h4 className="text-lg md:text-xl font-semibold text-white mb-2 leading-tight">
-                                                {pain.title}
-                                            </h4>
-                                            <p className="text-gray-300 text-sm md:text-base leading-relaxed">
-                                                {pain.description}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </Card>
+                                    </Card>
+                                </motion.div>
                             ))}
                         </div>
-                    </div>
 
-                    {/* Desire side */}
-                    <div className="space-y-6">
+                        <div className="mt-8 pt-6 border-t border-red-500/20 text-center">
+                            <p className="text-red-400/80 font-semibold text-base italic">
+                                Resultado: Prejuízo constante e confiança destruída
+                            </p>
+                        </div>
+                    </motion.div>
+
+                    {/* Professional side */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="space-y-6">
                         <div className="text-center mb-8">
-                            <h3 className="text-3xl md:text-4xl font-heading font-bold text-green-400 mb-2">
-                                Com Método
-                            </h3>
+                            <div className="inline-flex items-center gap-3 mb-3">
+                                <TrendingUp className="w-10 h-10 text-green-400 animate-pulse" />
+                                <h3 className="text-3xl md:text-4xl font-heading font-bold text-green-400 glow-green">
+                                    O Operador Profissional
+                                </h3>
+                            </div>
                             <p className="text-gray-300 text-lg">Previsibilidade, paz e proteção do capital</p>
                         </div>
 
                         <div className="space-y-6">
-                            {desires.map((desire, index) => (
-                                <Card
+                            {professionalPoints.map((point, index) => (
+                                <motion.div
                                     key={index}
-                                    className="p-6 min-h-[170px] md:min-h-[170px] h-full bg-green-950/40 backdrop-blur-sm border-green-500/30 hover:border-green-500/50 transition-all duration-300 hover:transform hover:scale-[1.02]">
-                                    <div className="flex items-start gap-5">
-                                        <div className="flex-shrink-0">
-                                            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-green-500/20 flex items-center justify-center border-2 border-green-500/40">
-                                                <desire.icon
-                                                    className="h-8 w-8 md:h-10 md:w-10 text-green-400"
-                                                    strokeWidth={2.5}
-                                                />
+                                    initial={{ opacity: 0, x: 20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}>
+                                    <Card className="p-6 min-h-[170px] md:min-h-[170px] h-full bg-green-950/40 backdrop-blur-sm border-green-500/30 hover:border-green-500/50 transition-all duration-300 hover:transform hover:scale-[1.02] ring-2 ring-green-500/20 group">
+                                        <div className="flex items-start gap-5">
+                                            <div className="flex-shrink-0">
+                                                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-green-500/20 flex items-center justify-center border-2 border-green-500/40 group-hover:scale-110 transition-transform">
+                                                    <point.icon
+                                                        className="h-8 w-8 md:h-10 md:w-10 text-green-400"
+                                                        strokeWidth={2.5}
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className="flex-1 pt-1">
+                                                <h4 className="text-lg md:text-xl font-semibold text-white mb-2 leading-tight">
+                                                    {point.title}
+                                                </h4>
+                                                <p className="text-gray-300 text-sm md:text-base leading-relaxed font-medium">
+                                                    {point.description}
+                                                </p>
                                             </div>
                                         </div>
-                                        <div className="flex-1 pt-1">
-                                            <h4 className="text-lg md:text-xl font-semibold text-white mb-2 leading-tight">
-                                                {desire.title}
-                                            </h4>
-                                            <p className="text-gray-300 text-sm md:text-base leading-relaxed">
-                                                {desire.description}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </Card>
+                                    </Card>
+                                </motion.div>
                             ))}
                         </div>
-                    </div>
+
+                        <div className="mt-8 pt-6 border-t border-green-500/20 text-center">
+                            <p className="text-green-400 font-bold text-base glow-green">
+                                Resultado: Multiplicação constante e domínio total
+                            </p>
+                        </div>
+                    </motion.div>
                 </div>
+
+                {/* CTA Section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    className="text-center mt-12 md:mt-16">
+                    <div className="relative inline-block">
+                        <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 via-blue-500/20 to-green-500/20 rounded-xl blur-lg" />
+                        <div className="relative bg-gradient-to-r from-blue-500/10 via-green-500/10 to-blue-500/10 backdrop-blur-sm border-2 border-green-500/30 rounded-xl p-6 md:p-8">
+                            <p className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2">
+                                Agora você também pode operar como os grandes.
+                            </p>
+                            <p className="text-lg md:text-xl text-green-400 font-semibold glow-green">
+                                O Protocolo ensina exatamente como!
+                            </p>
+                        </div>
+                    </div>
+                </motion.div>
             </div>
-            <SectionTransition text="Esta é a sua última chance de garantir sua vaga com o preço promocional:" />
+            <SectionTransition text="Agora que você entende a diferença, veja como o protocolo funciona na prática:" />
         </section>
     );
 };

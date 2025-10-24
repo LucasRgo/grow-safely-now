@@ -8,7 +8,6 @@ import { CTA } from "@/components/sections/CTA";
 import { QuestionsSection } from "@/components/sections/QuestionsSection";
 import { FooterSection } from "@/components/sections/FooterSection";
 import { InvestmentCalculator } from "@/components/sections/InvestmentCalculator";
-import { AmateurVsProfessionalSection } from "@/components/sections/AmateurVsProfessionalSection";
 import { About } from "@/components/sections/About";
 import { UrgencyManager } from "@/components/UrgencyManager";
 
@@ -19,7 +18,6 @@ const Index = () => {
             <HeaderSection />
             <Testimonials />
             <InvestmentCalculator />
-            <AmateurVsProfessionalSection />
             <HowItWorksSection />
             <PotencialRealSection />
             <BeforeAfterSection />
