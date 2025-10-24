@@ -1,9 +1,33 @@
 import { Card } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+    type CarouselApi,
+} from "@/components/ui/carousel";
 import { TrendingUp, CheckCircle, DollarSign, Play, User } from "lucide-react";
-import { SectionTransition } from "@/components/sections/SectionTransition";
+import { useEffect, useState } from "react";
 
 export const Testimonials = () => {
+    const [api, setApi] = useState<CarouselApi>();
+    const [current, setCurrent] = useState(0);
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        if (!api) {
+            return;
+        }
+
+        setCount(api.scrollSnapList().length);
+        setCurrent(api.selectedScrollSnap() + 1);
+
+        api.on("select", () => {
+            setCurrent(api.selectedScrollSnap() + 1);
+        });
+    }, [api]);
+
     const testimonials = [
         {
             name: "João Silva",
@@ -68,7 +92,15 @@ export const Testimonials = () => {
                 </div>
 
                 <div className="relative mb-12">
+                    {/* Texto indicativo para arrastar */}
+                    <div className="text-center mb-2">
+                        <p className="text-sm md:text-base text-muted-foreground font-medium">
+                            Arraste para ver mais &gt;
+                        </p>
+                    </div>
+
                     <Carousel
+                        setApi={setApi}
                         opts={{
                             align: "start",
                             loop: true,
@@ -122,9 +154,17 @@ export const Testimonials = () => {
 
                     {/* Indicadores para mobile */}
                     <div className="flex justify-center mt-6 md:hidden">
-                        <div className="flex gap-2">
-                            {testimonials.map((_, index) => (
-                                <div key={index} className="w-2 h-2 rounded-full bg-success/30" />
+                        <div className="flex gap-3">
+                            {Array.from({ length: count }).map((_, index) => (
+                                <button
+                                    key={index}
+                                    className={`w-3 h-3 rounded-full border transition-all duration-300 cursor-pointer ${
+                                        index + 1 === current
+                                            ? "bg-success border-success shadow-lg shadow-success/20"
+                                            : "bg-success/40 border-success/60 hover:bg-success/60"
+                                    }`}
+                                    onClick={() => api?.scrollTo(index)}
+                                />
                             ))}
                         </div>
                     </div>
@@ -149,13 +189,18 @@ export const Testimonials = () => {
 
                             {/* Título */}
                             <h3 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-center text-foreground mb-6 leading-tight glow-green">
-                                Atingir seus primeiros <span className="text-success">R$ 300 mil</span> em até <span className="text-success">6 meses</span>
+                                Atingir seus primeiros <span className="text-success">R$ 300 mil</span> em até{" "}
+                                <span className="text-success">6 meses</span>
                             </h3>
 
                             {/* Texto Principal */}
                             <p className="text-lg md:text-xl text-center text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
-                                Seguindo o <span className="font-semibold text-foreground">Protocolo de Multiplicação Antiperda</span>, esta é a meta que traçamos para
-                                você. Não é sorte, é <span className="font-semibold text-success">método aplicado com disciplina</span>.
+                                Seguindo o{" "}
+                                <span className="font-semibold text-foreground">
+                                    Protocolo de Multiplicação Antiperda
+                                </span>
+                                , esta é a meta que traçamos para você. Não é sorte, é{" "}
+                                <span className="font-semibold text-success">método aplicado com disciplina</span>.
                             </p>
 
                             {/* Subtexto */}

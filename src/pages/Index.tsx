@@ -3,6 +3,7 @@ import { HeaderSection } from "@/components/sections/HeaderSection";
 import { Testimonials } from "@/components/sections/ResultsSection";
 import { BeforeAfterSection } from "@/components/sections/BeforeAfterSection";
 import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
+import { PotencialRealSection } from "@/components/sections/PotencialRealSection";
 import { CTA } from "@/components/sections/CTA";
 import { QuestionsSection } from "@/components/sections/QuestionsSection";
 import { FooterSection } from "@/components/sections/FooterSection";
@@ -20,6 +21,7 @@ const Index = () => {
             <InvestmentCalculator />
             <AmateurVsProfessionalSection />
             <HowItWorksSection />
+            <PotencialRealSection />
             <BeforeAfterSection />
             <CTA />
             <About />
