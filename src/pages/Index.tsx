@@ -11,6 +11,7 @@ import { InvestmentCalculator } from "@/components/sections/InvestmentCalculator
 import { About } from "@/components/sections/About";
 import { UrgencyManager } from "@/components/UrgencyManager";
 import { ChallengeBanner } from "@/components/sections/ChallengeBanner";
+import { FloatingCTAButton } from "@/components/FloatingCTAButton";
 
 const Index = () => {
     return (
@@ -28,6 +29,7 @@ const Index = () => {
             <QuestionsSection />
             <FooterSection />
             <UrgencyManager />
+            <FloatingCTAButton />
         </div>
     );
 };

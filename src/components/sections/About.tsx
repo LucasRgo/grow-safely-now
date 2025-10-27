@@ -27,22 +27,25 @@ export function About() {
                         </h3>
                         <div className="space-y-4">
                             <p className="text-base md:text-lg font-medium text-foreground leading-relaxed">
-                                Perdi dinheiro por anos sem método, no impulso, com medo de perder mais.
+                                Por anos busquei resultados no mercado sem um método claro, com medo de perder
+                                dinheiro.
                             </p>
 
                             <p className="text-base md:text-lg font-semibold text-foreground leading-relaxed">
                                 Até entender:{" "}
                                 <span className="text-primary">
-                                    quem não tem protocolo está condenado a perder.
+                                quem não segue um protocolo validado está condenado ao fracasso.
                                 </span>
                             </p>
 
                             <p className="text-base md:text-lg text-foreground text-white font-bold">
-                                Grandes fundos usam estratégias matemáticas testadas há décadas. Eu traduzi essas estratégias para uma linguagem simples que qualquer pessoa pode aplicar.
+                                Grandes fundos usam estratégias matemáticas testadas há décadas. Eu traduzi essas
+                                estratégias para uma linguagem simples que qualquer pessoa pode aplicar.
                             </p>
 
                             <p className="text-base md:text-lg text-foreground leading-relaxed">
-                                O resultado: um protocolo que protege seu dinheiro e pode multiplicar em até <span className="font-bold text-primary">1500%</span> por operação.
+                                O resultado: um protocolo que protege seu dinheiro e multiplica ele por no mínimo{" "}
+                                <span className="font-bold text-primary">1.000%</span> - 10x mais o valor aplicado por operação.
                             </p>
                             <div className="bg-gradient-to-r from-success/10 via-success/15 to-success/20 border-l-4 border-success p-4 rounded-lg">
                                 <p className="text-lg md:text-xl font-bold text-foreground leading-relaxed">

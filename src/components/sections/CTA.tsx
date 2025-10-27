@@ -59,24 +59,32 @@ export const CTA = () => {
                                 </div>
                             </div>
 
-                            {/* Preço com halo luminoso */}
+                            {/* Preço parcelado com halo luminoso */}
                             <div className="flex justify-center">
                                 <div className="relative inline-block">
                                     {/* Halo esverdeado */}
                                     <div className="absolute inset-0 bg-gradient-radial from-success/30 via-success/10 to-transparent blur-3xl scale-150" />
 
-                                    <div className="relative">
+                                    <div className="relative flex items-start gap-1 md:gap-2">
                                         <div className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-heading font-black text-success tracking-tight leading-none">
                                             <span className="inline-block bg-gradient-to-br from-success via-success to-emerald-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(34,197,94,0.5)]">
-                                                R$ 97
+                                                R$ 8,08
                                             </span>
                                         </div>
+                                        <span className="text-xs md:text-sm lg:text-base text-success/70 font-medium mt-1 md:mt-2">
+                                            x12
+                                        </span>
                                     </div>
                                 </div>
                             </div>
+                            <div className="mt-3 md:mt-4">
+                                <p className="text-sm md:text-base lg:text-lg text-muted-foreground/70 font-medium">
+                                    ou <span className="text-success font-bold">R$ 97</span> à vista
+                                </p>
+                            </div>
 
-                            <p className="text-xs md:text-sm lg:text-base text-muted-foreground/80 font-medium px-2">
-                                Valor simbólico de entrada – acesso vitalício
+                            <p className="text-xs md:text-sm lg:text-base text-muted-foreground/80 font-medium px-2 mt-2">
+                                Acesso Vitalício por menos de 1 real por dia
                             </p>
                         </div>
 
@@ -132,7 +140,7 @@ export const CTA = () => {
                                 size="xl"
                                 className="w-full relative bg-gradient-to-br from-success via-success to-emerald-600 hover:from-emerald-600 hover:via-success hover:to-success shadow-[0_8px_30px_rgba(34,197,94,0.4)] hover:shadow-[0_12px_40px_rgba(34,197,94,0.6)] border-2 border-success/50 hover:border-success/80 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] rounded-xl md:rounded-2xl py-4 md:py-6 lg:py-8 text-sm md:text-lg lg:text-xl font-black tracking-wide">
                                 <span className="drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
-                                    QUERO MULTIPLICAR COM SEGURANÇA AGORA
+                                    QUERO APLICAR O PROTOCOLO AGORA
                                 </span>
                             </CTAButton>
                         </div>
@@ -146,7 +154,7 @@ export const CTA = () => {
                             </div>
                             <div className="text-left">
                                 <p className="text-success font-heading font-bold text-xs md:text-sm lg:text-base mb-0.5">
-                                    ✓ Garantia Antiperda de 7 dias
+                                    ✓ Garantia de 7 dias
                                 </p>
                                 <p className="text-muted-foreground text-[10px] md:text-xs lg:text-sm">
                                     Se não gostar, devolvemos 100% do seu dinheiro
@@ -156,7 +164,7 @@ export const CTA = () => {
                     </div>
                 </div>
             </div>
-            <SectionTransition text="Conheça quem criou este protocolo de multiplicação segura:" />
+            <SectionTransition text="Conheça quem criou o protocolo de multiplicação anti-perda:" />
         </section>
     );
 };
