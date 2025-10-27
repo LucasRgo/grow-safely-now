@@ -21,18 +21,20 @@ export const HowItWorksSection = () => {
             icon: Zap,
             title: "Execute com exemplos práticos",
             description:
-                "Coloque o Protocolo em ação imediatamente. Multiplique seu capital com total controle e saiba exatamente o que fazer em cada momento.",
+                "Nada de teoria complicada. As aulas são diretas, práticas e gravadas no mercado real. Mesmo quem nunca operou consegue seguir, aplicar e multiplicar o capital com confiança.",
         },
         {
             icon: Users,
             title: "Acesse o Grupo VIP",
             description:
-                "Receba sinais exclusivos direto no WhatsApp em tempo real. Reinvista seus lucros com estratégia inteligente e acelere rumo a metas maiores.",
+                "Receba atualizações e notícias em primeira mão no Grupo VIP de alunos. Saiba exatamente o que fazer em cada momento. e turbine seus resultados.",
         },
     ];
 
     return (
-        <section id="como-funciona" className="py-8 md:py-16 bg-gradient-to-br from-blue-950/20 via-background to-cyan-950/20 relative overflow-hidden">
+        <section
+            id="como-funciona"
+            className="py-8 md:py-16 bg-gradient-to-br from-blue-950/20 via-background to-cyan-950/20 relative overflow-hidden">
             <div className="container mx-auto px-4 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -84,7 +86,7 @@ export const HowItWorksSection = () => {
                     ))}
                 </div>
             </div>
-            <SectionTransition text="Agora que sabe como funciona, não perca tempo e comece a operar como os grandes:" />
+            <SectionTransition text="Agora que sabe como funciona, não perca tempo e começe a lucrar com as operações:" />
         </section>
     );
 };

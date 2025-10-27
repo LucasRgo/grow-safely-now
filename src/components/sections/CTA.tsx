@@ -120,7 +120,7 @@ export const CTA = () => {
                             <div className="card-premium p-3 md:p-4 border-success/30 rounded-2xl shadow-lg shadow-success/5 text-center">
                                 <Award className="h-6 w-6 md:h-8 md:w-8 text-success mx-auto mb-2 drop-shadow-[0_0_8px_rgba(34,197,94,0.4)]" />
                                 <p className="text-foreground font-heading font-semibold text-xs md:text-sm">
-                                    Passo a Passo
+                                    Passo a Passo Válido
                                 </p>
                             </div>
                         </div>
