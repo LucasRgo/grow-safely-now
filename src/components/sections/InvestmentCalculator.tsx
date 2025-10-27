@@ -4,12 +4,12 @@ import { useState } from "react";
 import { SectionTransition } from "@/components/sections/SectionTransition";
 
 export function InvestmentCalculator() {
-    const [investmentValue, setInvestmentValue] = useState<string>("1000");
+    const [investmentValue, setInvestmentValue] = useState<string>("100");
 
     // Calcula o retorno de 1500% (multiplicar por 16)
     const calculateReturn = (value: string) => {
         const numValue = parseFloat(value) || 0;
-        return numValue * 15;
+        return numValue * 10;
     };
 
     const handleInvestmentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,7 +20,7 @@ export function InvestmentCalculator() {
         <section className="py-8 md:py-16 px-4 overflow-hidden bg-gradient-to-br from-blue-950/30 via-background to-blue-900/20">
             <div className="w-full max-w-4xl mx-auto">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4 glow-blue text-center">
-                    Quanto você poderia estar ganhando agora?
+                    Simulador de lucro por operação
                 </h2>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -32,7 +32,7 @@ export function InvestmentCalculator() {
                         {/* Texto e Input */}
                         <div className="flex flex-wrap items-center justify-center gap-2 text-base sm:text-lg font-semibold p-4">
                             <label htmlFor="investment-input" className="text-foreground mb-4">
-                                Se você tivesse investido
+                                Se você aplicar
                             </label>
                             <div className="relative group">
                                 <span
@@ -58,7 +58,9 @@ export function InvestmentCalculator() {
                                     />
                                 </div>
                             </div>
-                            <span className="text-foreground mb-4">com nosso protocolo, teria obtido:</span>
+                            <span className="text-foreground mb-4 text-center">
+                                em UMA operação, consegue transformar em:
+                            </span>
                         </div>
 
                         {/* Resultado */}
@@ -84,16 +86,17 @@ export function InvestmentCalculator() {
                                         currency: "BRL",
                                     })}
                                 </span>{" "}
-                                (1500%)
+                                (1000%)
                             </p>
                             <p className="text-sm sm:text-base text-foreground/80 mt-3 font-medium px-2 italic">
-                                Este é o retorno médio de quem seguiu o protocolo completo a risca.
+                                Retorno mínimo de 10x o valor aplicado por operação pra quem segue o
+                                protocolo a risca.
                             </p>
                         </div>
                     </div>
                 </motion.div>
             </div>
-            <SectionTransition text="Agora que você calculou seu potencial, veja como o protocolo funciona na prática:" />
+            <SectionTransition text="Agora que você calculou seu potencial, veja a prova real de que o método funciona:" />
         </section>
     );
 }

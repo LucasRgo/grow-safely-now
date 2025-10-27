@@ -85,7 +85,7 @@ export const Testimonials = () => {
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12 md:mb-16">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4 glow-blue">
-                        Veja o que alunos comuns estão conquistando
+                        Veja o que pessoas comuns estão conquistando
                     </h2>
                     <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
                         Resultados reais de pessoas que aplicaram o protocolo
@@ -149,8 +149,8 @@ export const Testimonials = () => {
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
-                        <CarouselPrevious className="hidden md:flex -left-12" />
-                        <CarouselNext className="hidden md:flex -right-12" />
+                        <CarouselPrevious className="flex -left-4 md:-left-12" />
+                        <CarouselNext className="flex -right-4 md:-right-12" />
                     </Carousel>
 
                     {/* Indicadores para mobile */}

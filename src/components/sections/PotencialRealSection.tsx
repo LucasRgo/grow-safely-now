@@ -207,10 +207,10 @@ export const PotencialRealSection = () => {
                                 <div>
                                     <p className="text-base md:text-lg text-foreground leading-relaxed">
                                         <span className="font-semibold text-[hsl(var(--blue-accent))]">
-                                            Esses são os potenciais reais.
+                                            Esses são os resultados reais.
                                         </span>{" "}
                                         O Protocolo Antiperda garante que, quando o mercado não favorece, você sai
-                                        no zero, sem perdas!
+                                        no zero a zero, sem perdas!
                                     </p>
                                 </div>
                             </div>
@@ -218,7 +218,7 @@ export const PotencialRealSection = () => {
                     </motion.div>
                 </motion.div>
             </div>
-            <SectionTransition text="Agora que você viu o poder real, entenda como o protocolo funciona na prática:" />
+            <SectionTransition text="Agora que você viu que é real, veja os benefícios de quem segue o protocolo:" />
         </section>
     );
 };
