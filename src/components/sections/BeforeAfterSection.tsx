@@ -47,7 +47,7 @@ export const BeforeAfterSection = () => {
     ];
 
     return (
-        <section className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-b md:bg-gradient-to-r from-red-950 via-slate-900 to-green-950">
+        <section className="py-8 md:py-16 relative overflow-hidden bg-gradient-to-b md:bg-gradient-to-r from-red-950 via-slate-900 to-green-950">
             {/* Overlay para suavizar o gradient */}
             <div className="absolute inset-0 bg-black/20"></div>
 

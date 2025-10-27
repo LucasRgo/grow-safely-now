@@ -32,7 +32,7 @@ export const HowItWorksSection = () => {
     ];
 
     return (
-        <section id="como-funciona" className="py-16 md:py-24 bg-gradient-to-br from-blue-950/20 via-background to-cyan-950/20 relative overflow-hidden">
+        <section id="como-funciona" className="py-8 md:py-16 bg-gradient-to-br from-blue-950/20 via-background to-cyan-950/20 relative overflow-hidden">
             <div className="container mx-auto px-4 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

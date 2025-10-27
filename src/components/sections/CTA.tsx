@@ -17,7 +17,7 @@ export const CTA = () => {
     const spotsLeft = isExpired ? MIN_SPOTS : Math.max(MIN_SPOTS, Math.round(MIN_SPOTS + ratio * spotsRange));
 
     return (
-        <section id="oferta" className="py-16 md:py-24 gradient-primary relative overflow-hidden">
+        <section id="oferta" className="py-8 md:py-16 gradient-primary relative overflow-hidden">
             {/* Background decoration - more organic curves */}
             <div className="absolute inset-0 opacity-5">
                 <div className="absolute top-20 left-10 w-32 h-32 border-4 border-success rounded-full blur-sm" />

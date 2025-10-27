@@ -3,7 +3,7 @@ import { SectionTransition } from "@/components/sections/SectionTransition";
 
 export const ChallengeBanner = () => {
     return (
-        <section className="py-16 md:py-24 bg-gradient-to-br from-success/5 via-background to-success/10">
+        <section className="py-8 md:py-16 bg-gradient-to-br from-success/5 via-background to-success/10">
             <div className="max-w-4xl mx-auto px-4">
                 <Card className="p-8 md:p-10 bg-gradient-to-br from-success/10 via-success/5 to-transparent border-2 border-success/30 shadow-2xl shadow-success/20 relative overflow-hidden">
                 {/* Background decoration */}

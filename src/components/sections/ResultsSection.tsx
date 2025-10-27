@@ -75,7 +75,7 @@ export const Testimonials = () => {
     return (
         <section
             id="resultados"
-            className="py-16 md:py-24 bg-gradient-to-b from-[#0a0a0a] via-[#1a1a1a] to-[#0a0a0a] relative overflow-hidden">
+            className="py-8 md:py-16 bg-gradient-to-b from-[#0a0a0a] via-[#1a1a1a] to-[#0a0a0a] relative overflow-hidden">
             {/* Background texture overlay */}
             <div className="absolute inset-0 opacity-5">
                 <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />

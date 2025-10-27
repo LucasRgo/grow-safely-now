@@ -29,7 +29,7 @@ export const HeaderSection = () => {
                 />
             </div>
 
-            <div className="w-full px-4 sm:px-6 lg:px-12 xl:px-16 py-12 md:py-16 relative z-10">
+            <div className="w-full px-4 sm:px-6 lg:px-12 xl:px-16 py-8 md:py-16 relative z-10">
                 <div className="w-full">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
                         {/* Coluna da esquerda - Texto */}

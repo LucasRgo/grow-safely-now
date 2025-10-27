@@ -17,7 +17,7 @@ export function InvestmentCalculator() {
     };
 
     return (
-        <section className="py-16 md:py-24 px-4 overflow-hidden bg-gradient-to-br from-blue-950/30 via-background to-blue-900/20">
+        <section className="py-8 md:py-16 px-4 overflow-hidden bg-gradient-to-br from-blue-950/30 via-background to-blue-900/20">
             <div className="w-full max-w-4xl mx-auto">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4 glow-blue text-center">
                     Quanto você poderia estar ganhando agora?
