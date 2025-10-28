@@ -84,10 +84,10 @@ export const PotencialRealSection = () => {
                     className="mt-16 md:mt-24">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4 glow-blue">
-                            O Potencial Real de Multiplicação
+                            Os resultados reais de Multiplicação
                         </h2>
                         <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-                            Exemplos práticos do potêncial real de CADA operação
+                            Exemplos práticos dos resultados reais de CADA operação
                         </p>
                     </div>
 
@@ -209,7 +209,7 @@ export const PotencialRealSection = () => {
                                         <span className="font-semibold text-[hsl(var(--blue-accent))]">
                                             Esses são os resultados reais.
                                         </span>{" "}
-                                        O Protocolo Antiperda garante que, quando o mercado não favorece, você sai
+                                        O Protocolo Anti-perda garante que, quando o mercado não favorece, você sai
                                         no zero a zero, sem perdas!
                                     </p>
                                 </div>

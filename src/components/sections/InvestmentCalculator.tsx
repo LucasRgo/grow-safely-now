@@ -6,7 +6,7 @@ import { SectionTransition } from "@/components/sections/SectionTransition";
 export function InvestmentCalculator() {
     const [investmentValue, setInvestmentValue] = useState<string>("100");
 
-    // Calcula o retorno de 1500% (multiplicar por 16)
+    // Calcula o retorno de 1.500% (multiplicar por 16)
     const calculateReturn = (value: string) => {
         const numValue = parseFloat(value) || 0;
         return numValue * 10;
@@ -86,7 +86,7 @@ export function InvestmentCalculator() {
                                         currency: "BRL",
                                     })}
                                 </span>{" "}
-                                (1000%)
+                                (1.000%)
                             </p>
                             <p className="text-sm sm:text-base text-foreground/80 mt-3 font-medium px-2 italic">
                                 Retorno mínimo de 10x o valor aplicado por operação pra quem segue o

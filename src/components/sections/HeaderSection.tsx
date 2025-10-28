@@ -42,7 +42,7 @@ export const HeaderSection = () => {
 
                             {/* Subheadline */}
                             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-6 md:mb-8 leading-relaxed text-center lg:text-end max-w-2xl lg:ml-auto">
-                                Lucro de mais de <span className="font-semibold text-success">1000%</span> por
+                                Lucro de mais de <span className="font-semibold text-success">1.000%</span> por
                                 operação. E o mais importante: você{" "}
                                 <span className="font-semibold text-success">não perde dinheiro</span>.
                             </p>
@@ -59,14 +59,14 @@ export const HeaderSection = () => {
                                     <div className="flex items-center gap-2 group">
                                         <CheckCircle2 className="w-4 h-4 text-success drop-shadow-[0_0_6px_rgba(34,197,94,0.5)] group-hover:drop-shadow-[0_0_10px_rgba(34,197,94,0.8)] transition-all flex-shrink-0" />
                                         <span className="text-xs md:text-sm font-medium text-foreground whitespace-nowrap">
-                                            Estratégia antiperda
+                                            Estratégia anti-perda
                                         </span>
                                     </div>
 
                                     <div className="flex items-center gap-2 group">
                                         <CheckCircle2 className="w-4 h-4 text-success drop-shadow-[0_0_6px_rgba(34,197,94,0.5)] group-hover:drop-shadow-[0_0_10px_rgba(34,197,94,0.8)] transition-all flex-shrink-0" />
                                         <span className="text-xs md:text-sm font-medium text-foreground whitespace-nowrap">
-                                            Usado por grandes fundos, simplificado para você
+                                            Usado por grandes empresas, simplificado para você
                                         </span>
                                     </div>
 

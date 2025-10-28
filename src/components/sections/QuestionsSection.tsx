@@ -26,7 +26,7 @@ export const QuestionsSection = () => {
         },
         {
             question: "Existe risco de perda?",
-            answer: "O Protocolo Antiperda foi criado justamente para minimizar riscos. Ensinamos técnicas de proteção e gestão que reduzem drasticamente as chances de perda.",
+            answer: "O Protocolo Anti-perda foi criado justamente para minimizar riscos. Ensinamos técnicas de proteção e gestão que reduzem drasticamente as chances de perda.",
         },
         {
             question: "Posso tirar dúvidas durante o processo?",

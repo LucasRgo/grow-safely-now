@@ -40,7 +40,7 @@ export const Testimonials = () => {
         },
         {
             name: "Maria Santos",
-            result: "+1200% em 60 dias",
+            result: "+1.200% em 60 dias",
             quote: "Eu era completamente leiga. Hoje tenho uma renda extra sólida e confiável.",
             icon: CheckCircle,
             role: "Leiga em investimentos",

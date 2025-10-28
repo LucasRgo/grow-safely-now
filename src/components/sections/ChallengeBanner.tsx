@@ -30,7 +30,7 @@ export const ChallengeBanner = () => {
                     <p className="text-lg md:text-xl text-center text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
                         Seguindo o{" "}
                         <span className="font-semibold text-foreground">
-                            Protocolo de Multiplicação Antiperda
+                            Protocolo de Multiplicação Anti-perda
                         </span>
                         , esta é a meta que traçamos para você. Não é sorte, é{" "}
                         <span className="font-semibold text-success">método aplicado com disciplina</span>.

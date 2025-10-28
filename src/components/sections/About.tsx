@@ -17,7 +17,7 @@ export function About() {
                         <div>
                             <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-4 leading-tight text-foreground">
                                 Quem está por trás do{" "}
-                                <span className="text-blue-400">PROTOCOLO MULTIPLICAÇÃO ANTIPERDA?</span>
+                                <span className="text-blue-400">PROTOCOLO MULTIPLICAÇÃO ANTI-PERDA?</span>
                             </h2>
                             <div className="w-20 h-1 bg-primary/50 mb-6"></div>
                         </div>
