@@ -150,7 +150,7 @@ export function UrgencyManager() {
 
     return (
         <>
-            {/* Non-blocking, transparent-overlay dialogs for time warnings */}
+            {/* 1° Aviso de Oferta Expirada */}
             <Dialog open={firstWarningOpen} onOpenChange={setFirstWarningOpen} modal={false}>
                 <DialogContent
                     overlayClassName="bg-transparent pointer-events-none"
@@ -181,6 +181,7 @@ export function UrgencyManager() {
                 </DialogContent>
             </Dialog>
 
+            {/* 2° Aviso de Oferta Expirada */}
             <Dialog open={secondWarningOpen} onOpenChange={setSecondWarningOpen} modal={false}>
                 <DialogContent
                     overlayClassName="bg-transparent pointer-events-none"
@@ -212,7 +213,7 @@ export function UrgencyManager() {
                     </div>
                 </DialogContent>
             </Dialog>
-
+            {/* 3° Aviso de Oferta Expirada */}
             <Dialog open={lastChanceOpen} onOpenChange={setLastChanceOpen} modal={false}>
                 <DialogContent
                     overlayClassName="bg-transparent pointer-events-none"
@@ -244,11 +245,10 @@ export function UrgencyManager() {
                     </div>
                 </DialogContent>
             </Dialog>
-            {/* Offer Expired Modal */}
+            {/* Aviso Final de Oferta Expirada */}
             <Dialog
                 open={offerClosedOpen}
                 onOpenChange={(open) => {
-                    // Ignore external attempts to close (overlay click / ESC)
                     if (open) {
                         setOfferClosedOpen(true);
                     }

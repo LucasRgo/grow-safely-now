@@ -29,7 +29,7 @@ export const FloatingCTAButton = () => {
     if (!isVisible) return null;
 
     return (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 animate-in fade-in slide-in-from-bottom-4 duration-500">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 md:left-auto md:right-6 md:-translate-x-0 z-50 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="relative group">
                 {/* Glow effect */}
                 <div className="absolute -inset-2 bg-gradient-to-r from-success via-emerald-500 to-success rounded-full opacity-40 group-hover:opacity-60 blur-xl transition-all duration-300 animate-pulse-slow" />

@@ -9,7 +9,7 @@ export const BeforeAfterSection = () => {
             icon: Building2,
             title: "Estratégia baseada em protocolos validados",
             description:
-                "Segue o mesmo modelo usado por fundos e corporações globais, adaptado para linguagem simples e execução prática.",
+                "Segue o mesmo modelo usado por grandes empresas e investidores de alto nível, adaptado para linguagem simples e execução prática.",
         },
         {
             icon: Shield,
@@ -41,7 +41,7 @@ export const BeforeAfterSection = () => {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-12 md:mb-16">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-4 glow-blue">
-                        O Operador Profissional: Método Validado por Grandes Empresas
+                        O Método Validado por Grandes Empresas
                     </h2>
                 </motion.div>
 

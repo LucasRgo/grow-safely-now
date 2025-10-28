@@ -17,7 +17,7 @@ export function About() {
                         <div>
                             <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-4 leading-tight text-foreground">
                                 Quem está por trás do{" "}
-                                <span className="text-primary">PROTOCOLO MULTIPLICAÇÃO ANTIPERDA?</span>
+                                <span className="text-blue-400">PROTOCOLO MULTIPLICAÇÃO ANTIPERDA?</span>
                             </h2>
                             <div className="w-20 h-1 bg-primary/50 mb-6"></div>
                         </div>
@@ -33,7 +33,7 @@ export function About() {
 
                             <p className="text-base md:text-lg font-semibold text-foreground leading-relaxed">
                                 Até entender:{" "}
-                                <span className="text-primary">
+                                <span className="text-blue-400">
                                 quem não segue um protocolo validado está condenado ao fracasso.
                                 </span>
                             </p>
@@ -45,12 +45,12 @@ export function About() {
 
                             <p className="text-base md:text-lg text-foreground leading-relaxed">
                                 O resultado: um protocolo que protege seu dinheiro e multiplica ele por no mínimo{" "}
-                                <span className="font-bold text-primary">1.000%</span> - 10x mais o valor aplicado por operação.
+                                <span className="font-bold text-blue-400">1.000%</span> - 10x mais o valor aplicado por operação.
                             </p>
                             <div className="bg-gradient-to-r from-success/10 via-success/15 to-success/20 border-l-4 border-success p-4 rounded-lg">
                                 <p className="text-lg md:text-xl font-bold text-foreground leading-relaxed">
                                     Cansei de ver pessoas queimando capital por falta de método.{" "}
-                                    <span className="text-blue-400">
+                                    <span className="text-blue-300">
                                         Agora você tem acesso ao que os grandes players usam, sem complicação.
                                     </span>
                                 </p>

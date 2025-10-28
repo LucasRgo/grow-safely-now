@@ -73,7 +73,7 @@ export const HeaderSection = () => {
                                     <div className="flex items-center gap-2 group">
                                         <CheckCircle2 className="w-4 h-4 text-success drop-shadow-[0_0_6px_rgba(34,197,94,0.5)] group-hover:drop-shadow-[0_0_10px_rgba(34,197,94,0.8)] transition-all flex-shrink-0" />
                                         <span className="text-xs md:text-sm font-medium text-foreground whitespace-nowrap">
-                                            Feito Para Qualquer Pessoa Aplicar
+                                            Feito para qualquer pessoa aplicar
                                         </span>
                                     </div>
 
