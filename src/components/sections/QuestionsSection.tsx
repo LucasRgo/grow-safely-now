@@ -6,11 +6,11 @@ export const QuestionsSection = () => {
     const faqs = [
         {
             question: "Preciso ter experiência prévia em investimentos?",
-            answer: "Não! O Protocolo foi desenvolvido especialmente para iniciantes. Tudo é explicado passo a passo, sem jargões técnicos ou complicações.",
+            answer: "Não! O Protocolo foi desenvolvido para QUALQUER PESSOA poder aplicar. Tudo é explicado passo a passo, sem jargões técnicos ou complicações.",
         },
         {
             question: "Quanto preciso investir para começar?",
-            answer: "Você pode começar com valores baixos para testar. Muitos alunos iniciaram com apenas R$ 100 e aumentaram gradualmente conforme ganharam confiança.",
+            answer: "Você pode começar com valores baixos para testar. Muitos alunos iniciam com apenas R$ 50 e aumentam gradualmente conforme ganham confiança.",
         },
         {
             question: "Quanto tempo leva para ver resultados?",
@@ -22,11 +22,7 @@ export const QuestionsSection = () => {
         },
         {
             question: "E se eu não tiver tempo durante o dia?",
-            answer: "O protocolo foi desenhado para pessoas ocupadas. Você precisa de apenas 15-30 minutos por dia para aplicar as estratégias.",
-        },
-        {
-            question: "Existe risco de perda?",
-            answer: "O Protocolo Anti-perda foi criado justamente para minimizar riscos. Ensinamos técnicas de proteção e gestão que reduzem drasticamente as chances de perda.",
+            answer: "O protocolo foi desenhado pra te trazer liberdade. Você precisa de apenas 10 minutos por dia para aplicar as estratégias.",
         },
         {
             question: "Posso tirar dúvidas durante o processo?",

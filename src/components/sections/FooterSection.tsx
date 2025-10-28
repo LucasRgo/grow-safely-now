@@ -11,7 +11,7 @@ export const FooterSection = () => {
                             Termos de Uso
                         </a>
                         <a href="#" className="text-muted-foreground hover:text-success transition-colors">
-                            Política de Privacidade
+                            Política de Privacidade E termos de uso
                         </a>
                         <a href="mailto:contato.r7investimentos@gmail.com" className="text-muted-foreground hover:text-[hsl(var(--blue-accent))] transition-colors">
                             Contato
