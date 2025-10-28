@@ -76,7 +76,7 @@ export function InvestmentCalculator() {
                                 <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-success animate-pulse flex-shrink-0" />
                             </div>
                             <p className="text-xs sm:text-sm md:text-base text-muted-foreground mt-2 font-medium px-2">
-                                🚀 Retorno de{" "}
+                                🚀 Lucro de{" "}
                                 <span className="text-success font-bold whitespace-nowrap">
                                     +
                                     {(
@@ -89,7 +89,7 @@ export function InvestmentCalculator() {
                                 (1.000%)
                             </p>
                             <p className="text-sm sm:text-base text-foreground/80 mt-3 font-medium px-2 italic">
-                                Retorno mínimo de 10x o valor aplicado por operação pra quem segue o
+                                Lucro mínimo de 10x o valor aplicado por operação pra quem segue o
                                 protocolo a risca.
                             </p>
                         </div>

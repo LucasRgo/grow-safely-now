@@ -4,7 +4,7 @@ export const FooterSection = () => {
             <div className="container mx-auto px-4">
                 <div className="text-center">
                     <p className="text-muted-foreground mb-4 text-xs md:text-sm">
-                        © 2025 Protocolo de Multiplicação Anti-perda. Todos os direitos reservados.
+                        © 2025: Protocolo de Multiplicação Anti-perda. Todos os direitos reservados.
                     </p>
                     <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-6 text-xs md:text-sm">
                         <a href="#" className="text-muted-foreground hover:text-[hsl(var(--blue-accent))] transition-colors">
@@ -13,7 +13,7 @@ export const FooterSection = () => {
                         <a href="#" className="text-muted-foreground hover:text-success transition-colors">
                             Política de Privacidade
                         </a>
-                        <a href="#" className="text-muted-foreground hover:text-[hsl(var(--blue-accent))] transition-colors">
+                        <a href="mailto:contato.r7investimentos@gmail.com" className="text-muted-foreground hover:text-[hsl(var(--blue-accent))] transition-colors">
                             Contato
                         </a>
                     </div>

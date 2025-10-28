@@ -37,7 +37,7 @@ export const CTA = () => {
                         </div>
 
                         <h2 className="text-xl md:text-3xl lg:text-5xl font-heading font-bold text-foreground mb-3 md:mb-4 leading-tight px-3 md:px-4 opacity-95">
-                            UMA ÚNICA OPERAÇÃO CERTA JÁ PAGA O INVESTIMENTO.
+                            UMA ÚNICA OPERAÇÃO JÁ PAGA O INVESTIMENTO.
                         </h2>
                         <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-muted-foreground font-heading font-medium max-w-3xl mx-auto px-3 md:px-4 opacity-90">
                             O método literalmente se paga sozinho.

@@ -208,7 +208,7 @@ export function UrgencyManager() {
                             variant="destructive"
                             className="text-sm w-full"
                             onClick={() => setSecondWarningOpen(false)}>
-                            Deixar Passar
+                            Continuar vendo
                         </Button>
                     </div>
                 </DialogContent>
@@ -240,7 +240,7 @@ export function UrgencyManager() {
                             variant="destructive"
                             className="text-sm w-full"
                             onClick={() => setLastChanceOpen(false)}>
-                            Perder desconto
+                            Continuar vendo
                         </Button>
                     </div>
                 </DialogContent>

@@ -97,6 +97,9 @@ export const HeaderSection = () => {
                                             </span>
                                         </div>
                                     </div>
+                                        <p className="text-xs md:text-sm font-medium text-foreground whitespace-nowrap text-center">
+                                            O método literalmente se paga sozinho
+                                        </p>
                                 </div>
                             </div>
                         </div>
