@@ -25,8 +25,12 @@ export const QuestionsSection = () => {
             answer: "O protocolo foi desenhado pra te trazer liberdade. Você precisa de apenas 10 minutos por dia para aplicar as estratégias.",
         },
         {
+            question: "Existe risco de perda?",
+            answer: "O Protocolo Antiperda foi criado exatamente para eliminar o risco nas operações. Ensinamos técnicas de proteção e gestão que, quando seguidas à risca, permitem encerrar uma operação ruim no zero a zero.Em outras palavras: sem lucro, mas também sem prejuízo.",
+        },
+        {
             question: "Posso tirar dúvidas durante o processo?",
-            answer: "Sim! Você terá acesso ao grupo fechado VIP onde pode tirar dúvidas diretamente com outros alunos e receber suporte contínuo.",
+            answer: "Sim! Em caso de dúvidas você pode entrar em contato com nosso time de suporte no WhatsApp.",
         },
         {
             question: "Há alguma garantia?",
