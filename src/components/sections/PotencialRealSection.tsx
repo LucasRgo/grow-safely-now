@@ -189,7 +189,10 @@ export const PotencialRealSection = () => {
                                         }`}
                                         onClick={() => api?.scrollTo(index)}
                                         aria-label={`Ir para slide ${index + 1} de ${count}`}
-                                    />
+                                        title={`Slide ${index + 1} de ${count}`}
+                                    >
+                                        <span className="sr-only">Ir para slide {index + 1} de {count}</span>
+                                    </button>
                                 ))}
                             </div>
                         </div>
