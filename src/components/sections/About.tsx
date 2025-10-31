@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import { SectionTransition } from "@/components/sections/SectionTransition";
+import teamPhoto from "@/assets/images/5.webp";
 
 export function About() {
     return (
@@ -66,7 +67,7 @@ export function About() {
                         transition={{ duration: 0.6 }}
                         className="relative flex items-end justify-center">
                         <img
-                            src="/5.webp"
+                            src={teamPhoto}
                             alt="Renan Freitas - Fundador R7 Investimentos"
                             className="w-full h-auto object-contain max-w-lg"
                         />

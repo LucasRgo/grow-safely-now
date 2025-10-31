@@ -12,7 +12,7 @@ All colors MUST be HSL.
         font-style: normal;
         font-weight: 400;
         font-display: swap;
-        src: url("/fonts/OpenSans-Regular-400.woff2") format("woff2");
+        src: url("./assets/fonts/OpenSans-Regular-400.woff2") format("woff2");
     }
 
     @font-face {
@@ -20,7 +20,7 @@ All colors MUST be HSL.
         font-style: normal;
         font-weight: 500;
         font-display: swap;
-        src: url("/fonts/Poppins-Medium-500.woff2") format("woff2");
+        src: url("./assets/fonts/Poppins-Medium-500.woff2") format("woff2");
     }
 
     @font-face {
@@ -28,7 +28,7 @@ All colors MUST be HSL.
         font-style: normal;
         font-weight: 600;
         font-display: swap;
-        src: url("/fonts/Poppins-SemiBold-600.woff2") format("woff2");
+        src: url("./assets/fonts/Poppins-SemiBold-600.woff2") format("woff2");
     }
 
     @font-face {
@@ -36,7 +36,7 @@ All colors MUST be HSL.
         font-style: normal;
         font-weight: 700;
         font-display: swap;
-        src: url("/fonts/Poppins-Bold-700.woff2") format("woff2");
+        src: url("./assets/fonts/Poppins-Bold-700.woff2") format("woff2");
     }
 }
 
