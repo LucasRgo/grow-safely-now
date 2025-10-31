@@ -167,13 +167,13 @@ export function UrgencyManager() {
                         </DialogDescription>
                     </DialogHeader>
                     <div className="flex flex-col gap-2 w-[95%] mx-auto">
-                        <Button size="sm" className="font-semibold w-full bg-green-600 hover:bg-green-700 text-white" onClick={handleCheckout}>
+                        <Button size="sm" className="font-semibold w-full bg-green-600 hover:bg-green-700 text-white min-h-[44px]" onClick={handleCheckout}>
                             Garantir preço promocional
                         </Button>
                         <Button
                             size="sm"
                             variant="destructive"
-                            className="w-full"
+                            className="w-full min-h-[44px]"
                             onClick={() => setFirstWarningOpen(false)}>
                             Continuar vendo
                         </Button>
@@ -200,13 +200,13 @@ export function UrgencyManager() {
                         </DialogDescription>
                     </DialogHeader>
                     <div className="flex flex-col gap-2 w-[95%] mx-auto">
-                        <Button size="sm" className="font-semibold text-sm w-full bg-green-600 hover:bg-green-700 text-white" onClick={handleCheckout}>
+                        <Button size="sm" className="font-semibold text-sm w-full bg-green-600 hover:bg-green-700 text-white min-h-[44px]" onClick={handleCheckout}>
                             Garantir desconto agora
                         </Button>
                         <Button
                             size="sm"
                             variant="destructive"
-                            className="text-sm w-full"
+                            className="text-sm w-full min-h-[44px]"
                             onClick={() => setSecondWarningOpen(false)}>
                             Continuar vendo
                         </Button>
@@ -232,13 +232,13 @@ export function UrgencyManager() {
                         </DialogDescription>
                     </DialogHeader>
                     <div className="flex flex-col gap-2 w-[95%] mx-auto">
-                        <Button size="sm" className="font-semibold text-sm w-full bg-green-600 hover:bg-green-700 text-white" onClick={handleCheckout}>
+                        <Button size="sm" className="font-semibold text-sm w-full bg-green-600 hover:bg-green-700 text-white min-h-[44px]" onClick={handleCheckout}>
                             GARANTIR AGORA!
                         </Button>
                         <Button
                             size="sm"
                             variant="destructive"
-                            className="text-sm w-full"
+                            className="text-sm w-full min-h-[44px]"
                             onClick={() => setLastChanceOpen(false)}>
                             Continuar vendo
                         </Button>

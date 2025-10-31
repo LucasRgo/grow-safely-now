@@ -188,6 +188,7 @@ export const PotencialRealSection = () => {
                                                 : "bg-[hsl(var(--blue-accent))]/40 border-[hsl(var(--blue-accent))]/60 hover:bg-[hsl(var(--blue-accent))]/60"
                                         }`}
                                         onClick={() => api?.scrollTo(index)}
+                                        aria-label={`Ir para slide ${index + 1} de ${count}`}
                                     />
                                 ))}
                             </div>

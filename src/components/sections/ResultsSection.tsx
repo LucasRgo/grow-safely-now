@@ -165,6 +165,7 @@ export const Testimonials = () => {
                                             : "bg-success/40 border-success/60 hover:bg-success/60"
                                     }`}
                                     onClick={() => api?.scrollTo(index)}
+                                    aria-label={`Ir para slide ${index + 1} de ${count}`}
                                 />
                             ))}
                         </div>
