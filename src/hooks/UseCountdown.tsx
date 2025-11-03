@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 
-export const COUNTDOWN_DURATION = 15 * 60 * 1000; // 10 minutes in milliseconds
-export const REOPEN_DELAY = 5 * 60 * 1000; // wait 5 minutes at full price before reopening offer
+export const COUNTDOWN_DURATION = 15 * 60 * 1000; // 15 minutes in milliseconds
+export const REOPEN_DELAY = 3 * 60 * 1000; // wait 3 minutes at full price before reopening offer
 export const STORAGE_KEY = "countdown_end_time";
 export const REOPEN_AT_KEY = "countdown_reopen_at";
 
@@ -18,7 +18,26 @@ const ensureEndTime = (): number => {
 
     const stored = window.localStorage.getItem(STORAGE_KEY);
     if (stored) {
-        return parseInt(stored, 10);
+        const storedTime = parseInt(stored, 10);
+
+        if (!Number.isFinite(storedTime)) {
+            const nextEnd = now() + COUNTDOWN_DURATION;
+            window.localStorage.setItem(STORAGE_KEY, nextEnd.toString());
+            clearReopen();
+            return nextEnd;
+        }
+
+        const current = now();
+        const reopenDeadline = storedTime + REOPEN_DELAY;
+
+        if (current >= reopenDeadline) {
+            const nextEnd = current + COUNTDOWN_DURATION;
+            window.localStorage.setItem(STORAGE_KEY, nextEnd.toString());
+            clearReopen();
+            return nextEnd;
+        }
+
+        return storedTime;
     }
 
     const nextEnd = now() + COUNTDOWN_DURATION;

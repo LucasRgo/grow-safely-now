@@ -19,9 +19,10 @@ type VideoIframeProps = {
     iframeId: string;
     aspectRatio: number;
     title: string;
+    isDragging?: boolean;
 };
 
-const VideoIframe = ({ embedId, iframeId, aspectRatio, title }: VideoIframeProps) => {
+const VideoIframe = ({ embedId, iframeId, aspectRatio, title, isDragging = false }: VideoIframeProps) => {
     const iframeRef = useRef<HTMLIFrameElement>(null);
     const wrapperRef = useRef<HTMLDivElement>(null);
     const [shouldLoad, setShouldLoad] = useState(false);
@@ -109,7 +110,14 @@ const VideoIframe = ({ embedId, iframeId, aspectRatio, title }: VideoIframeProps
                     frameBorder={0}
                     referrerPolicy="origin"
                     src="about:blank"
-                    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                    style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                        pointerEvents: isDragging ? "none" : "auto",
+                    }}
                 />
             </div>
         </div>
@@ -120,6 +128,8 @@ export const Testimonials = () => {
     const [api, setApi] = useState<CarouselApi>();
     const [current, setCurrent] = useState(0);
     const [count, setCount] = useState(0);
+    const [isDragging, setIsDragging] = useState(false);
+    const carouselRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         if (!api) {
@@ -133,6 +143,70 @@ export const Testimonials = () => {
             setCurrent(api.selectedScrollSnap() + 1);
         });
     }, [api]);
+
+    // Detectar arrasto usando eventos de toque/mouse
+    useEffect(() => {
+        const carousel = carouselRef.current;
+        if (!carousel) return;
+
+        let isDraggingLocal = false;
+        let startX = 0;
+        let startY = 0;
+
+        const handleStart = (e: TouchEvent | MouseEvent) => {
+            const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
+            const clientY = "touches" in e ? e.touches[0].clientY : e.clientY;
+            startX = clientX;
+            startY = clientY;
+            isDraggingLocal = false;
+        };
+
+        const handleMove = (e: TouchEvent | MouseEvent) => {
+            if (!startX || !startY) return;
+
+            const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
+            const clientY = "touches" in e ? e.touches[0].clientY : e.clientY;
+
+            const diffX = Math.abs(clientX - startX);
+            const diffY = Math.abs(clientY - startY);
+
+            // Se o movimento horizontal for maior que o vertical, está arrastando o carousel
+            if (diffX > 10 && diffX > diffY) {
+                isDraggingLocal = true;
+                setIsDragging(true);
+            }
+        };
+
+        const handleEnd = () => {
+            if (isDraggingLocal) {
+                // Pequeno delay para permitir que o carousel termine o movimento
+                setTimeout(() => {
+                    setIsDragging(false);
+                }, 100);
+            }
+            startX = 0;
+            startY = 0;
+            isDraggingLocal = false;
+        };
+
+        carousel.addEventListener("touchstart", handleStart, { passive: true });
+        carousel.addEventListener("touchmove", handleMove, { passive: true });
+        carousel.addEventListener("touchend", handleEnd);
+        carousel.addEventListener("mousedown", handleStart);
+        carousel.addEventListener("mousemove", handleMove);
+        carousel.addEventListener("mouseup", handleEnd);
+        carousel.addEventListener("mouseleave", handleEnd);
+
+        return () => {
+            carousel.removeEventListener("touchstart", handleStart);
+            carousel.removeEventListener("touchmove", handleMove);
+            carousel.removeEventListener("touchend", handleEnd);
+            carousel.removeEventListener("mousedown", handleStart);
+            carousel.removeEventListener("mousemove", handleMove);
+            carousel.removeEventListener("mouseup", handleEnd);
+            carousel.removeEventListener("mouseleave", handleEnd);
+        };
+    }, []);
 
     const testimonials = [
         {
@@ -190,12 +264,15 @@ export const Testimonials = () => {
                     </div>
 
                     <Carousel
+                        ref={carouselRef}
                         setApi={setApi}
                         opts={{
                             align: "start",
                             loop: true,
+                            dragFree: false,
                         }}
-                        className="w-full max-w-6xl mx-auto">
+                        className="w-full max-w-6xl mx-auto"
+                        style={{ touchAction: "pan-x" }}>
                         <CarouselContent className="-ml-2 md:-ml-4 rounded-lg">
                             {testimonials.map((testimonial, index) => (
                                 <CarouselItem
@@ -203,12 +280,15 @@ export const Testimonials = () => {
                                     className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3 rounded-lg">
                                     <Card className="p-0 hover:border-success/20 transition-all duration-300 h-full flex flex-col">
                                         {/* Video */}
-                                        <div className="relative bg-gradient-to-br from-success/10 to-success/5 rounded-lg border border-success/20 overflow-hidden">
+                                        <div
+                                            className="relative bg-gradient-to-br from-success/10 to-success/5 rounded-lg border border-success/20 overflow-hidden"
+                                            style={{ touchAction: "pan-x" }}>
                                             <VideoIframe
                                                 embedId={testimonial.embedId}
                                                 iframeId={testimonial.iframeId}
                                                 aspectRatio={testimonial.aspectRatio}
                                                 title={testimonial.caption}
+                                                isDragging={isDragging}
                                             />
                                         </div>
 
