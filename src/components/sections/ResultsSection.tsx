@@ -7,9 +7,46 @@ import {
     CarouselPrevious,
     type CarouselApi,
 } from "@/components/ui/carousel";
-import { TrendingUp, CheckCircle, DollarSign, Play, User } from "lucide-react";
+import { TrendingUp } from "lucide-react";
 import { SectionTransition } from "@/components/sections/SectionTransition";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+
+// Component to handle vturb-smartplayer embeds
+const VideoPlayer = ({ playerId, scriptUrl }: { playerId: string; scriptUrl: string }) => {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const scriptLoadedRef = useRef(false);
+
+    useEffect(() => {
+        if (!containerRef.current || scriptLoadedRef.current) return;
+
+        // Check if script already exists
+        const existingScript = document.querySelector(`script[src="${scriptUrl}"]`);
+        if (!existingScript) {
+            // Load the script
+            const script = document.createElement("script");
+            script.src = scriptUrl;
+            script.async = true;
+            document.head.appendChild(script);
+        }
+
+        // Create the player element
+        const playerElement = document.createElement("vturb-smartplayer");
+        playerElement.id = playerId;
+        playerElement.setAttribute("style", "display: block; margin: 0 auto; width: 100%;");
+        containerRef.current.appendChild(playerElement);
+
+        scriptLoadedRef.current = true;
+
+        return () => {
+            // Cleanup
+            if (containerRef.current && containerRef.current.contains(playerElement)) {
+                containerRef.current.removeChild(playerElement);
+            }
+        };
+    }, [playerId, scriptUrl]);
+
+    return <div ref={containerRef} className="w-full" />;
+};
 
 export const Testimonials = () => {
     const [api, setApi] = useState<CarouselApi>();
@@ -31,44 +68,24 @@ export const Testimonials = () => {
 
     const testimonials = [
         {
-            name: "João Silva",
-            result: "+350% em 30 dias",
-            quote: "Nunca imaginei que seria tão simples. O protocolo é claro e direto ao ponto.",
-            icon: TrendingUp,
-            role: "Iniciante",
-            videoUrl: "", // Placeholder para URL do vídeo
+            playerId: "vid-6904faf538a8c7d701dda218",
+            scriptUrl: "https://scripts.converteai.net/e4afbe22-7a6e-4dd8-9576-24f2a422d026/players/6904faf538a8c7d701dda218/v4/player.js",
+            caption: "Jabez - Dobrou Capital em 2 meses",
         },
         {
-            name: "Maria Santos",
-            result: "+1.200% em 60 dias",
-            quote: "Eu era completamente leiga. Hoje tenho uma renda extra sólida e confiável.",
-            icon: CheckCircle,
-            role: "Leiga em investimentos",
-            videoUrl: "", // Placeholder para URL do vídeo
+            playerId: "vid-6904cd3d7394fd46f1d412c8",
+            scriptUrl: "https://scripts.converteai.net/e4afbe22-7a6e-4dd8-9576-24f2a422d026/players/6904cd3d7394fd46f1d412c8/v4/player.js",
+            caption: "Jhonata - de R$200 para R$1.500 por operação",
         },
         {
-            name: "Pedro Costa",
-            result: "+580% em 45 dias",
-            quote: "Testei com valor baixo no início. Depois que vi o resultado, aumentei o investimento.",
-            icon: DollarSign,
-            role: "Primeiro investidor",
-            videoUrl: "", // Placeholder para URL do vídeo
+            playerId: "vid-6904cd871ca2b9b70e6b393a",
+            scriptUrl: "https://scripts.converteai.net/e4afbe22-7a6e-4dd8-9576-24f2a422d026/players/6904cd871ca2b9b70e6b393a/v4/player.js",
+            caption: "Vitor - de R$50 pra R$500 por operação",
         },
         {
-            name: "Ana Oliveira",
-            result: "+890% em 50 dias",
-            quote: "Comecei com medo, mas o protocolo me deu confiança. Resultados incríveis!",
-            icon: TrendingUp,
-            role: "Mãe de família",
-            videoUrl: "", // Placeholder para URL do vídeo
-        },
-        {
-            name: "Carlos Mendes",
-            result: "+750% em 40 dias",
-            quote: "Aposentado que encontrou uma nova fonte de renda. Recomendo para todos!",
-            icon: CheckCircle,
-            role: "Aposentado",
-            videoUrl: "", // Placeholder para URL do vídeo
+            playerId: "vid-6904cdba1ca2b9b70e6b397d",
+            scriptUrl: "https://scripts.converteai.net/e4afbe22-7a6e-4dd8-9576-24f2a422d026/players/6904cdba1ca2b9b70e6b397d/v4/player.js",
+            caption: "Bruno - de R$50 pra R$600 por operação",
         },
     ];
 
@@ -107,43 +124,24 @@ export const Testimonials = () => {
                             loop: true,
                         }}
                         className="w-full max-w-6xl mx-auto">
-                        <CarouselContent className="-ml-2 md:-ml-4">
+                        <CarouselContent className="-ml-2 md:-ml-4 rounded-lg">
                             {testimonials.map((testimonial, index) => (
-                                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                                    <Card className="p-6 card-premium hover:border-success/20 transition-all duration-300 h-full">
-                                        {/* Placeholder do vídeo */}
-                                        <div className="relative mb-4 bg-gradient-to-br from-success/10 to-success/5 rounded-lg border border-success/20 aspect-video flex items-center justify-center group cursor-pointer hover:from-success/20 hover:to-success/10 transition-all duration-300">
-                                            {testimonial.videoUrl ? (
-                                                <video
-                                                    className="w-full h-full object-cover rounded-lg"
-                                                    controls
-                                                    poster={`/api/placeholder/400/225?text=${encodeURIComponent(
-                                                        testimonial.name
-                                                    )}`}>
-                                                    <source src={testimonial.videoUrl} type="video/mp4" />
-                                                    Seu navegador não suporta vídeos.
-                                                </video>
-                                            ) : (
-                                                <div className="text-center">
-                                                    <div className="p-4 bg-success/20 rounded-full w-16 h-16 mx-auto mb-3 flex items-center justify-center group-hover:bg-success/30 transition-colors">
-                                                        <Play className="h-8 w-8 text-success" />
-                                                    </div>
-                                                    <p className="text-sm text-muted-foreground font-medium">
-                                                        Vídeo de {testimonial.name}
-                                                    </p>
-                                                    <p className="text-xs text-muted-foreground mt-1">
-                                                        Clique para assistir
-                                                    </p>
-                                                </div>
-                                            )}
+                                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3 rounded-lg">
+                                    <Card className="p-0 hover:border-success/20 transition-all duration-300 h-full flex flex-col">
+                                        {/* Video */}
+                                        <div className="relative bg-gradient-to-br from-success/10 to-success/5 rounded-lg border border-success/20 aspect-video overflow-hidden">
+                                            <VideoPlayer playerId={testimonial.playerId} scriptUrl={testimonial.scriptUrl} />
                                         </div>
 
-                                        {/* Resultado */}
-                                        <div className="flex items-center justify-center gap-2">
-                                            <TrendingUp className="h-5 w-5 text-success" />
-                                            <p className="font-heading font-bold text-success">
-                                                {testimonial.result}
-                                            </p>
+                                        {/* Bottom content with padding */}
+                                        <div className="p-4 mt-auto rounded-b-lg">
+                                            {/* TrendingUp Icon and Caption */}
+                                            <div className="flex items-center justify-center gap-2">
+                                                <TrendingUp className="h-5 w-5 text-success" />
+                                                <p className="text-sm md:text-base text-foreground font-medium">
+                                                    {testimonial.caption}
+                                                </p>
+                                            </div>
                                         </div>
                                     </Card>
                                 </CarouselItem>
