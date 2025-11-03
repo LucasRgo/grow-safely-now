@@ -23,8 +23,48 @@ type VideoIframeProps = {
 
 const VideoIframe = ({ embedId, iframeId, aspectRatio, title }: VideoIframeProps) => {
     const iframeRef = useRef<HTMLIFrameElement>(null);
+    const wrapperRef = useRef<HTMLDivElement>(null);
+    const [shouldLoad, setShouldLoad] = useState(false);
 
     useEffect(() => {
+        if (typeof window === "undefined") {
+            setShouldLoad(true);
+            return;
+        }
+
+        const wrapper = wrapperRef.current;
+        if (!wrapper) {
+            return;
+        }
+
+        if (!("IntersectionObserver" in window)) {
+            setShouldLoad(true);
+            return;
+        }
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                for (const entry of entries) {
+                    if (entry.isIntersecting) {
+                        setShouldLoad(true);
+                        observer.disconnect();
+                        break;
+                    }
+                }
+            },
+            { threshold: 0.25 }
+        );
+
+        observer.observe(wrapper);
+
+        return () => observer.disconnect();
+    }, []);
+
+    useEffect(() => {
+        if (!shouldLoad) {
+            return;
+        }
+
         if (typeof document === "undefined") return;
 
         if (!document.querySelector(`script[src="${SMARTPLAYER_SDK_URL}"]`)) {
@@ -53,10 +93,10 @@ const VideoIframe = ({ embedId, iframeId, aspectRatio, title }: VideoIframeProps
         return () => {
             iframe.src = "about:blank";
         };
-    }, [embedId]);
+    }, [embedId, shouldLoad]);
 
     return (
-        <div id={`${iframeId}_wrapper`} style={{ margin: "0 auto", width: "100%" }}>
+        <div ref={wrapperRef} id={`${iframeId}_wrapper`} style={{ margin: "0 auto", width: "100%" }}>
             <div
                 id={`${iframeId}_aspect`}
                 style={{ position: "relative", padding: `${aspectRatio}% 0 0 0` }}>
@@ -64,6 +104,7 @@ const VideoIframe = ({ embedId, iframeId, aspectRatio, title }: VideoIframeProps
                     ref={iframeRef}
                     id={iframeId}
                     title={title}
+                    loading="lazy"
                     allowFullScreen
                     frameBorder={0}
                     referrerPolicy="origin"

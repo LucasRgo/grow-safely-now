@@ -1,8 +1,13 @@
 import { Suspense, lazy } from "react";
 import { Navbar } from "@/components/Navbar";
 import { HeaderSection } from "@/components/sections/HeaderSection";
-import { Testimonials } from "@/components/sections/ResultsSection";
 import { UrgencyManager } from "@/components/UrgencyManager";
+
+const Testimonials = lazy(() =>
+    import("@/components/sections/ResultsSection").then((module) => ({
+        default: module.Testimonials,
+    }))
+);
 
 const ChallengeBanner = lazy(() =>
     import("@/components/sections/ChallengeBanner").then((module) => ({
@@ -69,8 +74,8 @@ const Index = () => {
         <div className="min-h-screen">
             <Navbar />
             <HeaderSection />
-            <Testimonials />
             <Suspense fallback={<div role="status" aria-live="polite" className="py-16" />}>
+                <Testimonials />
                 <ChallengeBanner />
                 <InvestmentCalculator />
                 <PotencialRealSection />
