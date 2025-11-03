@@ -30,23 +30,20 @@ const VideoPlayer = ({
     useEffect(() => {
         if (!containerRef.current || scriptLoadedRef.current) return;
 
-        // Check if script already exists
         const existingScript = document.querySelector(`script[src="${scriptUrl}"]`);
         if (!existingScript) {
-            // Load the script
             const script = document.createElement("script");
             script.src = scriptUrl;
             script.async = true;
             document.head.appendChild(script);
         }
 
-        // Create the player element
         const playerElement = document.createElement("vturb-smartplayer");
+        playerElement.setAttribute("custom-config", '{"smartAutoPlay": {"BackgroundProbe": {"enabled":false}}}');
         playerElement.id = playerId;
         playerElement.setAttribute("style", "display: block; margin: 0 auto; width: 100%;");
         containerRef.current.appendChild(playerElement);
 
-        // Store player reference
         playerRef.current = playerElement;
 
         scriptLoadedRef.current = true;
