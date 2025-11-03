@@ -11,41 +11,68 @@ import { TrendingUp } from "lucide-react";
 import { SectionTransition } from "@/components/sections/SectionTransition";
 import { useEffect, useState, useRef } from "react";
 
-// Component to handle vturb-smartplayer embeds
-const VideoPlayer = ({ playerId, scriptUrl }: { playerId: string; scriptUrl: string }) => {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const scriptLoadedRef = useRef(false);
+const SMARTPLAYER_SDK_URL = "https://scripts.converteai.net/lib/js/smartplayer-wc/v4/sdk.js";
+const SMARTPLAYER_BASE_URL = "https://scripts.converteai.net/e4afbe22-7a6e-4dd8-9576-24f2a422d026";
+
+type VideoIframeProps = {
+    embedId: string;
+    iframeId: string;
+    aspectRatio: number;
+    title: string;
+};
+
+const VideoIframe = ({ embedId, iframeId, aspectRatio, title }: VideoIframeProps) => {
+    const iframeRef = useRef<HTMLIFrameElement>(null);
 
     useEffect(() => {
-        if (!containerRef.current || scriptLoadedRef.current) return;
+        if (typeof document === "undefined") return;
 
-        // Check if script already exists
-        const existingScript = document.querySelector(`script[src="${scriptUrl}"]`);
-        if (!existingScript) {
-            // Load the script
+        if (!document.querySelector(`script[src="${SMARTPLAYER_SDK_URL}"]`)) {
             const script = document.createElement("script");
-            script.src = scriptUrl;
+            script.src = SMARTPLAYER_SDK_URL;
             script.async = true;
             document.head.appendChild(script);
         }
 
-        // Create the player element
-        const playerElement = document.createElement("vturb-smartplayer");
-        playerElement.id = playerId;
-        playerElement.setAttribute("style", "display: block; margin: 0 auto; width: 100%;");
-        containerRef.current.appendChild(playerElement);
+        const iframe = iframeRef.current;
+        if (!iframe) {
+            return;
+        }
 
-        scriptLoadedRef.current = true;
+        const baseUrl = `${SMARTPLAYER_BASE_URL}/players/${embedId}/v4/embed.html`;
+
+        if (typeof window !== "undefined") {
+            const search = window.location.search || "";
+            const href = window.location.href;
+            const query = search ? `${search}&vl=${encodeURIComponent(href)}` : `?vl=${encodeURIComponent(href)}`;
+            iframe.src = `${baseUrl}${query}`;
+        } else {
+            iframe.src = baseUrl;
+        }
 
         return () => {
-            // Cleanup
-            if (containerRef.current && containerRef.current.contains(playerElement)) {
-                containerRef.current.removeChild(playerElement);
-            }
+            iframe.src = "about:blank";
         };
-    }, [playerId, scriptUrl]);
+    }, [embedId]);
 
-    return <div ref={containerRef} className="w-full" />;
+    return (
+        <div id={`${iframeId}_wrapper`} style={{ margin: "0 auto", width: "100%" }}>
+            <div
+                id={`${iframeId}_aspect`}
+                style={{ position: "relative", padding: `${aspectRatio}% 0 0 0` }}>
+                <iframe
+                    ref={iframeRef}
+                    id={iframeId}
+                    title={title}
+                    allowFullScreen
+                    frameBorder={0}
+                    referrerPolicy="origin"
+                    src="about:blank"
+                    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                />
+            </div>
+        </div>
+    );
 };
 
 export const Testimonials = () => {
@@ -68,23 +95,27 @@ export const Testimonials = () => {
 
     const testimonials = [
         {
-            playerId: "vid-6904faf538a8c7d701dda218",
-            scriptUrl: "https://scripts.converteai.net/e4afbe22-7a6e-4dd8-9576-24f2a422d026/players/6904faf538a8c7d701dda218/v4/player.js",
+            embedId: "6904faf538a8c7d701dda218",
+            iframeId: "ifr_6904faf538a8c7d701dda218",
+            aspectRatio: 56.25,
             caption: "Jabez - Dobrou Capital em 2 meses",
         },
         {
-            playerId: "vid-6904cd3d7394fd46f1d412c8",
-            scriptUrl: "https://scripts.converteai.net/e4afbe22-7a6e-4dd8-9576-24f2a422d026/players/6904cd3d7394fd46f1d412c8/v4/player.js",
+            embedId: "6904cd3d7394fd46f1d412c8",
+            iframeId: "ifr_6904cd3d7394fd46f1d412c8",
+            aspectRatio: 56.60377358490566,
             caption: "Jhonata - de R$200 para R$1.500 por operação",
         },
         {
-            playerId: "vid-6904cd871ca2b9b70e6b393a",
-            scriptUrl: "https://scripts.converteai.net/e4afbe22-7a6e-4dd8-9576-24f2a422d026/players/6904cd871ca2b9b70e6b393a/v4/player.js",
+            embedId: "6904cd871ca2b9b70e6b393a",
+            iframeId: "ifr_6904cd871ca2b9b70e6b393a",
+            aspectRatio: 56.25,
             caption: "Vitor - de R$50 pra R$500 por operação",
         },
         {
-            playerId: "vid-6904cdba1ca2b9b70e6b397d",
-            scriptUrl: "https://scripts.converteai.net/e4afbe22-7a6e-4dd8-9576-24f2a422d026/players/6904cdba1ca2b9b70e6b397d/v4/player.js",
+            embedId: "6904cdba1ca2b9b70e6b397d",
+            iframeId: "ifr_6904cdba1ca2b9b70e6b397d",
+            aspectRatio: 56.25,
             caption: "Bruno - de R$50 pra R$600 por operação",
         },
     ];
@@ -126,11 +157,18 @@ export const Testimonials = () => {
                         className="w-full max-w-6xl mx-auto">
                         <CarouselContent className="-ml-2 md:-ml-4 rounded-lg">
                             {testimonials.map((testimonial, index) => (
-                                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3 rounded-lg">
+                                <CarouselItem
+                                    key={index}
+                                    className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3 rounded-lg">
                                     <Card className="p-0 hover:border-success/20 transition-all duration-300 h-full flex flex-col">
                                         {/* Video */}
-                                        <div className="relative bg-gradient-to-br from-success/10 to-success/5 rounded-lg border border-success/20 aspect-video overflow-hidden">
-                                            <VideoPlayer playerId={testimonial.playerId} scriptUrl={testimonial.scriptUrl} />
+                                        <div className="relative bg-gradient-to-br from-success/10 to-success/5 rounded-lg border border-success/20 overflow-hidden">
+                                            <VideoIframe
+                                                embedId={testimonial.embedId}
+                                                iframeId={testimonial.iframeId}
+                                                aspectRatio={testimonial.aspectRatio}
+                                                title={testimonial.caption}
+                                            />
                                         </div>
 
                                         {/* Bottom content with padding */}
@@ -164,9 +202,10 @@ export const Testimonials = () => {
                                     }`}
                                     onClick={() => api?.scrollTo(index)}
                                     aria-label={`Ir para slide ${index + 1} de ${count}`}
-                                    title={`Slide ${index + 1} de ${count}`}
-                                >
-                                    <span className="sr-only">Ir para slide {index + 1} de {count}</span>
+                                    title={`Slide ${index + 1} de ${count}`}>
+                                    <span className="sr-only">
+                                        Ir para slide {index + 1} de {count}
+                                    </span>
                                 </button>
                             ))}
                         </div>
