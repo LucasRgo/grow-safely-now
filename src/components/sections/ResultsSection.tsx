@@ -11,125 +11,100 @@ import { TrendingUp } from "lucide-react";
 import { SectionTransition } from "@/components/sections/SectionTransition";
 import { useEffect, useState, useRef } from "react";
 
-const SMARTPLAYER_SDK_URL = "https://scripts.converteai.net/lib/js/smartplayer-wc/v4/sdk.js";
-const SMARTPLAYER_BASE_URL = "https://scripts.converteai.net/e4afbe22-7a6e-4dd8-9576-24f2a422d026";
-
-type VideoIframeProps = {
-    embedId: string;
-    iframeId: string;
-    aspectRatio: number;
-    title: string;
-    isDragging?: boolean;
-};
-
-const VideoIframe = ({ embedId, iframeId, aspectRatio, title, isDragging = false }: VideoIframeProps) => {
-    const iframeRef = useRef<HTMLIFrameElement>(null);
-    const wrapperRef = useRef<HTMLDivElement>(null);
-    const [shouldLoad, setShouldLoad] = useState(false);
-
-    useEffect(() => {
-        if (typeof window === "undefined") {
-            setShouldLoad(true);
-            return;
-        }
-
-        const wrapper = wrapperRef.current;
-        if (!wrapper) {
-            return;
-        }
-
-        if (!("IntersectionObserver" in window)) {
-            setShouldLoad(true);
-            return;
-        }
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                for (const entry of entries) {
-                    if (entry.isIntersecting) {
-                        setShouldLoad(true);
-                        observer.disconnect();
-                        break;
-                    }
-                }
-            },
-            { threshold: 0.25 }
-        );
-
-        observer.observe(wrapper);
-
-        return () => observer.disconnect();
-    }, []);
+// Component to handle vturb-smartplayer embeds
+const VideoPlayer = ({
+    playerId,
+    scriptUrl,
+    isActive,
+    onVideoStart
+}: {
+    playerId: string;
+    scriptUrl: string;
+    isActive: boolean;
+    onVideoStart: () => void;
+}) => {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const scriptLoadedRef = useRef(false);
+    const playerRef = useRef<any>(null);
 
     useEffect(() => {
-        if (!shouldLoad) {
-            return;
-        }
+        if (!containerRef.current || scriptLoadedRef.current) return;
 
-        if (typeof document === "undefined") return;
-
-        if (!document.querySelector(`script[src="${SMARTPLAYER_SDK_URL}"]`)) {
+        // Check if script already exists
+        const existingScript = document.querySelector(`script[src="${scriptUrl}"]`);
+        if (!existingScript) {
+            // Load the script
             const script = document.createElement("script");
-            script.src = SMARTPLAYER_SDK_URL;
+            script.src = scriptUrl;
             script.async = true;
             document.head.appendChild(script);
         }
 
-        const iframe = iframeRef.current;
-        if (!iframe) {
-            return;
+        // Create the player element
+        const playerElement = document.createElement("vturb-smartplayer");
+        playerElement.id = playerId;
+        playerElement.setAttribute("style", "display: block; margin: 0 auto; width: 100%;");
+        containerRef.current.appendChild(playerElement);
+
+        // Store player reference
+        playerRef.current = playerElement;
+
+        scriptLoadedRef.current = true;
+
+        return () => {
+            // Cleanup
+            if (containerRef.current && containerRef.current.contains(playerElement)) {
+                containerRef.current.removeChild(playerElement);
+            }
+        };
+    }, [playerId, scriptUrl]);
+
+    // Control video playback based on isActive prop
+    useEffect(() => {
+        if (!playerRef.current) return;
+
+        const player = playerRef.current;
+
+        if (!isActive && player.pause) {
+            try {
+                player.pause();
+            } catch (error) {
+                // Fallback: try to pause by setting currentTime or other methods
+                console.log('Pause not available, trying alternative methods');
+            }
         }
+    }, [isActive]);
 
-        const baseUrl = `${SMARTPLAYER_BASE_URL}/players/${embedId}/v4/embed.html`;
+    // Listen for play events to notify parent component
+    useEffect(() => {
+        if (!playerRef.current) return;
 
-        if (typeof window !== "undefined") {
-            const search = window.location.search || "";
-            const href = window.location.href;
-            const query = search ? `${search}&vl=${encodeURIComponent(href)}` : `?vl=${encodeURIComponent(href)}`;
-            iframe.src = `${baseUrl}${query}`;
-        } else {
-            iframe.src = baseUrl;
+        const player = playerRef.current;
+
+        const handlePlay = () => {
+            onVideoStart();
+        };
+
+        // Add event listeners if available
+        if (player.addEventListener) {
+            player.addEventListener('play', handlePlay);
         }
 
         return () => {
-            iframe.src = "about:blank";
+            if (player.removeEventListener) {
+                player.removeEventListener('play', handlePlay);
+            }
         };
-    }, [embedId, shouldLoad]);
+    }, [onVideoStart]);
 
-    return (
-        <div ref={wrapperRef} id={`${iframeId}_wrapper`} style={{ margin: "0 auto", width: "100%" }}>
-            <div
-                id={`${iframeId}_aspect`}
-                style={{ position: "relative", padding: `${aspectRatio}% 0 0 0` }}>
-                <iframe
-                    ref={iframeRef}
-                    id={iframeId}
-                    title={title}
-                    loading="lazy"
-                    allowFullScreen
-                    frameBorder={0}
-                    referrerPolicy="origin"
-                    src="about:blank"
-                    style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        width: "100%",
-                        height: "100%",
-                        pointerEvents: isDragging ? "none" : "auto",
-                    }}
-                />
-            </div>
-        </div>
-    );
+    return <div ref={containerRef} className="w-full" />;
 };
 
 export const Testimonials = () => {
     const [api, setApi] = useState<CarouselApi>();
     const [current, setCurrent] = useState(0);
     const [count, setCount] = useState(0);
-    const [isDragging, setIsDragging] = useState(false);
-    const carouselRef = useRef<HTMLDivElement>(null);
+    const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
 
     useEffect(() => {
         if (!api) {
@@ -144,93 +119,29 @@ export const Testimonials = () => {
         });
     }, [api]);
 
-    // Detectar arrasto usando eventos de toque/mouse
-    useEffect(() => {
-        const carousel = carouselRef.current;
-        if (!carousel) return;
-
-        let isDraggingLocal = false;
-        let startX = 0;
-        let startY = 0;
-
-        const handleStart = (e: TouchEvent | MouseEvent) => {
-            const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
-            const clientY = "touches" in e ? e.touches[0].clientY : e.clientY;
-            startX = clientX;
-            startY = clientY;
-            isDraggingLocal = false;
-        };
-
-        const handleMove = (e: TouchEvent | MouseEvent) => {
-            if (!startX || !startY) return;
-
-            const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
-            const clientY = "touches" in e ? e.touches[0].clientY : e.clientY;
-
-            const diffX = Math.abs(clientX - startX);
-            const diffY = Math.abs(clientY - startY);
-
-            // Se o movimento horizontal for maior que o vertical, está arrastando o carousel
-            if (diffX > 10 && diffX > diffY) {
-                isDraggingLocal = true;
-                setIsDragging(true);
-            }
-        };
-
-        const handleEnd = () => {
-            if (isDraggingLocal) {
-                // Pequeno delay para permitir que o carousel termine o movimento
-                setTimeout(() => {
-                    setIsDragging(false);
-                }, 100);
-            }
-            startX = 0;
-            startY = 0;
-            isDraggingLocal = false;
-        };
-
-        carousel.addEventListener("touchstart", handleStart, { passive: true });
-        carousel.addEventListener("touchmove", handleMove, { passive: true });
-        carousel.addEventListener("touchend", handleEnd);
-        carousel.addEventListener("mousedown", handleStart);
-        carousel.addEventListener("mousemove", handleMove);
-        carousel.addEventListener("mouseup", handleEnd);
-        carousel.addEventListener("mouseleave", handleEnd);
-
-        return () => {
-            carousel.removeEventListener("touchstart", handleStart);
-            carousel.removeEventListener("touchmove", handleMove);
-            carousel.removeEventListener("touchend", handleEnd);
-            carousel.removeEventListener("mousedown", handleStart);
-            carousel.removeEventListener("mousemove", handleMove);
-            carousel.removeEventListener("mouseup", handleEnd);
-            carousel.removeEventListener("mouseleave", handleEnd);
-        };
-    }, []);
-
     const testimonials = [
         {
-            embedId: "6904faf538a8c7d701dda218",
-            iframeId: "ifr_6904faf538a8c7d701dda218",
-            aspectRatio: 56.25,
+            playerId: "vid-6904faf538a8c7d701dda218",
+            scriptUrl:
+                "https://scripts.converteai.net/e4afbe22-7a6e-4dd8-9576-24f2a422d026/players/6904faf538a8c7d701dda218/v4/player.js",
             caption: "Jabez - Dobrou Capital em 2 meses",
         },
         {
-            embedId: "6904cd3d7394fd46f1d412c8",
-            iframeId: "ifr_6904cd3d7394fd46f1d412c8",
-            aspectRatio: 56.60377358490566,
+            playerId: "vid-6904cd3d7394fd46f1d412c8",
+            scriptUrl:
+                "https://scripts.converteai.net/e4afbe22-7a6e-4dd8-9576-24f2a422d026/players/6904cd3d7394fd46f1d412c8/v4/player.js",
             caption: "Jhonata - de R$200 para R$1.500 por operação",
         },
         {
-            embedId: "6904cd871ca2b9b70e6b393a",
-            iframeId: "ifr_6904cd871ca2b9b70e6b393a",
-            aspectRatio: 56.25,
+            playerId: "vid-6904cd871ca2b9b70e6b393a",
+            scriptUrl:
+                "https://scripts.converteai.net/e4afbe22-7a6e-4dd8-9576-24f2a422d026/players/6904cd871ca2b9b70e6b393a/v4/player.js",
             caption: "Vitor - de R$50 pra R$500 por operação",
         },
         {
-            embedId: "6904cdba1ca2b9b70e6b397d",
-            iframeId: "ifr_6904cdba1ca2b9b70e6b397d",
-            aspectRatio: 56.25,
+            playerId: "vid-6904cdba1ca2b9b70e6b397d",
+            scriptUrl:
+                "https://scripts.converteai.net/e4afbe22-7a6e-4dd8-9576-24f2a422d026/players/6904cdba1ca2b9b70e6b397d/v4/player.js",
             caption: "Bruno - de R$50 pra R$600 por operação",
         },
     ];
@@ -264,15 +175,12 @@ export const Testimonials = () => {
                     </div>
 
                     <Carousel
-                        ref={carouselRef}
                         setApi={setApi}
                         opts={{
                             align: "start",
                             loop: true,
-                            dragFree: false,
                         }}
-                        className="w-full max-w-6xl mx-auto"
-                        style={{ touchAction: "pan-x" }}>
+                        className="w-full max-w-6xl mx-auto">
                         <CarouselContent className="-ml-2 md:-ml-4 rounded-lg">
                             {testimonials.map((testimonial, index) => (
                                 <CarouselItem
@@ -280,15 +188,12 @@ export const Testimonials = () => {
                                     className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3 rounded-lg">
                                     <Card className="p-0 hover:border-success/20 transition-all duration-300 h-full flex flex-col">
                                         {/* Video */}
-                                        <div
-                                            className="relative bg-gradient-to-br from-success/10 to-success/5 rounded-lg border border-success/20 overflow-hidden"
-                                            style={{ touchAction: "pan-x" }}>
-                                            <VideoIframe
-                                                embedId={testimonial.embedId}
-                                                iframeId={testimonial.iframeId}
-                                                aspectRatio={testimonial.aspectRatio}
-                                                title={testimonial.caption}
-                                                isDragging={isDragging}
+                                        <div className="relative bg-gradient-to-br from-success/10 to-success/5 rounded-lg border border-success/20 aspect-video overflow-hidden">
+                                            <VideoPlayer
+                                                playerId={testimonial.playerId}
+                                                scriptUrl={testimonial.scriptUrl}
+                                                isActive={activeVideoId === testimonial.playerId}
+                                                onVideoStart={() => setActiveVideoId(testimonial.playerId)}
                                             />
                                         </div>
 
