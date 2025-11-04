@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 
+const CHECKOUT_URL = "https://pay.hotmart.com/S102760097M?off=l676dkn1&checkoutMode=10";
+
 export const FloatingCTAButton = () => {
     const [isVisible, setIsVisible] = useState(false);
 
@@ -19,11 +21,8 @@ export const FloatingCTAButton = () => {
         return () => window.removeEventListener("scroll", toggleVisibility);
     }, []);
 
-    const scrollToCTA = () => {
-        const ctaSection = document.getElementById("oferta");
-        if (ctaSection) {
-            ctaSection.scrollIntoView({ behavior: "smooth", block: "center" });
-        }
+    const handleCheckout = () => {
+        window.open(CHECKOUT_URL, "_self");
     };
 
     if (!isVisible) return null;
@@ -35,7 +34,7 @@ export const FloatingCTAButton = () => {
                 <div className="absolute -inset-2 bg-gradient-to-r from-success via-emerald-500 to-success rounded-full opacity-40 group-hover:opacity-60 blur-xl transition-all duration-300 animate-pulse-slow" />
 
                 <Button
-                    onClick={scrollToCTA}
+                    onClick={handleCheckout}
                     className="relative bg-gradient-to-br from-success via-success to-emerald-600 hover:from-emerald-600 hover:via-success hover:to-success text-white font-heading font-bold px-6 py-6 md:px-8 md:py-7 rounded-full shadow-[0_8px_30px_rgba(34,197,94,0.5)] hover:shadow-[0_12px_40px_rgba(34,197,94,0.7)] border-2 border-success/50 hover:border-success/80 transition-all duration-300 hover:scale-105 active:scale-95 text-sm md:text-base lg:text-lg whitespace-nowrap">
                     <span className="flex items-center gap-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
                         QUERO APLICAR O PROTOCOLO

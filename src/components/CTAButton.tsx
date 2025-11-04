@@ -8,12 +8,14 @@ interface CTAButtonProps {
   size?: "default" | "lg" | "xl";
 }
 
+const CHECKOUT_URL = "https://pay.hotmart.com/S102760097M?off=l676dkn1&checkoutMode=10";
+
 export const CTAButton = ({ children, onClick, className = "", size = "lg" }: CTAButtonProps) => {
   const handleClick = () => {
     if (onClick) {
       onClick();
     } else {
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      window.open(CHECKOUT_URL, "_self");
     }
   };
 

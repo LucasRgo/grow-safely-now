@@ -13,12 +13,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 // Replaced toast warnings with lightweight Dialogs
 
-const CHECKOUT_URL_BEFORE = "https://pay.hotmart.com/A102246370V?off=ybzjvlf2&checkoutMode=10&bid=1759619193797";
-const CHECKOUT_URL_AFTER = "https://pay.hotmart.com/A102246370V?off=1lb9dqad&bid=1760634516455";
-const WAITLIST_MAIL =
-    "mailto:contato.r7investimentos@gmail.com?subject=Lista%20de%20espera%20-%20Carteira%20dos%20Tubar%C3%B5es";
-const NOTIFY_MAIL =
-    "mailto:contato.r7investimentos@gmail.com?subject=Quero%20ser%20notificado%20-%20Carteira%20dos%20Tubar%C3%B5es";
+const CHECKOUT_URL = "https://pay.hotmart.com/S102760097M?off=l676dkn1&checkoutMode=10";
 const OFFER_MODAL_SHOWN_KEY = "offer_expired_modal_shown";
 
 export function UrgencyManager() {
@@ -107,16 +102,7 @@ export function UrgencyManager() {
     }, [isExpired, hasShownOfferModal]);
 
     const handleCheckout = () => {
-        const targetUrl = CHECKOUT_URL_BEFORE;
-        window.open(targetUrl, "_self");
-    };
-
-    const handleWaitlist = () => {
-        window.open(WAITLIST_MAIL, "_self");
-    };
-
-    const handleNotify = () => {
-        window.open(NOTIFY_MAIL, "_self");
+        window.open(CHECKOUT_URL, "_self");
     };
 
     const handleReopen = useCallback(() => {

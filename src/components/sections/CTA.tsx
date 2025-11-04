@@ -68,7 +68,7 @@ export const CTA = () => {
                                     <div className="relative flex items-start gap-1 md:gap-2">
                                         <div className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-heading font-black text-success tracking-tight leading-none">
                                             <span className="inline-block bg-gradient-to-br from-success via-success to-emerald-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(34,197,94,0.5)]">
-                                                R$ 8,08
+                                                R$ 9,98
                                             </span>
                                         </div>
                                         <span className="text-xs md:text-sm lg:text-base text-success/70 font-medium mt-1 md:mt-2">
@@ -79,7 +79,7 @@ export const CTA = () => {
                             </div>
                             <div className="mt-3 md:mt-4">
                                 <p className="text-sm md:text-base lg:text-lg text-muted-foreground/70 font-medium">
-                                    ou <span className="text-success font-bold">R$ 97</span> à vista
+                                    ou <span className="text-success font-bold">R$ 96,70</span> à vista
                                 </p>
                             </div>
 
