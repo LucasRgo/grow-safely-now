@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CountdownProvider } from "@/components/context/CountdownContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import OperacoesMilionarias from "./pages/operacoes-milionarias";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ const App = () => (
                 <Sonner />
                 <BrowserRouter>
                     <Routes>
+                        <Route path="/operacoes-milionarias" element={<OperacoesMilionarias />} />
                         <Route path="/" element={<Index />} />
                         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                         <Route path="*" element={<NotFound />} />
