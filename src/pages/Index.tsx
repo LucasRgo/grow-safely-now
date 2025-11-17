@@ -15,15 +15,15 @@ const ChallengeBanner = lazy(() =>
     }))
 );
 
-const InvestmentCalculator = lazy(() =>
-    import("@/components/sections/InvestmentCalculator").then((module) => ({
-        default: module.InvestmentCalculator,
-    }))
-);
-
 const PotencialRealSection = lazy(() =>
     import("@/components/sections/PotencialRealSection").then((module) => ({
         default: module.PotencialRealSection,
+    }))
+);
+
+const InvestmentCalculator = lazy(() =>
+    import("@/components/sections/InvestmentCalculator").then((module) => ({
+        default: module.InvestmentCalculator,
     }))
 );
 
@@ -77,8 +77,8 @@ const Index = () => {
             <Suspense fallback={<div role="status" aria-live="polite" className="py-16" />}>
                 <Testimonials />
                 <ChallengeBanner />
-                <InvestmentCalculator />
                 <PotencialRealSection />
+                <InvestmentCalculator />
                 <BeforeAfterSection />
                 <HowItWorksSection />
                 <CTA />

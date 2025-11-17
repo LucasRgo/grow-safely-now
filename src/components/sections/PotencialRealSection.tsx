@@ -233,7 +233,7 @@ export const PotencialRealSection = () => {
                     </motion.div>
                 </motion.div>
             </div>
-            <SectionTransition text="Agora que você viu que é real, veja os benefícios de quem segue o protocolo:" />
+            <SectionTransition text="Agora que você viu que é real, simule seu potencial:" />
         </section>
     );
 };

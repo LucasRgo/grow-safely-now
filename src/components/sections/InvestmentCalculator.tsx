@@ -96,7 +96,7 @@ export function InvestmentCalculator() {
                     </div>
                 </motion.div>
             </div>
-            <SectionTransition text="Agora que você calculou seu potencial, veja a prova real de que o método funciona:" />
+            <SectionTransition text="Agora que você calculou seu potencial, veja como o protocolo funciona na prática:" />
         </section>
     );
 }

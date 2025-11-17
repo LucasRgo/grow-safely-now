@@ -41,7 +41,7 @@ export const BeforeAfterSection = () => {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-12 md:mb-16">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-4 glow-blue">
-                        O Método Validado por Grandes Empresas
+                        O Método Validado Por Grandes Empresas
                     </h2>
                 </motion.div>
 

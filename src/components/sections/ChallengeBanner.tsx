@@ -44,7 +44,7 @@ export const ChallengeBanner = () => {
                     </div>
                 </div>
                 </Card>
-                <SectionTransition text="Calcule quanto pode ganhar em CADA operação:" />
+                <SectionTransition text="Não acha que seja possivel? Veja o resultado de alguns alunos:" />
             </div>
         </section>
     );
