@@ -164,7 +164,7 @@ export const CTA = () => {
                     </div>
                 </div>
             </div>
-            <SectionTransition text="Conheça quem criou o protocolo de multiplicação anti-perda:" />
+            <SectionTransition text="Conheça quem criou o Protocolo De Multiplicação Anti-Perda:" />
         </section>
     );
 };

@@ -37,7 +37,7 @@ export const Navbar = () => {
                             <Shield className="h-5 w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-success" />
                         </div>
                         <span className="font-heading font-bold text-sm md:text-base lg:text-lg text-foreground whitespace-nowrap">
-                            Protocolo Anti-perda
+                            Protocolo Anti-Perda
                         </span>
                     </div>
                     <CountdownTimer />

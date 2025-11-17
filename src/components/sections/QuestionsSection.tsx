@@ -18,7 +18,7 @@ export const QuestionsSection = () => {
         },
         {
             question: "O protocolo realmente funciona?",
-            answer: "Sim! Mais de 300 alunos confirmaram resultados reais. O método foi validado e testado extensivamente antes de ser lançado ao público.",
+            answer: "Sim! Mais de 4000 alunos confirmaram resultados reais. O método foi validado e testado extensivamente antes de ser lançado ao público.",
         },
         {
             question: "E se eu não tiver tempo durante o dia?",
@@ -26,7 +26,7 @@ export const QuestionsSection = () => {
         },
         {
             question: "Existe risco de perda?",
-            answer: "O Protocolo Antiperda foi criado exatamente para eliminar o risco nas operações. Ensinamos técnicas de proteção e gestão que, quando seguidas à risca, permitem encerrar uma operação ruim no zero a zero.Em outras palavras: sem lucro, mas também sem prejuízo.",
+            answer: "O Protocolo Anti-Perda foi criado exatamente para eliminar o risco nas operações. Ensinamos técnicas de proteção e gestão que, quando seguidas à risca, permitem encerrar uma operação ruim no zero a zero. Em outras palavras: sem lucro, mas também sem prejuízo.",
         },
         {
             question: "Posso tirar dúvidas durante o processo?",

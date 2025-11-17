@@ -13,7 +13,7 @@ export const HowItWorksSection = () => {
         },
         {
             icon: Shield,
-            title: "Proteja cada centavo com o Sistema Anti-perda",
+            title: "Proteja cada centavo com o Sistema Anti-Perda",
             description:
                 "Descubra os pontos exatos de entrada e saída que blindam seu capital. Elimine prejuízos e transforme cada operação em lucro, mesmo com mercado oscilando.",
         },

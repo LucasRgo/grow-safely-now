@@ -15,7 +15,7 @@ export const BeforeAfterSection = () => {
             icon: Shield,
             title: "Controle emocional e blindagem contra perdas",
             description:
-                "Cada movimento é calculado. O Gerenciamento Anti-perda define o limite e protege o capital. O medo deixa de existir.",
+                "Cada movimento é calculado. O Gerenciamento Anti-Perda define o limite e protege o capital. O medo deixa de existir.",
         },
         {
             icon: TrendingUp,
