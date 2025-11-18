@@ -66,13 +66,17 @@ export function PlansSection() {
                 </div>
 
                 {/* Plans Grid */}
-                <div className="grid md:grid-cols-2 gap-8 mb-12">
+                <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-12">
                     {plans.map((plan, index) => (
-                        <div key={index} className={`relative group ${plan.recommended ? "md:scale-105" : ""}`}>
+                        <div
+                            key={index}
+                            className={`relative group w-full max-w-[420px] mx-auto md:max-w-none ${
+                                plan.recommended ? "md:scale-105" : ""
+                            }`}>
                             {/* Recommended badge */}
                             {plan.recommended && (
                                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-                                    <div className="bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-black font-bold text-sm px-6 py-2 rounded-full shadow-lg">
+                                    <div className="bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-black font-bold text-xs px-4 py-1.5 rounded-full shadow-lg">
                                         🔥 MAIS ESCOLHIDO
                                     </div>
                                 </div>
@@ -80,7 +84,7 @@ export function PlansSection() {
 
                             {/* Card */}
                             <div
-                                className={`relative h-full bg-[#0e0e0e]/80 backdrop-blur-xl rounded-2xl p-8 border-2 transition-all duration-300 ${
+                                className={`relative h-full bg-[#0e0e0e]/80 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border-2 transition-all duration-300 ${
                                     plan.color === "gold"
                                         ? "border-[#FFD700]/50 hover:border-[#FFD700] shadow-[0_0_40px_rgba(255,215,0,0.2)] hover:shadow-[0_0_60px_rgba(255,215,0,0.4)] animate-pulse-glow"
                                         : "border-[#00ff91]/30 hover:border-[#00ff91] hover:shadow-[0_0_30px_rgba(0,255,145,0.2)]"
@@ -92,14 +96,14 @@ export function PlansSection() {
 
                                 <div className="text-center mb-8 space-y-2">
                                     <div className="text-red-400 text-lg line-through">{plan.oldPrice}</div>
-                                    <div className="text-gray-300 text-base uppercase tracking-wide">
+                                    <div className="text-gray-300 text-base uppercase tracking-wide flex flex-wrap items-end justify-center gap-2">
                                         <span
-                                            className={`text-5xl font-black ${
+                                            className={`text-4xl sm:text-5xl font-black ${
                                                 plan.color === "gold" ? "text-[#FFD700]" : "text-[#00ff91]"
                                             }`}>
                                             {plan.installmentPrice}
                                         </span>
-                                                {plan.installmentLabel}{" "}
+                                        <span>{plan.installmentLabel}</span>
                                     </div>
                                     <div className="text-gray-400 text-sm">ou {plan.cashPrice} à vista</div>
                                 </div>

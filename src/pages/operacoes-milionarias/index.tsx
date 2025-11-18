@@ -3,6 +3,7 @@ import { HeroSection } from "./HeroSection";
 import { PlansSection } from "./PlansSection";
 import { FinalUrgencySection } from "./FinalUrgencySection";
 import { PotencialRealOperacoes } from "./PotencialRealOperacoes";
+import { WhatYouGetSection } from "./WhatYouGetSection";
 
 export default function OperacoesMilionarias() {
     return (
@@ -10,6 +11,7 @@ export default function OperacoesMilionarias() {
             <div className="min-h-screen bg-black w-full overflow-x-hidden">
                 <HeroSection />
                 <PotencialRealOperacoes />
+                <WhatYouGetSection />
                 <PlansSection />
                 <FinalUrgencySection />
             </div>
