@@ -9,13 +9,15 @@ export function PlansSection() {
         {
             name: "Acesso 3 Meses",
             description: "Receba as operações por 3 meses completos",
-            oldPrice: "R$ 997",
-            price: "R$ 297",
+            oldPrice: "R$ 1000",
+            installmentLabel: " x 12",
+            installmentPrice: "R$ 29,99",
+            cashPrice: "R$ 290",
             features: [
-                "Acesso ao grupo VIP no WhatsApp",
+                "Acesso ao Grupo de Operações",
                 "Alertas de operações em tempo real",
                 "Vídeos com análises detalhadas",
-                "Suporte direto no grupo",
+                "Suporte dedicado as operações",
             ],
             color: "green",
             url: CHECKOUT_URL_3_MONTHS,
@@ -24,11 +26,13 @@ export function PlansSection() {
             name: "Acesso Vitalício",
             description: "Acesso permanente + todos os bônus futuros",
             oldPrice: "R$ 2.997",
-            price: "R$ 497",
+            installmentLabel: " x 12",
+            installmentPrice: "R$ 49,95",
+            cashPrice: "R$ 497",
             features: [
-                "Acesso VITALÍCIO ao grupo VIP",
-                "Todos os alertas para sempre",
-                "Análises ilimitadas",
+                "Acesso VITALÍCIO ao Grupo de Operações",
+                "Todos os alertas de operações para sempre",
+                "Vídeos com análises ilimitadas",
                 "Suporte prioritário vitalício",
             ],
             color: "gold",
@@ -86,15 +90,18 @@ export function PlansSection() {
                                     <p className="text-gray-400 text-sm">{plan.description}</p>
                                 </div>
 
-                                <div className="text-center mb-8">
-                                    <div className="text-red-400 text-lg line-through mb-2">{plan.oldPrice}</div>
-                                    <div
-                                        className={`text-5xl font-black ${
-                                            plan.color === "gold" ? "text-[#FFD700]" : "text-[#00ff91]"
-                                        }`}>
-                                        {plan.price}
+                                <div className="text-center mb-8 space-y-2">
+                                    <div className="text-red-400 text-lg line-through">{plan.oldPrice}</div>
+                                    <div className="text-gray-300 text-base uppercase tracking-wide">
+                                        <span
+                                            className={`text-5xl font-black ${
+                                                plan.color === "gold" ? "text-[#FFD700]" : "text-[#00ff91]"
+                                            }`}>
+                                            {plan.installmentPrice}
+                                        </span>
+                                                {plan.installmentLabel}{" "}
                                     </div>
-                                    <div className="text-gray-400 text-sm mt-2">à vista ou 12x no cartão</div>
+                                    <div className="text-gray-400 text-sm">ou {plan.cashPrice} à vista</div>
                                 </div>
 
                                 <div className="space-y-4 mb-8">
@@ -118,7 +125,7 @@ export function PlansSection() {
                                             : "bg-[#00ff91] hover:bg-[#00ff91]/80 text-black"
                                     }`}
                                     onClick={() => window.open(plan.url, "_self")}>
-                                    Garantir Acesso Agora
+                                    {plan.color === "gold" ? "Garantir Acesso Para Sempre" : "Garantir Acesso Agora"}
                                 </Button>
                             </div>
                         </div>

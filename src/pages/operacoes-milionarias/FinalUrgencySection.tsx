@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Lock, Phone, Video, Navigation } from "lucide-react";
+import { Lock, Video, MessageCircle, DollarSign } from "lucide-react";
 import { useCountdownContext } from "./useCountdown";
 
 export function FinalUrgencySection() {
@@ -9,7 +9,7 @@ export function FinalUrgencySection() {
 
     const benefits = [
         {
-            icon: Phone,
+            icon: MessageCircle,
             title: "Receba o alerta imediato da operação",
             description: "Seja notificado no WhatsApp no momento exato que eu identifico uma oportunidade.",
         },
@@ -19,7 +19,7 @@ export function FinalUrgencySection() {
             description: "Veja meu raciocínio completo e aprenda como identifico as melhores operações.",
         },
         {
-            icon: Navigation,
+            icon: DollarSign,
             title: "Seja avisado no momento de encerrar",
             description: "Nunca fique perdido. Você saberá exatamente quando realizar o lucro.",
         },
@@ -128,7 +128,7 @@ export function FinalUrgencySection() {
                         </div>
 
                         <p className="text-gray-400 text-sm px-4">
-                            👉 Oferta única. Disponível apenas por 7 minutos após sua compra.
+                            👉 Oferta única. Disponível apenas por 7 minutos
                         </p>
 
                         {/* Limited spots badge */}
@@ -143,7 +143,7 @@ export function FinalUrgencySection() {
                 <div className="text-center pt-8 px-4">
                     <div className="h-px bg-gradient-to-r from-transparent via-[#FFD700]/50 to-transparent mb-4" />
                     <p className="text-[#FFD700] font-semibold tracking-wide text-sm md:text-base">
-                        Acesso exclusivo — Carteira dos Tubarões
+                        Acesso exclusivo — Cliente Protocolo Anti-Perda
                     </p>
                 </div>
             </div>

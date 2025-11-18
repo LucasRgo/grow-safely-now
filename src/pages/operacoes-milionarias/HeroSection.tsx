@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useCountdownContext } from "./useCountdown";
 import { useEffect, useState } from "react";
+import { SectionTransition } from "@/components/sections/SectionTransition";
 
 export function HeroSection() {
     const { totalSeconds, isExpired } = useCountdownContext();
@@ -100,13 +101,13 @@ export function HeroSection() {
                     className="font-black text-white leading-[1.1] text-center uppercase"
                     style={{
                         fontSize: "clamp(38px, 10vw, 72px)",
-                        fontWeight: "950",
+                        fontWeight: "1000",
                         textShadow: "0 0 30px rgba(255,215,0,0.4), 0 0 60px rgba(255,215,0,0.2)",
                         letterSpacing: "0.01em",
                     }}>
-                    RECEBA MINHAS OPERAÇÕES
+                    Quer ter os
                     <span className="block text-[#FFD700] mt-3 drop-shadow-[0_0_25px_rgba(255,215,0,0.6)]">
-                        ANTES QUE ACONTEÇAM
+                        mesmos resultados que eu?
                     </span>
                 </h1>
             </div>
@@ -128,22 +129,17 @@ export function HeroSection() {
 
                         {/* Subtitles */}
                         <div className="space-y-4 md:space-y-5 mx-auto md:mx-0 md:text-right">
+                            <h2 className="text-base md:text-xl lg:text-3xl font-bold text-white/85 leading-relaxed">
+                                <span className="uppercase text-[#FFD700]">COPIE</span> minhas operações em tempo real, junto comigo – direto do seu celular, sem complicação.
+                            </h2>
                             <h2 className="text-lg md:text-2xl lg:text-3xl font-medium text-white/90 leading-relaxed">
                                 Você já garantiu sua proteção com o{" "}
                                 <span className="text-[#FFD700] font-semibold relative inline-block">
-                                    Protocolo Antiperda
+                                    Protocolo Anti-Perda
                                 </span>
                                 .
                                 <br />
-                                Agora tem <span className=" font-bold underline">poucos minutos</span> pra ir além:
-                            </h2>
-                            <h2 className="text-base md:text-xl lg:text-3xl font-bold text-white/85 leading-relaxed">
-                                Veja exatamente{" "}
-                                <span className="text-[#FFD700] font-bold relative inline-block">
-                                    as operações que eu entro
-                                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#FFD700] to-transparent"></span>
-                                </span>{" "}
-                                e copie tudo em tempo real, direto do seu celular.
+                                Agora tem <span className=" font-bold underline">poucos minutos</span> pra ir além!
                             </h2>
                         </div>
 
@@ -159,10 +155,10 @@ export function HeroSection() {
                                     })
                                 }>
                                 {/* Reflexo animado diagonal */}
-                                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out skew-x-12" />
-                                <span className="relative z-10">Liberar Meu Acesso Agora</span>
+                                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+                                <span className="relative z-10">Quero Copiar as Operações</span>
                             </Button>
-                            <p className="text-white/50 text-xs md:text-sm text-center md:text-right">
+                            <p className="text-white/50 me-6 text-xs md:text-sm text-center md:text-right">
                                 Oferta única. Expira em poucos minutos.
                             </p>
                         </div>
@@ -203,7 +199,7 @@ export function HeroSection() {
                                                 🚨 <strong>NOVA OPERAÇÃO DISPONÍVEL!</strong>
                                             </p>
                                             <p className="text-white/90 text-xs">
-                                                Acabei de identificar uma oportunidade de alta probabilidade.
+                                                Acabei de identificar uma oportunidade de alta lucratividade.
                                             </p>
                                             <div className="text-white/60 text-[10px] md:text-xs text-right mt-2">
                                                 Agora
@@ -214,7 +210,7 @@ export function HeroSection() {
                                             className="bg-[#005c4b] rounded-lg p-2.5 md:p-3 ml-auto max-w-[85%] animate-slide-in-right shadow-lg"
                                             style={{ animationDelay: "0.4s" }}>
                                             <p className="text-white text-xs md:text-sm">
-                                                📊 Assista o vídeo com minha análise completa.
+                                                📊 Assista o vídeo com minha análise completa da operação.
                                             </p>
                                             <div className="text-white/60 text-[10px] md:text-xs text-right mt-2">
                                                 Agora
@@ -241,6 +237,7 @@ export function HeroSection() {
                     </div>
                 </div>
             </div>
+            <SectionTransition text="NUNCA MAIS OPERE SOZINHO" />
         </section>
     );
 }

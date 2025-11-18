@@ -135,7 +135,7 @@ export const PotencialRealSection = () => {
                     <div className="relative mb-8">
                         {/* Texto indicativo para arrastar */}
                         <div className="text-center mb-2">
-                            <p className="text-sm md:text-base text-muted-foreground font-medium">
+                            <p className="text-sm md:text-base text-white/80 font-medium">
                                 Arraste para ver mais &gt;
                             </p>
                         </div>
@@ -183,8 +183,8 @@ export const PotencialRealSection = () => {
                                     </CarouselItem>
                                 ))}
                             </CarouselContent>
-                            <CarouselPrevious className="hidden md:flex -left-12" />
-                            <CarouselNext className="hidden md:flex -right-12" />
+                            <CarouselPrevious className="flex -left-4 md:-left-12" />
+                            <CarouselNext className="flex -right-4 md:-right-12" />
                         </Carousel>
 
                         {/* Indicadores para mobile */}
