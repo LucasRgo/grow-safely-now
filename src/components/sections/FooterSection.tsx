@@ -13,7 +13,7 @@ export const FooterSection = () => {
 
     return (
         <>
-            <footer className="bg-card border-t border-border py-8 md:py-12">
+            <footer id="main-footer" className="bg-card border-t border-border py-8 md:py-12">
                 <div className="container mx-auto px-4">
                     <div className="text-center">
                         <p className="text-muted-foreground mb-4 text-xs md:text-sm">

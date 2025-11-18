@@ -1,31 +1,58 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const CHECKOUT_URL = "https://pay.hotmart.com/S102760097M?off=l676dkn1&checkoutMode=10";
+const MOBILE_BREAKPOINT = 768;
 
 export const FloatingCTAButton = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const [isFooterVisible, setIsFooterVisible] = useState(false);
+    const isMobile = useIsMobile();
 
     useEffect(() => {
         const toggleVisibility = () => {
             // Show button after scrolling down 300px
-            if (window.scrollY > 300) {
+            const scrollY = window.scrollY;
+            
+            if (scrollY > 300) {
                 setIsVisible(true);
             } else {
                 setIsVisible(false);
             }
+
+            // Check if footer is visible on mobile
+            const footer = document.getElementById("main-footer");
+            if (footer && window.innerWidth < MOBILE_BREAKPOINT) {
+                const footerRect = footer.getBoundingClientRect();
+                const viewportHeight = window.innerHeight;
+                // Footer is visible when its top is above the viewport bottom
+                const footerIsVisible = footerRect.top < viewportHeight;
+                setIsFooterVisible(footerIsVisible);
+            } else {
+                setIsFooterVisible(false);
+            }
         };
 
+        toggleVisibility(); // Check on mount
         window.addEventListener("scroll", toggleVisibility);
-        return () => window.removeEventListener("scroll", toggleVisibility);
+        window.addEventListener("resize", toggleVisibility);
+        
+        return () => {
+            window.removeEventListener("scroll", toggleVisibility);
+            window.removeEventListener("resize", toggleVisibility);
+        };
     }, []);
 
     const handleCheckout = () => {
         window.open(CHECKOUT_URL, "_self");
     };
 
-    if (!isVisible) return null;
+    // Hide button if footer is visible on mobile
+    const shouldHideOnMobile = isMobile && isFooterVisible;
+    
+    if (!isVisible || shouldHideOnMobile) return null;
 
     return (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 md:left-auto md:right-6 md:-translate-x-0 z-50 animate-in fade-in slide-in-from-bottom-4 duration-500">
