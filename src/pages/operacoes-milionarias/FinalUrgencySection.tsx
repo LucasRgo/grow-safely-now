@@ -64,8 +64,7 @@ export function FinalUrgencySection() {
                             LIBERAR MEU ACESSO AGORA
                         </Button>
                         <p className="text-gray-400 text-sm">
-                            👉 Oferta única, disponível apenas por 7 minutos ou até preencher as vagas do lote
-                            atual.
+                            👉 Oferta única, disponível apenas por 7 minutos
                         </p>
                     </div>
                 </div>
