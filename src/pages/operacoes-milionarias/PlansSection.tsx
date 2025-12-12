@@ -1,34 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 
-const CHECKOUT_URL_3_MONTHS = "https://pay.kiwify.com.br/seu-link-3-meses";
+
 const CHECKOUT_URL_LIFETIME = "https://pay.kiwify.com.br/seu-link-vitalicio";
 
 export function PlansSection() {
     const plans = [
         {
-            name: "Acesso 3 Meses",
-            description: "Receba as operações por 3 meses completos",
-            oldPrice: "R$ 1000",
-            installmentLabel: " x 12",
-            installmentPrice: "R$ 29,99",
-            cashPrice: "R$ 290",
-            features: [
-                "Acesso ao Grupo de Operações",
-                "Alertas de operações em tempo real",
-                "Vídeos com análises detalhadas",
-                "Suporte dedicado as operações",
-            ],
-            color: "green",
-            url: CHECKOUT_URL_3_MONTHS,
-        },
-        {
             name: "Acesso Vitalício",
             description: "Acesso permanente + todos os bônus futuros",
-            oldPrice: "R$ 2.997",
+            oldPrice: "R$ 1.297",
             installmentLabel: " x 12",
-            installmentPrice: "R$ 49,95",
-            cashPrice: "R$ 497",
+            installmentPrice: "R$ 69,00",
+            cashPrice: "R$ 675",
             features: [
                 "Acesso VITALÍCIO ao Grupo de Operações",
                 "Todos os alertas de operações para sempre",
@@ -66,7 +50,7 @@ export function PlansSection() {
                 </div>
 
                 {/* Plans Grid */}
-                <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-12">
+                <div className="flex justify-center mb-12">
                     {plans.map((plan, index) => (
                         <div
                             key={index}
@@ -110,7 +94,7 @@ export function PlansSection() {
 
                                 <div className="space-y-4 mb-8">
                                     {plan.features.map((feature, i) => (
-                                        <div key={i} className="flex items-start gap-3">
+                                        <div key={i} className="flex items-start gap-3 justify-center">
                                             <Check
                                                 className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
                                                     plan.color === "gold" ? "text-[#FFD700]" : "text-[#00ff91]"

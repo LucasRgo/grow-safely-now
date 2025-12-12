@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 // Replaced toast warnings with lightweight Dialogs
 
-const CHECKOUT_URL = "https://pay.hotmart.com/S102760097M?off=l676dkn1&checkoutMode=10";
+const CHECKOUT_URL = "https://pay.hotmart.com/S102760097M?off=c6pbuhdv&checkoutMode=10";
 const OFFER_MODAL_SHOWN_KEY = "offer_expired_modal_shown";
 
 export function UrgencyManager() {

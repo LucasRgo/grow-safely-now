@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-const CHECKOUT_URL = "https://pay.hotmart.com/S102760097M?off=l676dkn1&checkoutMode=10";
+const CHECKOUT_URL = "https://pay.hotmart.com/S102760097M?off=c6pbuhdv&checkoutMode=10";
 const MOBILE_BREAKPOINT = 768;
 
 export const FloatingCTAButton = () => {

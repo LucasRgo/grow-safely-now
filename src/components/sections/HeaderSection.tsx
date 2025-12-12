@@ -1,9 +1,21 @@
 import { CTAButton } from "@/components/CTAButton";
 import { CountdownTimer } from "@/components/CountdownTimer";
-import { Play, CheckCircle2 } from "lucide-react";
+import { useEffect } from "react";
+import { CheckCircle2 } from "lucide-react";
 import { SectionTransition } from "@/components/sections/SectionTransition";
 
 export const HeaderSection = () => {
+    useEffect(() => {
+        const scriptId = "vturb-script-693709a8fdeff6297583e2c7";
+        if (!document.getElementById(scriptId)) {
+            const s = document.createElement("script");
+            s.src = "https://scripts.converteai.net/e4afbe22-7a6e-4dd8-9576-24f2a422d026/players/693709a8fdeff6297583e2c7/v4/player.js";
+            s.async = true;
+            s.id = scriptId;
+            document.head.appendChild(s);
+        }
+    }, []);
+
     return (
         <section
             id="hero"
@@ -108,19 +120,11 @@ export const HeaderSection = () => {
                         <div className="flex justify-center lg:justify-start w-full">
                             <div className="w-full">
                                 <div className="relative rounded-lg md:rounded-xl overflow-hidden card-premium">
-                                    <div className="aspect-video flex items-center justify-center bg-gradient-to-br from-[hsl(var(--blue-darker))]/30 via-card to-background">
-                                        <div className="text-center p-4 sm:p-6 md:p-8">
-                                            <div className="p-3 bg-[hsl(var(--blue-dark))]/40 rounded-full inline-block mb-3 md:mb-4 border border-[hsl(var(--blue-accent))]/40">
-                                                <Play className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 text-[hsl(var(--blue-accent))] mx-auto" />
-                                            </div>
-                                            <p className="text-foreground text-sm sm:text-base md:text-lg font-heading italic px-2">
-                                                "Tive medo, mas confiei e hoje tripliquei meu capital"
-                                            </p>
-                                            <p className="text-muted-foreground mt-2 text-xs sm:text-sm md:text-base">
-                                                - Aluno do Protocolo
-                                            </p>
-                                        </div>
-                                    </div>
+{/* @ts-ignore */}
+                                    <vturb-smartplayer
+                                        id="vid-693709a8fdeff6297583e2c7"
+                                        style={{ display: "block", margin: "0 auto", width: "100%" }}
+                                    ></vturb-smartplayer>
                                 </div>
                             </div>
                         </div>
