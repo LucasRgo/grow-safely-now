@@ -1,10 +1,60 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
 
-
-const CHECKOUT_URL_LIFETIME = "https://pay.kiwify.com.br/seu-link-vitalicio";
+const CHECKOUT_URL_LIFETIME = "https://pay.hotmart.com/G103302404Y?off=8xp5wtuo";
 
 export function PlansSection() {
+    const [searchParams] = useSearchParams();
+    const isUpsell = searchParams.get("funnel") === "true";
+
+    useEffect(() => {
+        if (isUpsell) {
+            const scriptId = "hotmart-checkout-elements";
+            const initWidget = () => {
+                if ((window as any).checkoutElements) {
+                    const customStyle = `
+                        .funnel-widget .botao-comprar-widget {
+                            width: 100% !important;
+                            height: 3.5rem !important;
+                            border-radius: 0.375rem !important;
+                            font-size: 1.125rem !important;
+                            font-weight: 700 !important;
+                            color: black !important;
+                            background: linear-gradient(to right, #FFD700, #FFA500) !important;
+                            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4) !important;
+                            transition: all 300ms !important;
+                            text-transform: none !important;
+                            border: none !important;
+                            cursor: pointer !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                        }
+                        .funnel-widget .botao-comprar-widget:hover {
+                            background: linear-gradient(to right, #ffa500, #ffd700) !important;
+                            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6) !important;
+                        }
+                    `;
+                    (window as any).checkoutElements.init("salesFunnel", { customStyle }).mount("#hotmart-sales-funnel");
+                }
+            };
+
+            if (!document.getElementById(scriptId)) {
+                const script = document.createElement("script");
+                script.id = scriptId;
+                script.src = "https://checkout.hotmart.com/lib/hotmart-checkout-elements.js";
+                script.async = true;
+                script.onload = initWidget;
+                document.body.appendChild(script);
+            } else {
+                // Wait a bit to ensure the div is mounted
+                setTimeout(initWidget, 500);
+            }
+        }
+    }, [isUpsell]);
+
     const plans = [
         {
             name: "Acesso Vitalício",
@@ -105,16 +155,57 @@ export function PlansSection() {
                                     ))}
                                 </div>
 
-                                <Button
-                                    size="lg"
-                                    className={`w-full font-bold text-lg h-14 transition-all duration-300 ${
-                                        plan.color === "gold"
-                                            ? "bg-gradient-to-r from-[#FFD700] to-[#FFA500] hover:from-[#FFA500] hover:to-[#FFD700] text-black shadow-[0_0_20px_rgba(255,215,0,0.4)]"
-                                            : "bg-[#00ff91] hover:bg-[#00ff91]/80 text-black"
-                                    }`}
-                                    onClick={() => window.open(plan.url, "_self")}>
-                                    {plan.color === "gold" ? "Garantir Acesso Para Sempre" : "Garantir Acesso Agora"}
-                                </Button>
+                                {/* Check for funnel query param to show specific widget */
+                                <div className="flex flex-col gap-3">
+                                    {isUpsell ? (
+                                        <>
+                                            <style>
+                                                {`
+                                                    #hotmart-sales-funnel button {
+                                                        width: 100% !important;
+                                                        height: 3.5rem !important;
+                                                        border-radius: 0.375rem !important;
+                                                        font-size: 1.125rem !important;
+                                                        font-weight: 700 !important;
+                                                        color: black !important;
+                                                        background: linear-gradient(to right, #FFD700, #FFA500) !important;
+                                                        box-shadow: 0 0 20px rgba(255, 215, 0, 0.4) !important;
+                                                        transition: all 300ms !important;
+                                                        text-transform: none !important;
+                                                        border: none !important;
+                                                        cursor: pointer !important;
+                                                        display: flex !important;
+                                                        align-items: center !important;
+                                                        justify-content: center !important;
+                                                    }
+                                                    #hotmart-sales-funnel button:hover {
+                                                        background: linear-gradient(to right, #ffa500, #ffd700) !important;
+                                                        box-shadow: 0 0 30px rgba(255, 215, 0, 0.6) !important;
+                                                    }
+                                                `}
+                                            </style>
+                                            <div id="hotmart-sales-funnel" className="w-full"></div>
+                                        </>
+                                    ) : (
+                                        <Button
+                                            size="lg"
+                                            className={`w-full font-bold text-lg h-14 transition-all duration-300 ${
+                                                plan.color === "gold"
+                                                    ? "bg-gradient-to-r from-[#FFD700] to-[#FFA500] hover:from-[#FFA500] hover:to-[#FFD700] text-black shadow-[0_0_20px_rgba(255,215,0,0.4)]"
+                                                    : "bg-[#00ff91] hover:bg-[#00ff91]/80 text-black"
+                                            }`}
+                                            onClick={() => window.open(plan.url, "_self")}>
+                                            {plan.color === "gold"
+                                                ? "Garantir Acesso Para Sempre"
+                                                : "Garantir Acesso Agora"}
+                                        </Button>
+                                    )}
+                                    <Button
+                                        className="w-full bg-transparent border-2 border-white/10 text-gray-400 hover:text-white hover:border-white/30 hover:bg-white/5 h-12 font-semibold text-lg transition-all duration-300"
+                                        onClick={() => window.open("https://pay.hotmart.com/G103302404Y?off=8xp5wtuo", "_self")}>
+                                        Não quero
+                                    </Button>
+                                </div>}
                             </div>
                         </div>
                     ))}
