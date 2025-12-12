@@ -201,7 +201,7 @@ export function PlansSection() {
                                         </Button>
                                     )}
                                     <Button
-                                        className="w-full bg-transparent border-2 border-white/10 text-gray-400 hover:text-white hover:border-white/30 hover:bg-white/5 h-12 font-semibold text-lg transition-all duration-300"
+                                        className="w-full bg-red-600 hover:bg-red-700 text-white h-12 font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-red-900/20"
                                         onClick={() => window.open("https://pay.hotmart.com/G103302404Y?off=8xp5wtuo", "_self")}>
                                         Não quero
                                     </Button>
