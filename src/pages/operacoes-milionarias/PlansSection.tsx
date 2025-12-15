@@ -158,7 +158,7 @@ export function PlansSection() {
                                 {/* Check for funnel query param to show specific widget */
                                 <div className="flex flex-col gap-3">
                                     {isUpsell ? (
-                                        <>
+                                        <div className="bg-[#FaFaFa] rounded-lg p-4">
                                             <style>
                                                 {`
                                                     #hotmart-sales-funnel button {
@@ -185,7 +185,7 @@ export function PlansSection() {
                                                 `}
                                             </style>
                                             <div id="hotmart-sales-funnel" className="w-full"></div>
-                                        </>
+                                        </div>
                                     ) : (
                                         <Button
                                             size="lg"
@@ -200,11 +200,13 @@ export function PlansSection() {
                                                 : "Garantir Acesso Agora"}
                                         </Button>
                                     )}
-                                    <Button
-                                        className="w-full bg-red-600 hover:bg-red-700 text-white h-12 font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-red-900/20"
-                                        onClick={() => window.open("https://pay.hotmart.com/G103302404Y?off=8xp5wtuo", "_self")}>
-                                        Não quero
-                                    </Button>
+                                    {!isUpsell && (
+                                        <Button
+                                            className="w-full bg-red-600 hover:bg-red-700 text-white h-12 font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-red-900/20"
+                                            onClick={() => window.open("https://pay.hotmart.com/G103302404Y?off=8xp5wtuo", "_self")}>
+                                            Não quero
+                                        </Button>
+                                    )}
                                 </div>}
                             </div>
                         </div>
